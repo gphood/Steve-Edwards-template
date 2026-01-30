@@ -40,3 +40,7 @@ $gantry['tsv_to_arr'] = new \ErycDirTSVDownload();
 
 // Dependency Injection of Page Heading
 $gantry['pageheading'] = new \ErycPageHeading();
+
+// Make ImageGalleryService available in Twig as gantry.imagegallery
+include_once __DIR__ . '/ImageGalleryService.php';
+$gantry['imagegallery'] = new \ImageGalleryService();

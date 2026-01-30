@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Playfair Display";
+  src: url("gantry-theme://fonts/playfair-display/PlayfairDisplay-VariableFont_wght.woff2") format("woff2");
+  font-weight: 400 900;   // use the actual range your file supports
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("gantry-theme://fonts/playfair-display/PlayfairDisplay-Italic-VariableFont_wght.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: italic;
+  font-display: swap;
+}

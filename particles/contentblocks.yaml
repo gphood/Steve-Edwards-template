@@ -82,6 +82,14 @@ form:
                   description: Display a bottom border for this content block
                   default: false
 
+                .galleryId:
+                  type: select.select
+                  label: Select gallery
+                  description: Choose a photo galleries
+                  placeholder: 'Select...'
+                  options:
+                    '': '- Loading galleries... -'
+
                 .iconListItems:
                   type: collection.list
                   array: true

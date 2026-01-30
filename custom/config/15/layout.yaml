@@ -9,16 +9,16 @@ layout:
   hero: {  }
   /row-1/:
     -
-      - contentblocks-1125
-  /row-2/: {  }
-  /row-3/: {  }
-  /row-4/: {  }
-  /row-5/: {  }
-  /row-6/: {  }
-  /row-7/: {  }
-  /row-8/: {  }
-  /row-9/: {  }
-  /row-10/: {  }
+      - contentarray-8318
+  row-2: {  }
+  row-3: {  }
+  row-4: {  }
+  row-5: {  }
+  row-6: {  }
+  row-7: {  }
+  row-8: {  }
+  row-9: {  }
+  row-10: {  }
   footer: {  }
   inject: {  }
   offcanvas: {  }
@@ -39,9 +39,10 @@ structure:
   hero:
     type: section
     inherit:
-      outline: default
+      outline: '14'
       include:
         - attributes
+        - block
         - children
   row-1:
     type: section
@@ -52,67 +53,76 @@ structure:
       background: ''
   row-2:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-3:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-4:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-5:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-6:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-7:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-8:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-9:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-10:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   footer:
     inherit:
       outline: default
@@ -133,38 +143,36 @@ structure:
         - attributes
         - children
 content:
-  contentblocks-1125:
-    title: 'NASS Charter'
+  contentarray-8318:
+    title: 'Home page article'
     attributes:
-      class: ''
-      items:
-        -
-          enabled: '1'
-          titlePrefix: ''
-          title: 'NASS Charter'
-          titleTag: h2
-          content: ''
-          bottomBorder: '0'
-          iconListItems: {  }
-          buttonItems: {  }
-          inject: ''
-          cssid: ''
-          class: small-schools-heading
-          lightBorder: '0'
-          notice: ''
-          name: Heading
-        -
-          enabled: '1'
-          titlePrefix: ''
-          title: ''
-          titleTag: div
-          content: "**NASS promotes the work of smaller schools, those with 100 or fewer pupils. NASS believes that smallness of scale has worth.**\n\nNASS believes smaller schools offer ideal conditions for young children's learning. Personal attention leads to a sense of identity and a belief that effort is worthwhile. Loyal, committed teachers work as a team, with the children staying well on task. Small schools are caring places, close to home, family & community.\n\nTired old arguments that small schools cannot cope with the curriculum are now being thoroughly refuted in ways the public understands. In government inspections and national tests small schools are doing as well as and often better than the rest!\n\nNASS affirms that children in small schools are secure, work hard and co-operate effectively, are happy to accept responsibility, have self-esteem, behave very well. NASS believes that small schools are essential to the future well-being of society, ideally placed to serve as significant enterprises in their communities. Both the education of the children and the life of the community are enriched. NASS believes that small schools represent a valuable stake in community provision.\n\nPlease join us and help support our work."
-          bottomBorder: '0'
-          iconListItems: {  }
-          buttonItems: {  }
-          inject: ''
-          cssid: ''
-          class: ''
-          lightBorder: '0'
-          notice: ''
-          name: 'Charter text'
+      article:
+        filter:
+          categories: ''
+          tags: ''
+          articles: '1'
+          featured: include
+        limit:
+          total: '1'
+          columns: '1'
+          start: '0'
+        display:
+          pagination_buttons: ''
+          image:
+            enabled: ''
+          text:
+            type: full
+            formatting: html
+          title:
+            enabled: ''
+          date:
+            enabled: ''
+          author:
+            enabled: ''
+          category:
+            enabled: ''
+          hits:
+            enabled: ''
+        sort:
+          orderby: publish_up
+          ordering: ASC

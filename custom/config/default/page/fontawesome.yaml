@@ -2,5 +2,5 @@ enable: '1'
 version: fa5css
 fa4_compatibility: '1'
 content_compatibility: '1'
-html_css_import: '<link rel="stylesheet" href="/templates/smallschools/fonts/fontawesome-pro/6.5.2/css/all.min.css">'
+html_css_import: '<link rel="stylesheet" href="/templates/steveedwards/fonts/fontawesome-pro/6.5.2/css/all.min.css">'
 html_js_import: ''

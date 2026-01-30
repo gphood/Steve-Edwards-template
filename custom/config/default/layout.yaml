@@ -7,8 +7,7 @@ layout:
   /header/: {  }
   /navigation/:
     -
-      - 'image-1264 20'
-      - 'menu-9093 80'
+      - menu-9093
   /hero/: {  }
   /heading/: {  }
   /row-1/: {  }
@@ -162,28 +161,20 @@ structure:
       swipe: '0'
       css3animation: '1'
 content:
-  image-1264:
-    attributes:
-      url: /
-      image: 'gantry-media://nass_logo.png'
-      height: ''
-      link: '1'
-    block:
-      class: header-logo-block
   menu-9093:
     block:
       class: header-menu-block
   custom-1927:
     title: 'Footer social media icons'
     attributes:
-      html: "<div class=\"footer-social-media-icons\">\n<a href=\"https://www.facebook.com/profile.php?id=61569763876291\" target=\"_blank\"><i class=\"fa-brands fa-square-facebook\"></i></a> \n<a href=\"https://x.com/NASmallSchs/\" target=\"_blank\"><i class=\"fa-brands fa-square-x-twitter\"></i></a>\n<a href=\"https://smallschools.substack.com/\" target=\"_blank\"><img src=\"/images/logos/substack-logo.png\" target=\"Subscribe to NASS on Substack\"></a>\n</div>"
+      html: "<div class=\"footer-social-media-icons\">\n<a href=\"https://www.youtube.com/@SteveEdwardsTVR\" target=\"_blank\"><i class=\"fa-brands fa-square-youtube\"></i></a> \n</div>"
   custom-9329:
-    title: 'Charity number and GDPR'
+    title: 'Email link'
     attributes:
-      html: '<a href="https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5081078" target="_blank">NASS Charity number: 1169002</a> | <a href="/nass-gdpr-policy">NASS GDPR policy</a>'
+      html: '<i class="fas fa-envelope margin-right"></i> Email Steve at <a href="mailto:steve@steve-edwards.com" target="_blank">steve@steve-edwards.com</a>'
   copyrightfooter-5186:
     title: 'Copyright Footer'
     attributes:
-      text: 'N.A.S.S. - all rights reserved'
+      text: 'Steve Edwards for all images and video  - all rights reserved'
   mobile-menu-8665:
     title: 'Mobile Menu'

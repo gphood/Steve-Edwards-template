@@ -1,6 +1,7 @@
 {% extends '@nucleus/partials/particle.html.twig' %}
 
 {% block particle %}
+
   <div id="{{ id }}" class="content-blocks-container {{ particle.class|e }}" {% if particle.inject %}data-particle-inject-from="{{ particle.inject|e }}"{% endif %}>
     <div class="content-blocks">
       {% for item in particle.items %}
@@ -51,6 +52,62 @@
               {% endif %}
             </div>
 
+            {% set galleryId = item.galleryId|default(0)|int %}
+
+            {% if galleryId %}
+              {% set gallerySettings = gantry.imagegallery.getGallerySettings(galleryId) %}
+              {% set galleryItems = gantry.imagegallery.getGalleryImages(galleryId) %}
+
+              {# optional: intro text #}
+              {% if gallerySettings.intro_text is not empty %}
+                <div class="gallery-intro-text">{{ gallerySettings.intro_text }}</div>
+              {% endif %}
+
+              <div class="gallery-container" id="gallery-{{ galleryId }}">
+                <div class="gallery-container-row">
+                  <div class="gallery-group" style="justify-content: {{ gallerySettings.thumbnail_alignment|default('center') }};">
+                    {% for item in galleryItems %}
+                      {% set url = item.image|split('#')|first %}
+
+                      <div class="gallery-item">
+                        {% if gallerySettings.thumbnail_mode == 'fixed' %}
+                          <a href="{{ url }}"
+                            data-fancybox="gallery-{{ galleryId }}"
+                            data-caption="{{ item.caption|default('') }}"
+                            class="animate-on-load drop-shadow ig-thumb ig-thumb--fixed d-block"
+                            style="
+                              width: {{ gallerySettings.fixed_thumbnail_width }}px;
+                              height: {{ gallerySettings.fixed_thumbnail_height }}px;
+                            "
+                          >
+                              <img
+                                src="{{ url }}"
+                                alt="{{ item.caption|default('') }}"
+                                class="ig-thumb__img"
+                                loading="lazy"
+                                decoding="async"
+                              >
+                          </a>
+                        {% else %}
+                          <a href="{{ url }}"
+                            data-fancybox="gallery-{{ galleryId }}"
+                            data-caption="{{ item.caption|default('') }}"
+                            class="animate-on-load drop-shadow"
+                            style="
+                              max-width: {{ gallerySettings.proportional_thumbnail_max_width }}px;
+                              max-height: {{ gallerySettings.proportional_thumbnail_max_height }}px;
+                            "
+                          >
+                            <img src="{{ url }}" alt="{{ item.caption|default('') }}">
+                          </a>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+
             {% if item.iconListItems %}
               <div class="content-block-inner">
                 <ul class="bullet-icon-list">
@@ -89,4 +146,8 @@
 {% block javascript_footer %}
   {% do gantry.load('jquery') %}
   {% do gantry.document.addScript(url('gantry-theme://js/eryc-inject.js'), 1, 'footer') %}
+  {% do gantry.document.addScript('media/com_imagegallery/js/fancybox.umd.js') %}
+  {% do gantry.document.addScript('media/com_imagegallery/js/gallery.js') %}
+  {% do gantry.document.addStyle('media/com_imagegallery/css/gallery.css') %}
+  {% do gantry.document.addStyle('media/com_imagegallery/css/fancybox.css') %}
 {% endblock %}

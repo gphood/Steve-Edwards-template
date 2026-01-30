@@ -435,9 +435,9 @@ $logo-box-shadow:                               0px 10px 6px rgba(0, 0, 0, 0.1);
 $logo-background-hover:                         #F6F6F6;
 $logo-border-color:                             #D0D3DA;
 
-$dropdown-background-color:                     #FFFFFF;
-$dropdown-background-color-hover:               rgba(0, 144, 126, 0.12);
-$dropdown-text-color:                           #000000;
+$dropdown-background-color:                     map-get($colors_map, info-800);
+$dropdown-background-color-hover:               map-get($colors_map, info-900);
+$dropdown-text-color:                           $text-white;
 $dropdown-box-shadow:                           0px 10px 6px rgba(0, 0, 0, 0.1);
 
 $header-search-background:                      #EEEEEE;
@@ -565,7 +565,7 @@ $pre-text-color:                                #237794;
 $pre-background:                                #F6F6F6;
 $pre-background-alt:                            #FFFFFF;
 $pre-border-color:                              #E4E4E4;
-$color-check:                                   $corp-green-bg;
+$color-check:                                   green;
 $color-cross:                                   #EE0E11;
 
 // Blockquote
@@ -595,7 +595,7 @@ $accessibility-text-color:                      #000000;
 
 // Navigation
 $navigation-background:                         map-get($colors_map, slate-100);
-$navigation-text-color:                         $nass-green;
+$navigation-text-color:                         $text-white;
 $navigation-text-color-hover:                   map-get($colors_map, primary-900);
 
 // Bottom
@@ -605,13 +605,13 @@ $bottom-text-color:                             #FFFFFF;
 $bottom-link-color-hover:                       yellow;
 
 // Footer
-$footer-background:                             map-get($colors_map, grey-800);
+$footer-background:                             map-get($colors_map, violet-900);
 $footer-border-color:                           rgba(255,255,255,0.15);
 $footer-text-color:                             $text-white;
 $footer-link-color-hover:                       yellow;
 
 // Copyright
-$copyright-background:                          $corp-green-bg;
+$copyright-background:                          green;
 $copyright-text-color:                          #FFFFFF;
 $copyright-link-color-hover:                    yellow;
 

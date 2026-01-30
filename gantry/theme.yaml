@@ -1,5 +1,5 @@
 details:
-  name: Small Schools Gantry theme
+  name: Steve Edwards Gantry theme
   version: '1.0.0.0'
   icon: paper-plane
   date: 'Jul 31, 2023'
@@ -16,11 +16,11 @@ details:
 
   updates:
     link: 'https://granthood.co.uk'
-    server: 'https://granthood.co.uk/tmpl-smallschools/updates.xml'
+    server: 'https://granthood.co.uk/tmpl-steveedwards/updates.xml'
 
   copyright: (C) 2023 Grant Hood. All rights reserved.
   license: GPLv2
-  description: Small Schools Theme
+  description: Steve Edwards Theme
   images:
     thumbnail: 'admin/images/preset1.png'
     preview: 'admin/images/preset1.png'
@@ -31,7 +31,7 @@ configuration:
     engine: nucleus
 
   theme:
-    parent: smallschools
+    parent: steveedwards
     base: gantry-theme://common
     file: 'gantry-theme://includes/theme.php'
     class: '\Gantry\Framework\Theme'
@@ -112,10 +112,10 @@ configuration:
       - 'gantry-theme://scss'
       - 'gantry-engine://scss'
     files:
-      - smallschools
+      - steveedwards
       - custom
     persistent:
-      - smallschools
+      - steveedwards
     overrides:
       - custom
 

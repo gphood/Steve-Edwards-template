@@ -7,20 +7,16 @@ layout:
   header: {  }
   navigation: {  }
   hero: {  }
-  /row-1/:
-    -
-      - contentblocks-1125
-  /row-2/:
-    -
-      - system-content-2302
-  /row-3/: {  }
-  /row-4/: {  }
-  /row-5/: {  }
-  /row-6/: {  }
-  /row-7/: {  }
-  /row-8/: {  }
-  /row-9/: {  }
-  /row-10/: {  }
+  row-1: {  }
+  row-2: {  }
+  row-3: {  }
+  row-4: {  }
+  row-5: {  }
+  row-6: {  }
+  row-7: {  }
+  row-8: {  }
+  row-9: {  }
+  row-10: {  }
   footer: {  }
   inject: {  }
   offcanvas: {  }
@@ -41,80 +37,91 @@ structure:
   hero:
     type: section
     inherit:
-      outline: default
+      outline: '14'
       include:
         - attributes
+        - block
         - children
   row-1:
     type: section
-    attributes:
-      boxed: ''
-      class: row-alt
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-2:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-3:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-4:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-5:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-6:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-7:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-8:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-9:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   row-10:
     type: section
-    attributes:
-      boxed: ''
-      class: ''
-      variations: ''
-      background: ''
+    inherit:
+      outline: '14'
+      include:
+        - attributes
+        - block
+        - children
   footer:
     inherit:
       outline: default
@@ -134,24 +141,3 @@ structure:
       include:
         - attributes
         - children
-content:
-  contentblocks-1125:
-    title: Heading
-    attributes:
-      class: ''
-      items:
-        -
-          enabled: '1'
-          titlePrefix: ''
-          title: 'Archived articles'
-          titleTag: h2
-          content: ''
-          bottomBorder: '0'
-          iconListItems: {  }
-          buttonItems: {  }
-          inject: ''
-          cssid: ''
-          class: small-schools-heading
-          lightBorder: '0'
-          notice: ''
-          name: Heading

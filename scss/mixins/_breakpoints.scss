@@ -1,0 +1,53 @@
+// Breakpoints
+@mixin breakpoint($breakpoint, $media: all) {
+ // XL non standard breakpoint mixins
+  @if $breakpoint == xl-desktop-range {
+    @media only #{$media} and (min-width: $breakpoints-xl-desktop-container) { @content; }
+  }
+  @else if $breakpoint == lg-desktop-range {
+    @media only #{$media} and (min-width: $breakpoints-large-desktop-container) and (max-width: $breakpoints-xl-desktop-container - 0.0625) { @content; }
+  }
+  @else if $breakpoint == st-desktop-range {
+    @media only #{$media} and (min-width: $breakpoints-desktop-container) and (max-width: $breakpoints-large-desktop-container - 0.0625) { @content; }
+  }
+  @else if $breakpoint == mobile-to-st-desktop-range {
+    @media only #{$media} and (max-width: $breakpoints-large-desktop-container - 0.0625) { @content; }
+  }
+  @else if $breakpoint == tablet-to-st-desktop-range {
+    @media only #{$media} and (min-width: $breakpoints-tablet-container) and (max-width: $breakpoints-large-desktop-container - 0.0625) { @content; }
+  }
+ // Standard breakpoint mixins
+  @else if $breakpoint == large-desktop-range {
+    @media only #{$media} and (min-width: $breakpoints-large-desktop-container) { @content; }
+  }
+  @else if $breakpoint == desktop-range {
+    @media only #{$media} and (min-width: $breakpoints-desktop-container) and (max-width: $breakpoints-large-desktop-container - 0.0625) { @content; }
+  }
+  @else if $breakpoint == desktop-only {
+    @media only #{$media} and (min-width: $breakpoints-desktop-container) { @content; }
+  }
+  @else if $breakpoint == tablet-range {
+    @media only #{$media} and (min-width: $breakpoints-tablet-container) and (max-width: $breakpoints-desktop-container - 0.0625) { @content; }
+  }
+  @else if $breakpoint == large-mobile-range {
+    @media only #{$media} and (min-width: $breakpoints-large-mobile-container) and (max-width: $breakpoints-tablet-container - 0.0625) { @content; }
+  }
+  @else if $breakpoint == small-mobile-range {
+    @media only #{$media} and (max-width: $breakpoints-large-mobile-container - 0.0625) { @content; }
+  }
+  @else if $breakpoint == md-mobile-range {
+    @media only #{$media} and (min-width: $breakpoints-medium-mobile-container) and (max-width: $breakpoints-large-mobile-container - 0.0625) { @content; }
+  }
+  @else if $breakpoint == sm-mobile-range {
+    @media only #{$media} and (max-width: $breakpoints-medium-mobile-container - 0.0625) { @content; }
+  }
+  @else if $breakpoint == no-mobile {
+    @media only #{$media} and (min-width: $breakpoints-tablet-container) { @content; }
+  }
+  @else if $breakpoint == mobile-only {
+    @media only #{$media} and (max-width: $breakpoints-tablet-container - 0.0625) { @content; }
+  }
+  @else if $breakpoint == no-desktop {
+    @media only #{$media} and (max-width: $breakpoints-desktop-container - 0.0625) { @content; }
+  }
+}

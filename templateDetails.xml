@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <extension version="3.9" type="template" client="site" method="upgrade">
-    <name>smallschools</name>
+    <name>steveedwards</name>
     <version>1.0.0</version>
     <creationDate>2025</creationDate>
     <author>Grant Hood</author>
@@ -8,7 +8,7 @@
     <authorUrl>https://www.granthood.co.uk</authorUrl>
     <copyright>(C) 2023 Grant Hood. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2</license>
-    <description>A Gantry template for the Small Schools website</description>
+    <description>A Gantry template for the Steve Edwards website</description>
 
     <scriptfile>install.php</scriptfile>
 
@@ -48,15 +48,11 @@
     </positions>
 
     <config>
-        <fields name="params" addfieldpath="/templates/smallschools/fields">
+        <fields name="params" addfieldpath="/templates/steveedwards/fields">
             <fieldset name="advanced">
                 <field name="warning" type="warning"/>
             </fieldset>
         </fields>
     </config>
-
-    <updateservers>
-        <server type="extension" priority="1" name="Small Schools Template">https://updates.granthood.co.uk/tmpl-smallschools/updates.xml</server>
-    </updateservers>
 
 </extension>

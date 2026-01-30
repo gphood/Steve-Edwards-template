@@ -1,0 +1,5 @@
+// SVG max dimensions
+@mixin svg-size($width, $ratio) {
+  max-height: decimal-round($width * $ratio, 2);
+  max-width: $width;
+}

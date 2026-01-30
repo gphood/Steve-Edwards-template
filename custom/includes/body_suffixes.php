@@ -1,8 +1,10 @@
 <?php
+
+use Joomla\CMS\Uri\Uri;
 class ErycBodySuffixes {
 
   function body_pages() {
-    $uri  = \JUri::getInstance();
+    $uri  = Uri::getInstance();
     $url  = $uri->toString(array('path'));
     $rgx  = preg_replace('/^\/|\/$/', '', $url);
     $str  = trim(preg_replace('/^|\//', ' er-', $rgx));
@@ -11,7 +13,7 @@ class ErycBodySuffixes {
   }
 
   function body_page() {
-    $uri  = \JUri::getInstance();
+    $uri  = Uri::getInstance();
     $url  = $uri->toString(array('path'));
     $rgx  = preg_replace('/^\/|\/$/', '', $url);
     $arr  = explode('/', $rgx);
@@ -21,7 +23,7 @@ class ErycBodySuffixes {
   }
 
   function body_qs() {
-    $uri  = \JUri::getInstance();
+    $uri  = Uri::getInstance();
     $url  = $uri->toString(array('query'));
     $arr  = parse_str(substr($url, 1), $queries);
     $keys = array_keys($queries);
@@ -43,4 +45,3 @@ class ErycBodySuffixes {
     return 'Unknown';
   }
 }
-?>

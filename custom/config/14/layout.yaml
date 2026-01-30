@@ -44,7 +44,7 @@ structure:
       boxed: ''
       class: ''
       variations: 'bg-center bg-cover'
-      background: 'gantry-media://hero/laptop-typing.jpg'
+      background: 'gantry-media://hero/main-hero.jpg'
   row-1:
     type: section
     attributes:
@@ -138,17 +138,17 @@ content:
   herostaticcontent-4104:
     title: 'Hero Static Content'
     attributes:
-      class: nass-hero-content
+      class: ''
       variations: ''
       backgroundImage: ''
       backgroundSize: bg-cover
       backgroundPosition: bg-center
       contentStyleClass: content-flush
       titlePrefix: ''
-      title: 'NASS GDPR policy'
+      title: 'Steve Edwards'
       titleTag: h1
       titleLarge: '0'
-      subtitle: ''
+      subtitle: 'Certificated Automotive Engineer (CAE), Associate Member of the Institute of the Motor Industry (AMIMI)'
       content: ''
       contentSize: full
       url: ''

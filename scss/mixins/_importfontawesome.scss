@@ -1,0 +1,9 @@
+// FontAwesome
+@mixin import-fontawesome($version) {
+  @import url(//maxcdn.bootstrapcdn.com/font-awesome/#{$version}/css/font-awesome.min.css);
+}
+
+// FontAwesome
+@mixin import-fontawesome5($version) {
+  @import url(https://use.fontawesome.com/releases/v#{$version}/css/all.css);
+}

@@ -1,0 +1,106 @@
+// Bootstrap alerts
+$alert_padding: 0.75rem 1.5rem;
+
+$alerts: (
+
+  "danger": (
+    "background": $alert_danger_bg,
+    "border": $alert_danger_border,
+    "text": $alert_danger_color,
+    "icon": "\f00d",
+  ),
+
+  "success": (
+    "background": $alert_success_bg,
+    "border": $alert_success_border,
+    "text": $alert_success_color,
+    "icon": "\f00c",
+  ),
+
+  "warning": (
+    "background": $alert_warning_bg,
+    "border": $alert_warning_border,
+    "text": $alert_warning_color,
+    "icon": "\f071",
+  ),
+
+  "info": (
+    "background": $alert_info_bg,
+    "border": $alert_info_border,
+    "text": $alert_info_color,
+    "icon": "\f05a",
+  ),
+
+);
+
+%alert-style {
+  border: 1px solid;
+  border-radius: $core-border-radius;
+  box-sizing: border-box;
+  display: inline-block;
+  font-family: get-font-family($font-family-default);
+  font-weight: 500;
+  margin: 1.5rem 0;
+  padding: $alert_padding;
+
+  p & {
+    margin: 0;
+  }
+
+  &.alert-icon {
+    &:before {
+      font-family: "Font Awesome 5 Pro";
+      margin-right: 1.5rem;
+    }
+  }
+
+  a {
+    border-bottom: 1px solid;
+    font-family: get-font-family($font-family-default);
+    font-weight: 700;
+    padding-bottom: 1px;
+    text-decoration: none;
+
+    &:hover {
+      border-bottom-color: rgba(0,0,0, 0.5);
+      color: rgba(0,0,0, 0.75) !important;
+    }
+
+  }
+
+}
+
+.alert-trans {
+  background: rgba(255,255,255, 0.5);
+  border-color: rgba(0,0,0, 0.1);
+}
+
+@each $name, $map in $alerts {
+
+  .alert-#{$name} {
+
+    @extend %alert-style;
+
+    &:not(.alert-trans) {
+      background: rgba(map-get($map, "background"), 1) !important;
+      border-color: rgba(map-get($map, "border"), 1) !important;
+
+      &, a {
+        color: map-get($map, "text") !important;
+      }
+
+      a {
+        border-bottom-color: rgba(map-get($map, "border"), 0.75);
+      }
+
+    }
+
+    &.alert-icon:not([class*="fa-"]) {
+      &:before {
+        content: map-get($map, "icon");
+      }
+    }
+
+  }
+
+}
