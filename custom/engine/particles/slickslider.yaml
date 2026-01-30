@@ -1,0 +1,382 @@
+name: Slick Slider
+description: Display Slick Slider.
+type: particle
+icon: fa-sliders
+
+configuration:
+  caching:
+    type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable particle.
+      default: true
+
+    _tabs:
+      type: container.tabs
+      fields:
+
+        _tab_content:
+          label: Content
+          overridable: false
+          fields:
+
+            items:
+              type: collection.list
+              array: true
+              label: Slider Items
+              description: Create each Slider item to display.
+              value: name
+              ajax: true
+
+              fields:
+                .name:
+                  type: input.text
+                .image:
+                  type: input.imagepicker
+                  label: Image
+                .caption:
+                  type: input.text
+                  label: Caption
+                  description: Caption for lightbox
+                .captionPosition:
+                  type: select.select
+                  label: Caption Position
+                  description: Set the position of the caption
+                  placeholder: 'Select...'
+                  default: lightbox
+                  options:
+                    lightbox: Lightbox
+                    above: Above Image
+                    below: Below Image
+                .title:
+                  type: input.text
+                  label: Title
+                  description: Enter the title
+                .titleTag:
+                  type: select.select
+                  label: Title Tag
+                  description: Set the heading tag for the title
+                  placeholder: 'Select...'
+                  default: div
+                  options:
+                      div: DIV
+                      h1: H1
+                      h2: H2
+                      h3: H3
+                      h4: H4
+                      h5: H5
+                      h6: H6
+                .subtitle:
+                  type: input.text
+                  label: Subtitle
+                  description: Enter the subtitle
+                .subtitlePosition:
+                  type: select.select
+                  label: Subtitle Position
+                  description: Set the position of the subtitle
+                  placeholder: 'Select...'
+                  default: top
+                  options:
+                      above: Above Title
+                      below: Below Title
+                .desc:
+                  type: textarea.textarea
+                  label: Description
+                  description: Customize the description.
+                  placeholder: Enter short description
+                .link:
+                  type: input.text
+                  label: Link URL
+                  description: Customize the link URL.
+                .linkText:
+                  type: input.text
+                  label: Link Text
+                  description: Customize the link text.
+                .linkIcon:
+                  type: input.text
+                  label: Link Icon
+                  description: Customize the link icon.
+                .linkClass:
+                  type: input.selectize
+                  label: Link Classes
+                  description: CSS class name for the link.
+                .linkType:
+                  type: select.select
+                  label: Link Type
+                  description: Set image link type
+                  placeholder: 'Select...'
+                  default: text
+                  options:
+                      text: Text only
+                      image: Image only
+                      both: Both
+                .class:
+                  type: input.selectize
+                  label: CSS Classes
+                  description: CSS class name for the item.
+                .variations:
+                  type: input.block-variations
+                  label: Variations
+                  description: Enter Theme Variations.
+                  default:
+                .querystring_display:
+                  type: input.radios
+                  label: Query String Display
+                  description: Display based on query string
+                  default: both
+                  options:
+                    both: Both
+                    with: With Query String
+                    without: Without Query String
+                .querystring:
+                  type: input.text
+                  label: Query String
+                  description: Enter the query string key to disable if detected
+                  default:
+                .disable:
+                  type: input.checkbox
+                  label: Disable
+                  description: Disables the item on the front end.
+                  default: false
+
+        _tab_display:
+          label: Display
+          overridable: false
+          fields:
+
+            class:
+              type: input.selectize
+              label: CSS Classes
+              description: CSS class name for the particle.
+
+            imageType:
+              type: select.select
+              label: Image Type
+              description: Set the image type
+              placeholder: 'Select...'
+              default: image
+              options:
+                  image: Inline Image
+                  background: Background
+                  bgInline: Inline Background
+            imagePosition:
+              type: select.select
+              label: Image Position
+              description: Set the image position if Image Type set to Inline Image
+              placeholder: 'Select...'
+              default: top
+              options:
+                  top: Top
+                  bottom: Bottom
+                  left: Left
+                  right: Right
+
+        _tab_slideshow:
+          label: Slider
+          overridable: false
+          fields:
+
+            lightbox:
+              type: input.checkbox
+              label: Enable Lightbox
+              description: Enable lightbox for slider items
+              default: false
+
+            slidesToShow:
+              type: input.number
+              label: Slides to Show
+              description: Number of slides to show per scroll
+              default: 1
+              placeholder: 1
+
+            slidesToScroll:
+              type: input.number
+              label: Slides to Scroll
+              description: Number of slides to scroll
+              default: 1
+              placeholder: 1
+
+            rows:
+              type: input.number
+              label: Rows
+              description: Number of rows
+              default: 1
+              placeholder: 1
+
+            slidesPerRow:
+              type: input.number
+              label: Slides per Row
+              description: Number of sliders per rows
+              default: 1
+              placeholder: 1
+
+            arrows:
+              type: select.select
+              label: Prev / Next
+              description: Enable or disable the Prev / Next navigation.
+              default: 'true'
+              options:
+                'true': Enable
+                'false': Disable
+
+            dots:
+              type: select.select
+              label: Dots
+              description: Enable or disable the Dots navigation.
+              default: 'false'
+              options:
+                'true': Enable
+                'false': Disable
+
+            infinite:
+              type: select.select
+              label: Infinite Scroll
+              description: Enable or disable infinite scroll (warning accessibility issues if enabled).
+              default: 'false'
+              options:
+                'true': Enable
+                'false': Disable
+
+            autoplay:
+              type: select.select
+              label: Autoplay
+              description: Enable or disable the Autoplay.
+              default: 'false'
+              options:
+                'true': Enable
+                'false': Disable
+
+            autoplaySpeed:
+              type: input.text
+              label: Autoplay Speed
+              description: Set the speed of the Autoplay, in milliseconds.
+              default: 5000
+              placeholder: 5000
+
+            fade:
+              type: select.select
+              label: Fade
+              description: Fade or slide.
+              default: 'false'
+              options:
+                'true': Fade
+                'false': Slide
+
+            centerMode:
+              type: select.select
+              label: Centre Mode
+              default: 'false'
+              options:
+                'true': Enable
+                'false': Disable
+
+            centerModePadding:
+              type: input.number
+              label: Center Mode Padding
+              default: 60
+              placeholder: 60
+
+            speed:
+              type: input.number
+              label: Transition Speed
+              description: Set the transition speed, in milliseconds.
+              default: 500
+              placeholder: 500
+
+            pauseOnHover:
+              type: select.select
+              label: Pause on Hover
+              description: Enable pause on hover.
+              default: 'false'
+              options:
+                'true': Enable
+                'false': Disable
+
+            adaptiveHeight:
+              type: select.select
+              label: Adaptive Height
+              description: Enable dynamic height for each slider.
+              default: 'true'
+              options:
+                'true': Enable
+                'false': Disable
+
+            sliderBreakpoints:
+              type: collection.list
+              array: true
+              label: Breakpoints
+              description: Set options per breakpoint.
+              value: name
+              ajax: true
+
+              fields:
+
+                .breakpoint:
+                  type: select.select
+                  label: Breakpoint
+                  description: Set the breakpoint.
+                  default: 959
+                  options:
+                    1439: < 1440px (Extra Large Desktop)
+                    1199: < 1200px (Large Desktop)
+                    959: < 960px (Standard Desktop)
+                    767: < 768px (Tablet)
+                    479: < 480px (Large Mobile)
+                    359: < 360px (Medium Mobile)
+                    319: < 320px (Small Mobile)
+
+                .slidesToShow:
+                  type: input.number
+                  label: Slides to Show
+                  description: Number of slides to show per scroll
+                  default: 1
+                  placeholder: 1
+
+                .slidesToScroll:
+                  type: input.number
+                  label: Slides to Scroll
+                  description: Number of slides to scroll
+                  default: 1
+                  placeholder: 1
+
+                .rows:
+                  type: input.number
+                  label: Rows
+                  description: Number of rows
+                  default: 1
+                  placeholder: 1
+
+                .slidesPerRow:
+                  type: input.number
+                  label: Slides per Row
+                  description: Number of sliders per rows
+                  default: 1
+                  placeholder: 1
+
+                .arrows:
+                  type: select.select
+                  label: Prev / Next
+                  description: Enable or disable the Prev / Next navigation.
+                  default: 'true'
+                  options:
+                    'true': Enable
+                    'false': Disable
+
+                .dots:
+                  type: select.select
+                  label: Dots
+                  description: Enable or disable the Dots navigation.
+                  default: 'false'
+                  options:
+                    'true': Enable
+                    'false': Disable
+
+                .centerModePadding:
+                  type: input.number
+                  label: Center Mode Padding
+                  default: 40
+                  placeholder: 40

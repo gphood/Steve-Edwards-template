@@ -1,0 +1,68 @@
+name: Home Content Boxes
+description: Constructs a full width left and right text box for the Home pag
+type: particle
+icon: fa-th-list
+
+configuration:
+caching:
+type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable particle
+      default: true
+    class:
+      type: input.selectize
+      label: CSS Classes
+      description: CSS class name for the item
+    leftTextBoxTitle:
+      type: input.text
+      label: Left text box title
+      description: Enter a title for the left hand text box content
+    leftTextBoxTitleTag:
+      type: select.select
+      label: Set the heading tag for the left hand text box title
+      placeholder: 'Select...'
+      default: h2
+      options:
+        div: DIV
+        h1: H1
+        h2: H2
+        h3: H3
+        h4: H4
+        h5: H5
+        h6: H6
+    leftTextBoxContent:
+      type: textarea.textarea
+      label: Left text box content
+      description: Add the content for the left hand text box (HTML or Markdown accepted)
+    leftTextBoxReadMoreUrl:
+      type: input.text
+      label: Enter the URL for the left hand text box Read More link
+    rightTextBoxTitle:
+      type: input.text
+      label: Right text box title
+      description: Enter a title for the right hand text box content
+    rightTextBoxTitleTag:
+      type: select.select
+      label: Set the heading tag for the right hand text box title
+      placeholder: 'Select...'
+      default: h2
+      options:
+        div: DIV
+        h1: H1
+        h2: H2
+        h3: H3
+        h4: H4
+        h5: H5
+        h6: H6
+    rightTextBoxContent:
+      type: textarea.textarea
+      label: Left text box content
+      description: Add the content for the left hand text box (HTML or Markdown accepted)
+    rightTextBoxReadMoreUrl:
+      type: input.text
+      label: Enter the URL for the right hand text box Read More link

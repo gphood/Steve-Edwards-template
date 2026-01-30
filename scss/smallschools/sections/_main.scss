@@ -1,0 +1,9 @@
+#g-mainbar {
+}
+
+@media print {
+	#g-main {
+    background: $print-background !important;
+    color: $print-color !important;
+	}
+}

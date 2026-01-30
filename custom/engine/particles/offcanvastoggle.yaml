@@ -1,0 +1,16 @@
+name: Offcanvas Toggle
+description: Display Offcanvas toggle in custom location.
+type: particle
+icon: fa-bars
+
+configuration:
+  caching:
+    type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable particle.
+      default: true

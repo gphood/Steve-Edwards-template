@@ -1,0 +1,39 @@
+enabled: '1'
+date:
+  end: now
+owner: 'East Riding of Yorkshire Council'
+link: 'https://www.eastriding.gov.uk/?utm_source=covid19.eastriding.gov.uk&utm_medium=copyright/'
+links:
+  -
+    text: Privacy
+    title: 'Privacy Policy'
+    link: /privacy/
+    class: er-copyright-privacy
+    target: _self
+    disable: '0'
+    name: Privacy
+  -
+    text: Cookies
+    title: 'Cookies Statement'
+    link: /cookies/
+    class: 'er-cookie-popup-trigger er-copyright-cookies'
+    target: _self
+    disable: '0'
+    name: Cookies
+  -
+    text: Accessibility
+    title: 'Accessibility Statement'
+    link: /accessibility/
+    class: er-copyright-accessibility
+    target: _self
+    disable: '0'
+    name: Accessibility
+  -
+    text: Contact
+    title: 'Contact us'
+    link: /contact/
+    class: er-copyright-contact
+    target: _self
+    disable: '0'
+    name: Contact
+social: {  }

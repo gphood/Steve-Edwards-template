@@ -1,0 +1,10 @@
+enabled: '1'
+class: ''
+removeTopSpacing: '1'
+removeBottomSpacing: '1'
+headingIconClasses: ''
+heading: ''
+headingTag: h2
+subheadingIconClasses: ''
+subheading: ''
+subheadingTag: h4

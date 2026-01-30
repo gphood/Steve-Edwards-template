@@ -1,0 +1,152 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% set url_controls = particle.controls ? "?controls=" ~ particle.controls : "" %}
+{% set url_loop     = particle.loop ? "&loop=" ~ particle.loop : "" %}
+{% set url_autoplay = "" %}
+{% set url_rel      = particle.rel ? "&rel=" ~ particle.rel : "" %}
+{% set url_start    = particle.start ? "&start=" ~ particle.start : "" %}
+{% set url_end      = particle.end ? "&end=" ~ particle.end : "" %}
+{% set first_vid    = particle.videos|first %}
+
+{% block particle %}
+
+  <div id="{{ id }}" class="youtube-container {{ particle.class|e }}" {% if particle.inject %}data-particle-inject-from="{{ particle.inject|e }}"{% endif %}>
+
+    <div class="main">
+      <div class="video-responsive-container">
+        <iframe width="560" height="315" title="Embedded video from YouTube" src="https://www.youtube{% if particle.privacy %}-nocookie{% endif %}.com/embed/{{ first_vid.youtubeid }}{{ url_controls }}{{ url_loop }}{{ url_autoplay }}{{ url_rel }}{{ url_start }}{{ url_end }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="content hidden">
+        <div class="title hidden">{{ particle.videos|first.title|e }}</div>
+        <div class="description hidden">{{ particle.videos|first.description|e }}</div>
+        <div class="buttons">
+          {% if particle.link %}<a class="link {{ particle.linkclass }}" href="{% if not particle.linktype == external %}{{ joomla.call('JUri::root') }}{% endif %}{{ particle.link}}"><i class="{{ particle.linkicon}}" aria-hidden="true"></i> {{ particle.linktext }}</a>{% endif %}
+
+          {% if particle.showTranscript %}
+          <a href="#" class="btn-transcript modal-open {{ particle.transcriptclass }} hidden"><i class="fal fa-file" aria-hidden="true"></i>View video transcript</a>
+          <div class="modal-injected-content" data-class="modal-video-transcript" data-title="<h3>Video transcript</h3>">
+            <div class="transcript-subtitle h4 nomargintop">{{ particle.videos|first.title|e }}</div>
+            <div class="transcript-content">{{ particle.videos|first.transcript|markdown }}</div>
+          </div>
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+
+    {% if particle.videos %}
+    <div class="thumbs {{ particle.thumbsClass|e }} {% if particle.videos|length == 1 %}hidden{% endif %}">
+      {% for video in particle.videos %}
+        {% if not video.disable %}
+        <div class="thumb" id="{{ id }}-{{ video.youtubeid }}" data-youtube-id="{{ video.youtubeid }}">
+          <div class="image">
+            <img src="https://i.ytimg.com/vi/{{ video.youtubeid }}/hqdefault.jpg" alt="{{ video.title }}" />
+          </div>
+          <div class="caption">{{ video.title|e }}</div>
+          <div class="description hidden">{{ video.description|markdown }}</div>
+          <div class="transcript-text">{{ video.transcript|markdown }}</div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+
+  </div>
+
+{% endblock %}
+
+{% spaceless %}
+{% do gantry.load('jquery') %}
+{% do gantry.document.addScript(url('gantry-theme://js/er-slick-functions.js'), 0, 'footer') %}
+{% do gantry.document.addStyle(url('//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css')) %}
+{% do gantry.document.addScript(url('//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'), 2, 'footer') %}
+{% endspaceless %}
+
+{% block javascript_footer %}
+<script type="text/javascript">
+  (function ($) {
+    $(document).ready(function() {
+
+      $('#{{ id }} .thumbs').slick({
+        slidesToShow: {{ particle.slidesToShow|default('6') }},
+        slidesToScroll: {{ particle.slidesToScroll|default('1') }},
+        arrows: true,
+        dots: false,
+        autoplay: false,
+        speed: 500,
+        responsive: [
+          {
+            breakpoint: 959,
+            settings: {
+              slidesToShow: 3
+            }
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 1
+            }
+          }
+        ]
+      });
+
+      youtube_change_iframe($('#{{ id }} [data-slick-index="0"]'));
+
+      function youtube_change_iframe(el) {
+        var caption     = el.find('.caption').text();
+        var description = el.find('.description').html();
+        var youtubeid   = el.attr('data-youtube-id');
+        var transcript  = el.find('.transcript-text').html();
+
+        $('#{{ id }} iframe').attr('src', 'https://www.youtube{% if particle.privacy %}-nocookie{% endif %}.com/embed/' + youtubeid + '{{ url_controls|raw }}{{ url_loop|raw }}{{ url_autoplay|raw }}{{ url_rel|raw }}{{ url_start|raw }}{{ url_end|raw }}');
+
+        if (caption.length > 0) {
+          $('#{{ id }} .main .title').text(caption);
+          $('#{{ id }} .main .title').removeClass('hidden');
+        }
+        else {
+          $('#{{ id }} .main .title').addClass('hidden');
+        }
+
+        if (description.length > 0) {
+          $('#{{ id }} .main .description').html(description);
+          $('#{{ id }} .main .description').removeClass('hidden');
+        }
+        else {
+          $('#{{ id }} .main .description').addClass('hidden');
+        }
+
+        if (el.find('.transcript-text').text().length > 0) {
+          $('#{{ id }} .transcript-content').empty().append(transcript);
+          $('#{{ id }} .transcript-subtitle').text(caption);
+          $('#{{ id }} .main .er-btn-transcript').removeClass('hidden');
+        }
+        else {
+          $('#{{ id }} .main .er-btn-transcript').addClass('hidden');
+        }
+
+        
+          if (caption.length > 0 || el.find('.transcript-text').length > 0) {
+            $('#{{ id }} .main .content').removeClass('hidden');
+          }
+          if (caption.length == 0 && el.find('.transcript-text').length == 0) {
+            $('#{{ id }} .main .content').addClass('hidden');
+          }
+        
+
+      }
+
+      $('#{{ id }} .thumbs').on('afterChange', function(event, slick, currentSlide) {
+        youtube_change_iframe($('#{{ id }} [data-slick-index="' + currentSlide + '"]'));
+      })
+
+      $('#{{ id }} .thumb').on('click', function(e){
+        youtube_change_iframe($('#{{ id }} [data-slick-index="' + $(this).attr('data-slick-index') + '"]'));
+      })
+
+      er_slick_add_arrows_class($('#{{ id }} .thumbs'));
+
+    });
+  })(jQuery)
+</script>
+{% endblock %}

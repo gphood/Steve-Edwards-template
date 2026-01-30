@@ -1,0 +1,43 @@
+meta: {  }
+head_bottom: ''
+atoms:
+  -
+    id: googletagmanager-3588
+    type: googletagmanager
+    title: 'Google Tag Manager'
+    attributes:
+      enabled: '1'
+      gtm:
+        code: GTM-WDD4N7J
+  -
+    id: frameworks-7000
+    type: frameworks
+    title: 'JavaScript Frameworks'
+    attributes:
+      enabled: '1'
+      jquery:
+        enabled: '1'
+        ui_core: '1'
+        ui_sortable: '0'
+      bootstrap:
+        enabled: '0'
+      mootools:
+        enabled: '0'
+        more: '0'
+  -
+    id: assets-6645
+    type: assets
+    title: 'Custom CSS / JS'
+    attributes:
+      enabled: '1'
+      css:
+        - { location: 'https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.min.css', inline: '', extra: {  }, priority: '0', name: 'jQuery UI' }
+        - { location: 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css', inline: '', extra: {  }, priority: '0', name: Bootstrap }
+      javascript:
+        - { location: 'https://code.jquery.com/ui/1.13.0/jquery-ui.min.js', inline: '', in_footer: '0', extra: [{ integrity: sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA= }, { crossorigin: anonymous }], priority: '0', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: 'jQuery UI' }
+        - { location: 'gantry-assets://custom/js/responsive-class.js', inline: '', in_footer: '1', extra: {  }, priority: '0', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: 'Responsive Classes' }
+        - { location: 'gantry-assets://js/querystring.js', inline: '', in_footer: '0', extra: {  }, priority: '0', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: 'Query String' }
+        - { location: 'gantry-assets://js/dateFormat.js', inline: '', in_footer: '1', extra: {  }, priority: '0', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: 'Date Formatter' }
+        - { location: 'gantry-assets://js/modal.js', inline: '', in_footer: '1', extra: {  }, priority: '0', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: Modal }
+        - { location: 'gantry-assets://js/custom.js', inline: "document.addEventListener(\"DOMContentLoaded\", function(){ \n  // Get the element to animate\n  const elements = document.querySelectorAll('.animate-on-load');\n\n  // Define the options for the Intersection Observer\n  const options = {\n    root: null,\n    rootMargin: '0px',\n    threshold: 0.5\n  };\n\n  // Create a new Intersection Observer\n  const observer = new IntersectionObserver(function(elements, observer) {\n    elements.forEach(element => {\n      // If element is in viewport, add the 'show' class to trigger the animation\n      if (element.isIntersecting) {\n        element.target.classList.add('show');\n      }\n    });\n  }, options);\n\n  // Start observing the element\n  elements.forEach(element => {\n    observer.observe(element);\n  });\n});", in_footer: '1', extra: {  }, priority: '-10', name: Custom }
+        - { location: 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', inline: '', in_footer: '0', extra: {  }, priority: '0', name: Bootstrap }

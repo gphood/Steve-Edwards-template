@@ -1,0 +1,157 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/default.png'
+  name: default
+  timestamp: 1691342274
+layout:
+  header: {  }
+  navigation: {  }
+  hero: {  }
+  /row-1/:
+    -
+      - contentblocks-1125
+  /row-2/:
+    -
+      - system-content-2302
+  /row-3/: {  }
+  /row-4/: {  }
+  /row-5/: {  }
+  /row-6/: {  }
+  /row-7/: {  }
+  /row-8/: {  }
+  /row-9/: {  }
+  /row-10/: {  }
+  footer: {  }
+  inject: {  }
+  offcanvas: {  }
+structure:
+  header:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  navigation:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  hero:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  row-1:
+    type: section
+    attributes:
+      boxed: ''
+      class: row-alt
+      variations: ''
+      background: ''
+  row-2:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-3:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-4:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-5:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-6:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-7:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-8:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-9:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-10:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  footer:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  inject:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  offcanvas:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+content:
+  contentblocks-1125:
+    title: Heading
+    attributes:
+      class: ''
+      items:
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: 'Archived articles'
+          titleTag: h2
+          content: ''
+          bottomBorder: '0'
+          iconListItems: {  }
+          buttonItems: {  }
+          inject: ''
+          cssid: ''
+          class: small-schools-heading
+          lightBorder: '0'
+          notice: ''
+          name: Heading

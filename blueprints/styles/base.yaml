@@ -1,0 +1,24 @@
+name: Base Styles
+description: Base styles for the East Riding Culture theme
+type: core
+
+form:
+  fields:
+
+    background:
+      type: input.colorpicker
+      label: Base Background
+      default: "#ffffff"
+    text-color:
+      type: input.colorpicker
+      label: Base Text Color
+      default: "#343434"
+
+    alt-background:
+      type: input.colorpicker
+      label: Alternate Background
+      default: "#E3E3E3"
+    alt-text-color:
+      type: input.colorpicker
+      label: Alternate Text Color
+      default: "#343434"

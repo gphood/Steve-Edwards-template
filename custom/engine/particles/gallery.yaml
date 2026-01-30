@@ -1,0 +1,135 @@
+name: Gallery
+description: Display gallery.
+type: particle
+icon: fa-table
+
+configuration:
+  caching:
+    type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable particle.
+      default: true
+
+    class:
+      type: input.selectize
+      label: CSS Classes
+      description: CSS class name for the particle.
+
+    server:
+      type: input.text
+      label: Server
+      description: Link to the server where the files are hosted
+      default: 'https://downloads.eastriding.gov.uk'
+
+    directory:
+      type: input.text
+      label: Directory
+      description: Relative path of the directory
+
+    search:
+      type: input.checkbox
+      label: Show Search
+      description: Enable search.
+      default: false
+
+    searchmin:
+      type: input.number
+      label: Min Search Chars
+      description: Mimnum number of characters before search is triggered.
+      default: 3
+
+    pagination:
+      type: input.checkbox
+      label: Show Pagination
+      description: Enable pagination.
+      default: false
+
+    rows:
+      type: input.number
+      label: Images
+      description: Number of images per page.
+      default: 10
+
+    rowsselect:
+      type: input.checkbox
+      label: Show Results Selector
+      description: Enable user configurable images per page.
+      default: false
+
+    title:
+      type: input.text
+      label: Title Label
+      description: Label for file name header
+      default: Title
+      placeholder: Title
+
+    description:
+      type: input.checkbox
+      label: Show Description
+      description: Show file description
+      default: false
+
+    tags:
+      type: input.checkbox
+      label: Show Tags
+      description: Show file tags
+      default: false
+
+    icon:
+      type: input.checkbox
+      label: Show Icon
+      description: Enable file type icon.
+      default: true
+
+    date:
+      type: input.checkbox
+      label: Show File Date
+      description: Enable date column.
+      default: true
+
+    dateLabel:
+      type: input.text
+      label: File Date Label
+      description: Label for file date header
+      default: Modified
+      placeholder: Modified
+
+    dateformat:
+      type: select.date
+      label: File Date Format
+      description: Select preferred date format.
+      default: 'D, d M Y'
+      placeholder: 'Select...'
+      selectize:
+          allowEmptyOption: true
+      options:
+          'l, F d, Y': Date1
+          'l, d F': Date2
+          'D, d F': Date3
+          'F d': Date4
+          'd F': Date5
+          'd M': Date6
+          'D, M d, Y': Date7
+          'D, M d, y': Date8
+          'l': Date9
+          'l j F Y': Date10
+          'j F Y': Date11
+          'F d, Y': Date12
+          'D, d M Y': Date13
+
+    size:
+      type: input.checkbox
+      label: Show File Size
+      description: Enable size column.
+      default: true
+
+    sizeLabel:
+      type: input.text
+      label: File Size Label
+      description: Label for file size header
+      default: Size

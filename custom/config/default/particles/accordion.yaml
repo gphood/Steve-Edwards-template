@@ -1,0 +1,10 @@
+enabled: '1'
+class: ''
+linkIdMode: exact
+clickableTags: '1'
+tags: '0'
+reorder: '0'
+openClose: '0'
+items: {  }
+inject: ''
+filter: '0'

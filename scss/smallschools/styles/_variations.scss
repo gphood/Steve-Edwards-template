@@ -1,0 +1,494 @@
+.body-bg {
+  background: $base-background;
+  color: $base-text-color;
+
+
+  &-alt {
+    background: $base-background-alt;
+
+    &-50 {
+      background-image: linear-gradient(180deg, $base-background-alt 0%, $base-background-alt 50%, $base-background 50%, $base-background 100%);
+    }
+
+  }
+}
+
+#g-hero {
+  &.c-hero {
+    background-color: $standard-grey-bg !important;
+    color: $base-text-color !important;
+  }
+}
+
+#g-breadcrumbs {
+  &.c-breadcrumbs {
+    background-color: $standard-grey-bg !important;
+    color: $base-text-color !important;
+
+    .breadcrumbs {
+      color: $base-text-color !important;
+
+      .breadcrumb-item, .breadcrumb-item:before {
+        color: $base-text-color !important;
+      }
+    }
+  }
+
+  &.i-breadcrumb {
+    background-color: map-get($colors_map, slate-800);
+
+    .breadcrumbs {
+      color: map-get($colors_map, slate-500);
+
+      .breadcrumb-item, .breadcrumb-item:before {
+        color: map-get($colors_map, slate-500);
+      }
+
+      a.pathway {
+        color: $text-white !important;
+
+        &:hover {
+          color: $pure-white !important;
+          border-bottom-color: $pure-white !important;
+        }
+      }
+    }
+  }
+}
+
+.bg-overlay {
+  &, > * {
+    position: relative;
+  }
+  &:before {
+    bottom: 0;
+    content: "";
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: 0.3s;
+  }
+}
+
+[class*="er-bg-overlay"] {
+  position: relative;
+
+  &:before {
+    background-size: 200% auto;
+    bottom: 0;
+    content: "";
+    left: 0;
+    opacity: 0.85;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .g-grid {
+    position: relative;
+  }
+
+}
+
+[class*="er-accent-overlay"],
+[class*="er-accent-bg-gradient"],
+[class*="er-bg-overlay"],
+[class*="er-bg-gradient"] {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+[class*="accent-bg-gradient"],
+[class*="bg-gradient"] {
+
+  &:not(.bg-overlay),
+  &.bg-overlay:before {
+    background-size: 200% auto;
+  }
+}
+
+$border-positions: top, bottom, left, right;
+
+.border {
+  border: 1px solid $base-border-color;
+
+  @each $position in $border-positions {
+    &-#{$position} {
+      border-#{$position}: 1px solid $base-border-color;
+    }
+  }
+}
+
+// Border radius
+.radius {
+  &,
+  &:before{
+    border-radius: $border-radius;
+  }
+}
+
+.bg-radius {
+  &, &:before, img, iframe {
+    border-radius: 12px;
+  }
+}
+
+
+.box-shadow {
+  > .g-content {
+    box-shadow: $base-box-shadow;
+  }
+}
+
+$section-padding-positions: "top", "bottom";
+
+@each $position in $section-padding-positions {
+  .section-padding,
+  .section-padding-#{$position} {
+    > .g-container, &.g-block {
+      padding-#{$position}: $section-padding;
+
+      @include breakpoint(tablet-range) {
+        padding-#{$position}: $section-padding-mobile;
+      }
+
+      @include breakpoint(mobile-only) {
+        padding-#{$position}: $section-padding-mobile;
+      }
+    }
+
+  }
+
+  .no-section-padding,
+  .no-section-padding-#{$position} {
+    > .g-container, &.g-block, section > .g-container {
+      padding-#{$position}: 0 !important;
+    }
+  }
+}
+
+.section-padding-vertical-variable {
+  > .g-container, &.g-block {
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    @include breakpoint(tablet-range) {
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+
+    @include breakpoint(mobile-only) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}
+
+.section-bottom-border {
+  border-bottom: solid 8px map-get($colors_map, grey-200);
+}
+
+.section-bottom-border-small-screens {
+  @media screen and (max-width: $breakpoints_large_mobile_container) {
+    border-bottom: solid 8px map-get($colors_map, grey-200);
+  }
+}
+
+.size-mid {
+  &.size-33 {
+    @each $breakpoint, $breakpoint_width in $breakpoints_xl_map {
+      @include breakpoint("#{$breakpoint}#{-range}") {
+        @if $breakpoint == "sm-mobile" or $breakpoint == "md-mobile" or $breakpoint == "large-mobile" {
+        }
+        @else {
+          width: ($breakpoint_width - (1.25)) / 3;
+        }
+      }
+    }
+  }
+}
+
+.size-start {
+  @each $breakpoint, $breakpoint_width in $breakpoints_xl_map {
+    @include breakpoint("#{$breakpoint}#{-range}") {
+      @if $breakpoint == "sm-mobile" or $breakpoint == "md-mobile" or $breakpoint == "large-mobile" or $breakpoint == "tablet" {
+      }
+      @else {
+        > .g-content {
+          @if $breakpoint == "lg-desktop" or $breakpoint == "xl-desktop" {
+            $breakpoint_width: 75rem;
+            $content-padding: 0.5rem;
+          }
+          padding-left: calc(((100vw -  #{$breakpoint_width - (1.25)}) / 2) + #{$content-padding}) !important;
+        }
+        &.size-33 {
+          > .g-content {
+            width: calc(#{($breakpoint_width - (1.25)) / 3} + (100vw -  #{$breakpoint_width - (1.25)}) / 2);
+          }
+        }
+      }
+    }
+  }
+}
+
+.size-end {
+  @each $breakpoint, $breakpoint_width in $breakpoints_xl_map {
+    @include breakpoint("#{$breakpoint}#{-range}") {
+      @if $breakpoint == "sm-mobile" or $breakpoint == "md-mobile" or $breakpoint == "large-mobile" or $breakpoint == "tablet" {
+      }
+      @else {
+        > .g-content {
+          @if $breakpoint == "lg-desktop" or $breakpoint == "xl-desktop" {
+            $breakpoint_width: 75rem;
+            $content-padding: 0.5rem;
+          }
+          padding-right: calc(((100vw -  #{$breakpoint_width - (1.25)}) / 2) + #{$content-padding}) !important;
+        }
+        &.size-33 {
+          > .g-content {
+            width: calc(#{($breakpoint_width - (1.25)) / 3} + (100vw -  #{$breakpoint_width - (1.25)}) / 2);
+          }
+        }
+      }
+    }
+  }
+}
+
+.container {
+  @extend %page_container;
+}
+
+.g-container {
+  @include breakpoint(mobile-only) {
+    body & {
+      width: 100%;
+    }
+  }
+}
+
+@each $name, $width in $max-widths {
+  $sfx: "-" + $name;
+  @if $name == "default" {
+    $sfx: "";
+  }
+  $width_px: $width + px;
+
+  .max-width#{$sfx} {
+    &:not(section):not(header):not(footer):not(.g-block) {
+      max-width: $width_px;
+    }
+    > .g-content {
+      max-width: $width_px;
+    }
+  }
+  section, header, footer {
+    &.max-width#{$sfx} {
+      > .g-grid,
+      > .g-container > .g-grid {
+        max-width: $width_px;
+      }
+    }
+
+    &.max-width#{$sfx}.mx-margin-large {
+      > .g-grid,
+      > .g-container > .g-grid {
+        padding-left: calc((100% - #{map-get($max-widths, "large")}#{"px"}) / 2);
+        max-width: calc(#{$width_px} + ((100% - #{map-get($max-widths, "large")}#{"px"}) / 2))
+      }
+    }
+
+  }
+}
+
+[class*="max-width"] {
+  &:not(.max-width-nocenter):not([class*="mx-margin"]) {
+    > .g-content {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+[class*="mx-margin"] {
+  > .g-content
+  > .g-grid,
+  > .g-container > .g-grid {
+    margin-right: auto;
+  }
+}
+
+section, header, footer {
+  &[class*="max-width"] {
+    &:not(.max-width-nocenter):not([class*="mx-margin"]) {
+      > .g-grid,
+      > .g-container > .g-grid {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+
+section, header, footer {
+  &[class*="max-width"] {
+    &:not(.max-width-nocenter):not([class*="mx-margin"]) {
+      > .g-grid,
+      > .g-container > .g-grid {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+// Modules
+.module-vertical-spacing {
+  > .g-content {
+    margin: -1rem 0;
+  }
+  .moduletable {
+    margin: 1rem 0;
+  }
+}
+
+.module-dynamic-ordering {
+  > .g-content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+// Spacer
+.spacer-min-height {
+  min-height: 300px;
+}
+
+.spacer-min-height-large {
+  min-height: 450px;
+}
+
+.blocks-portables-50 {
+  @include breakpoint(no-desktop) {
+
+    .g-block {
+      flex-basis: 50% !important;
+      max-width: 50% !important;
+    }
+
+
+  }
+
+  @include breakpoint(mobile-only) {
+    .spacer-min-height {
+      min-height: 150px;
+    }
+  }
+
+}
+
+// BG Overlap
+$bg-overlap-min-height: 42rem;
+$bg-overlap-spacer-min-height: 30rem;
+
+.bg-overlap {
+  align-items: center;
+  display: flex;
+  margin-bottom: -#{$bg-overlap-min-height / 2};
+
+  @include breakpoint(st-desktop-range) {
+    margin-bottom: -#{($bg-overlap-min-height / 2) * 0.75};
+  }
+
+  @include breakpoint(tablet-range) {
+    margin-bottom: -#{($bg-overlap-min-height / 2) * 0.75};
+  }
+
+  @include breakpoint(mobile-only) {
+    margin-bottom: -#{($bg-overlap-min-height / 2) * 0.5};
+  }
+
+  + section {
+    padding-top: #{$bg-overlap-min-height / 2};
+
+    @include breakpoint(st-desktop-range) {
+      padding-top: #{($bg-overlap-min-height / 2) * 0.75};
+    }
+
+    @include breakpoint(tablet-range) {
+      padding-top: #{($bg-overlap-min-height / 2) * 0.75};
+    }
+
+    @include breakpoint(mobile-only) {
+      padding-top: #{($bg-overlap-min-height / 2) * 0.5};
+    }
+  }
+
+  &, .g-container, .g-grid {
+    min-height: $bg-overlap-min-height;
+
+    @include breakpoint(st-desktop-range) {
+      min-height: $bg-overlap-min-height * 0.75;
+    }
+
+    @include breakpoint(tablet-range) {
+      min-height: $bg-overlap-min-height * 0.75;
+    }
+
+    @include breakpoint(mobile-only) {
+      min-height: $bg-overlap-min-height * 0.5;
+    }
+  }
+
+  .g-container {
+    padding: 0 !important;
+  }
+
+  .g-grid {
+    position: relative;
+  }
+
+  .g-block {
+    flex-basis: calc(50% + 3rem) !important;
+    position: absolute;
+    width: calc(50% + 3rem) !important;
+
+    &:first-child {
+      left: 1.5rem;
+      top: 0;
+    }
+
+    &:last-child {
+      right: 1.5rem;
+      bottom: 0;
+    }
+
+  }
+
+  .spacer {
+    background-position: center;
+    background-size: cover;
+    border-radius: 1.5rem;
+    box-shadow: $e500;
+    min-height: $bg-overlap-spacer-min-height;
+
+    @include breakpoint(st-desktop-range) {
+      min-height: $bg-overlap-spacer-min-height * 0.75;
+    }
+
+    @include breakpoint(tablet-range) {
+      min-height: $bg-overlap-spacer-min-height * 0.75;
+    }
+
+    @include breakpoint(mobile-only) {
+      min-height: $bg-overlap-spacer-min-height * 0.5;
+    }
+
+  }
+}
+
+.align-centre {
+  text-align: center;
+}

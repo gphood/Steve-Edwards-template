@@ -1,0 +1,631 @@
+// New style variables =========================================================================================
+
+$colors_map: (
+  "pure-white":                                  #ffffff,
+  "pure-black":                                  #000000,
+  "grey-50":                                     #f9fafb,
+  "grey-100":                                    #f3f4f6,
+  "grey-200":                                    #e5e7eb,
+  "grey-300":                                    #d1d5db,
+  "grey-400":                                    #9ca3af,
+  "grey-500":                                    #6b7280,
+  "grey-600":                                    #4b5563,
+  "grey-700":                                    #374151,
+  "grey-800":                                    #1f2937,
+  "grey-900":                                    #111827,
+  "neutral-50":                                  #fafafa,
+  "neutral-100":                                 #f5f5f5,
+  "neutral-200":                                 #e5e5e5,
+  "neutral-300":                                 #d4d4d4,
+  "neutral-400":                                 #a3a3a3,
+  "neutral-500":                                 #737373,
+  "neutral-600":                                 #525252,
+  "neutral-700":                                 #404040,
+  "neutral-800":                                 #262626,
+  "neutral-900":                                 #171717,
+  "slate-50":                                    #f5f7fd,
+  "slate-100":                                   #eff1f7,
+  "slate-200":                                   #e2e5f0,
+  "slate-300":                                   #cbd1e1,
+  "slate-400":                                   #949db8,
+  "slate-500":                                   #646e8b,
+  "slate-600":                                   #475069,
+  "slate-700":                                   #333c55,
+  "slate-800":                                   #1e253b,
+  "slate-900":                                   #0f162a,
+  "primary-50":                                  #ecfdf5,
+  "primary-100":                                 #d1fae5,
+  "primary-200":                                 #a7f3d0,
+  "primary-300":                                 #6ee7b7,
+  "primary-400":                                 #34d399,
+  "primary-500":                                 #10b981,
+  "primary-600":                                 #059669,
+  "primary-700":                                 #047857,
+  "primary-800":                                 #065f46,
+  "primary-900":                                 #064e3b,
+  "violet-50":                                   #f5f3ff,
+  "violet-100":                                  #ede9fe,
+  "violet-200":                                  #ddd6fe,
+  "violet-300":                                  #c4b5fd,
+  "violet-400":                                  #a78bfa,
+  "violet-500":                                  #8b5cf6,
+  "violet-600":                                  #7c3aed,
+  "violet-700":                                  #6d28d9,
+  "violet-800":                                  #5b21b6,
+  "violet-900":                                  #4c1d95,
+  "orange-50":                                   #fff7ed,
+  "orange-100":                                  #ffedd5,
+  "orange-200":                                  #fed7aa,
+  "orange-300":                                  #fdba74,
+  "orange-400":                                  #fb923c,
+  "orange-500":                                  #f97316,
+  "orange-600":                                  #ea580c,
+  "orange-700":                                  #c2410c,
+  "orange-800":                                  #9a3412,
+  "orange-900":                                  #7c2d12,
+  "pink-50":                                     #fdf2f8,
+  "pink-100":                                    #fce7f3,
+  "pink-200":                                    #fbcfe8,
+  "pink-300":                                    #f9a8d4,
+  "pink-400":                                    #f472b6,
+  "pink-500":                                    #ec4899,
+  "pink-600":                                    #db2777,
+  "pink-700":                                    #be185d,
+  "pink-800":                                    #9d174d,
+  "pink-900":                                    #831843,
+  "lime-50":                                     #f7fee7,
+  "lime-100":                                    #ecfccb,
+  "lime-200":                                    #d9f99d,
+  "lime-300":                                    #bef264,
+  "lime-400":                                    #a3e635,
+  "lime-500":                                    #84cc16,
+  "lime-600":                                    #65a30d,
+  "lime-700":                                    #4d7c0f,
+  "lime-800":                                    #3f6212,
+  "lime-900":                                    #365314,
+  "success-50":                                  #f0fdf4,
+  "success-100":                                 #dcfce7,
+  "success-200":                                 #bbf7d0,
+  "success-300":                                 #86efac,
+  "success-400":                                 #4ade80,
+  "success-500":                                 #22c55e,
+  "success-600":                                 #16a34a,
+  "success-700":                                 #15803d,
+  "success-800":                                 #166534,
+  "success-900":                                 #14532d,
+  "warning-50":                                  #fffbeb,
+  "warning-100":                                 #fef3c7,
+  "warning-200":                                 #fde68a,
+  "warning-300":                                 #fcd34d,
+  "warning-400":                                 #fbbf24,
+  "warning-500":                                 #f59e0b,
+  "warning-600":                                 #d97706,
+  "warning-700":                                 #b45309,
+  "warning-800":                                 #92400e,
+  "warning-900":                                 #78350f,
+  "error-50":                                    #fef2f2,
+  "error-100":                                   #fee2e2,
+  "error-200":                                   #fecaca,
+  "error-300":                                   #fca5a5,
+  "error-400":                                   #f87171,
+  "error-500":                                   #ef4444,
+  "error-600":                                   #dc2626,
+  "error-700":                                   #b91c1c,
+  "error-800":                                   #991b1b,
+  "error-900":                                   #7f1d1d,
+  "info-50":                                     #eff6ff,
+  "info-100":                                    #dbeafe,
+  "info-200":                                    #bfdbfe,
+  "info-300":                                    #93c5fd,
+  "info-400":                                    #60a5fa,
+  "info-500":                                    #3b82f6,
+  "info-600":                                    #2563eb,
+  "info-700":                                    #1d4ed8,
+  "info-800":                                    #1e40af,
+  "info-900":                                    #1e3a8a,
+  "base-primary":                                #1d2123,
+  "base-secondary":                              #49516e,
+  "link-default":                                #0066cc,
+  "link-hover":                                  #004080,
+  "link-visited":                                #4c2c92,
+  "link-active":                                 #070707,
+  "focus-bg":                                    #ffe01a,
+  "focus-text":                                  #0b0c0c,
+  "text-white":                                  #f5f5f5
+);
+
+@each $color, $hex in $colors_map {
+  .accent-#{$color} {
+    color: $hex !important;
+  }
+  .bg-#{$color} {
+    background-color: $hex !important;
+  }
+}
+
+// NASS
+
+$nass-green:                                    #005b0e;
+
+$color-pure-white: map-get($colors_map, pure-white);
+$color-pure-black: map-get($colors_map, pure-black);
+$color-primary: map-get($colors_map, base-primary);
+$color-secondary: map-get($colors_map, base-secondary);
+
+$button_text_colors: (
+  "primary":    #f5f5f5,
+  "cta":        #f5f5f5,
+  "secondary":  map_get($colors_map, base-primary),
+  "warning":    #f5f5f5,
+  "link":       map-get($colors_map, link-default)
+);
+
+$button_text_hover_colors: (
+  "primary":    #f5f5f5,
+  "cta":        #f5f5f5,
+  "secondary":  map_get($colors_map, base-primary),
+  "warning":    #f5f5f5,
+  "link":       map-get($colors_map, link-hover)
+);
+
+$button_text_disabled_color: map_get($colors_map, base-secondary);
+
+$button_bg_colors: (
+  "primary":    $nass-green,
+  "cta":        map_get($colors_map, link-default),
+  "secondary":  map_get($colors_map, slate-100),
+  "warning":    map_get($colors_map, error-700),
+  "link":       transparent
+);
+
+$button_bg_hover_colors: (
+  "primary":    map_get($colors_map, primary-900),
+  "cta":        map_get($colors_map, link-hover),
+  "secondary":  map_get($colors_map, slate-200),
+  "warning":    map_get($colors_map, error-800),
+  "link":       transparent
+);
+
+$button_bg_active_colors: (
+  "primary":    map_get($colors_map, focus-bg),
+  "cta":        map_get($colors_map, focus-bg),
+  "secondary":  map_get($colors_map, focus-bg),
+  "warning":    map_get($colors_map, focus-bg),
+  "link":       transparent
+);
+
+$button_bg_disabled_colors: (
+  "primary":    map_get($colors_map, primary-50),
+  "cta":        map_get($colors_map, info-100),
+  "secondary":  map_get($colors_map, slate-50),
+  "warning":    map_get($colors_map, error-50),
+  "link":       map_get($colors_map, slate-50)
+);
+
+$button_border_colors: (
+  "primary":    map_get($colors_map, primary-900),
+  "cta":        map_get($colors_map, link-hover),
+  "secondary":  #949DB8,
+  "warning":    #7F1D1D,
+  "link":       transparent
+);
+
+$button_border_hover_colors: (
+  "primary":    map_get($colors_map, primary-900),
+  "cta":        #001E3D,
+  "secondary":  #001E3D,
+  "warning":    map_get($colors_map, error-900),
+  "link":       transparent
+);
+
+$button_border_active_colors: (
+  "primary":    map_get($colors_map, focus-bg),
+  "cta":        map_get($colors_map, focus-bg),
+  "secondary":  map_get($colors_map, focus-bg),
+  "warning":    map_get($colors_map, focus-bg),
+  "link":       transparent
+);
+
+$color_names:                                   (info, warning, error, success, grey, slate, primary, violet, orange, pink, lime);
+
+// colors
+$pure-white:                                    map-get($colors_map, pure-white);
+$pure-black:                                    map-get($colors_map, pure-black);
+$standard-grey-bg:                              map-get($colors_map, slate-50);
+
+// Text
+$title-text-color:                              map-get($colors_map, slate-600);
+$title-secondary-text-color:                    map-get($colors_map, slate-400);
+$base-text-color:                               map-get($colors_map, slate-600);
+$secondary-text-color:                          map-get($colors_map, slate-400);
+$text-white:                                    map-get($colors_map, text-white);
+$footer-text:                                   $text-white;
+
+// Links
+$link-regular:                                  map-get($colors_map, link-default);
+$link-hover:                                    map-get($colors_map, link-hover);
+$link-visited:                                  map-get($colors_map, link-visited);
+$link-active:                                   map-get($colors_map, link-active);
+$link-active-background:                        rgba(254, 243, 199, .5);
+$focus-yellow:                                  map-get($colors_map, focus-bg);
+$footer-link-regular:                           map-get($colors_map, pure-white);
+$footer-link-hover:                             map-get($colors_map, focus-bg);
+
+@mixin dark-bg-link-colors {
+  a {
+    color: map-get($colors_map, info-200);
+
+    &:hover {
+      color: map-get($colors_map, info-400);
+    }
+  }
+}
+
+.dark-bg-text {
+  @include dark-bg-link-colors;
+  color: $text-white;
+}
+
+// Hero
+$hero-background:                               $pure-white;
+$hero-text-color:                               $secondary-text-color;
+$hero-text-hover:                               yellow;
+$hero-text-shadow:                              0px 0px 6px rgb(0 0 0 / 40%);
+$hero-slider-arrow-background:                  #FFFFFF;
+$hero-slider-arrow-background-hover:            #333333;
+$hero-slider-arrow-color:                       #000000;
+$hero-slider-arrow-color-hover:                 #FFFFFF;
+$hero-slider-dot-color:                         #FFFFFF;
+$hero-slider-img-shadow-size:                   0px 3px 5px 0px;
+$hero-slider-img-shadow-color:                  rgba(2, 2, 3,  0.1);
+$hero-slider-img-shadow:                        $hero-slider-img-shadow-size $hero-slider-img-shadow-color;
+
+// Input
+$form-background:                               #EEEEEE;
+$form-text-color:                               $base-text-color;
+$form-border-color:                             #E0E0E0;
+$form-box-shadow:                               none;
+$form-border-color-hover:                       #000000;
+$form-border-color-focus:                       #000000;
+$form-border-color-error:                       #FF2020;
+$form-text-color-error:                         #FF2020;
+$form-background-disabled:                      #F5F5F5;
+$form-border-color-disabled:                    #C3C3C3;
+$form-text-color-disabled:                      #C3C3C3;
+$form-border-color-hover:                       map-get($colors_map, primary-500);;
+$form-border-color-focus:                       #29BAFF;
+
+$form2-background-color:                        map-get($colors_map, pure-white);
+$form2-text-color:                              $secondary-text-color;
+$form2-border-color:                            map-get($colors_map, primary-700);
+$form2-border-size:                             2px;
+$form2-border-style:                            solid;
+$form2-border:                                  $form2-border-size $form2-border-style $form2-border-color;
+
+// Custom buttons
+
+$button-search-border-color:                    map-get($colors_map, primary-700);
+$button-search-inner-button-background:         map-get($colors_map, primary-700);
+$button-search-inner-button-bg-hover  :         map-get($colors_map, primary-800);
+$button-search-inner-button-bottom-border:      map-get($colors_map, primary-900);
+$button-search-text-color:                      $secondary-text-color;
+
+// Accordion
+$accordion-background:                          $pure-white;
+$accordion-background-open:                     map-get($colors_map, primary-700);
+$accordion-open-text:                           $text-white;
+$accordion-header-background-accent:            $standard-grey-bg;
+$accordion-header-background-accent-hover:      map-get($colors_map, slate-100);
+$accordion-child-header-bg-accent:              map-get($colors_map, slate-500);
+$accordion-header-border-left-accent:           map-get($colors_map, primary-700);
+$accordion-header-border-left-hover-accent:     map-get($colors_map, primary-500);
+$accordion-header-border-bottom-accent:         map-get($colors_map, slate-300);
+$accordion-header-parent-hover-text-accent:     $link-regular;
+$accordion-content-border-accent:               map-get($colors_map, slate-400);
+$accordion-child-content-border-accent:         map-get($colors_map, slate-200);
+$accordion-child-header-border-left-accent:     map-get($colors_map, grey-400);
+$accordion-child-header-border-bottom-accent:   map-get($colors_map, grey-100);
+$accordion-child-header-bg-closed-accent:       map-get($colors_map, slate-50);;
+$accordion-child-header-bg-closed-hover-accent: map-get($colors_map, slate-100);
+$accordion-child-header-text-accent:            $text-white;
+$accordion-child-header-text-closed-accent:     map-get($colors_map, base-primary);
+
+
+$accordion-background-alt:                      #FFFFFF;
+$accordion-background-accent:                   rgba(255, 255, 255, 0.15);
+$accordion-border:                              #EEEEEE;
+$accordion-border-alt:                          #EEEEEE;
+$accordion-border-accent:                       transparent;
+$accordion-child-background:                    #F6F6F6;
+$accordion-child-background-alt:                #FFFFFF;
+$accordion-child-background-accent:             transparent;
+$accordion-child-border-accent:                 rgba(0, 0, 0, 0.15);
+$accordion-header-color:                        $base-text-color;
+$accordion-header-color-hover:                  $link-regular;
+
+
+$accordion-content-border-covid:                #F6F6F6;
+$accordion-date-color:                          #747474;
+$accordion-date-color-label:                    #666666;
+$accordion-blockquote-color:                    $base-text-color;
+$accordion-blockquote-border:                   #D9D9D9;
+$accordion-meta-divider:                        #E3E3E3;
+$accordion-meta-divider-acccent:                rgba(0, 0, 0, 0.15);
+$accordion-tag-background:                      #F0F3F6;
+$accordion-tag-text-color:                      #333333;
+$accordion-reorder-background:                  map-get($colors_map, slate-200);
+$accordion-reorder-background-alt:              #FFFFFF;
+$accordion-reorder-background-accent:           rgba(255, 255, 255, 0.15);
+$accordion-reorder-active-background:           linear-gradient(180deg, #fff 0%, #f5f9ff 100%);
+$accordion-reorder-active-background-alt:       #EBEBEB;
+$accordion-reorder-active-background-accent:    rgba(0, 0, 0, 0.15);
+$accordion-reorder-color:                       $secondary-text-color;
+$accordion-reorder-color-accent:                #FFFFFF;
+$accordion-reorder-color-hover:                 $link-regular;
+$accordion-tag-select-background:               #FFFFFF;
+$accordion-tag-select-background-alt:           #F6F6F6;
+$accordion-tag-select-background-accent:        rgba(255, 255, 255, 0.15);
+$accordion-tag-select-active-background:        yellow;
+$accordion-tag-select-active-background-accent: rgba(0, 0, 0, 0.15);
+$accordion-tag-select-active-color:             yellow;
+$accordion-tag-select-active-hover:             orange;
+$accordion-tag-select-color:                    #1D1D1D;
+$accordion-tag-select-color-accent:             #FFFFFF;
+$accordion-tag-select-color-hover:              $link-regular;
+
+// Table
+$table-th-background:                           map-get($colors_map, slate-700);
+$table-th-border-color:                         map-get($colors_map, slate-800);
+$table-th-text-color:                           $text-white;
+$table-border-color:                            #E1E1E1;
+$table-background:                              #FFFFFF;
+$table-background-alt:                          map-get($colors_map, slate-50);
+
+// Alerts
+$alert_info_bg:                                 map-get($colors_map, info-50);
+$alert_info_color:                              $base-text-color;
+$alert_info_border:                             map-get($colors_map, info-500);
+
+// Elevations
+$e100:                                          0px 1px 1px rgba(9, 30, 66, 0.25), 0px 0px 1px rgba(9, 30, 66, 0.31);
+$e200:                                          0px 3px 5px rgba(9, 30, 66, 0.2), 0px 0px 1px rgba(9, 30, 66, 0.31);
+$e300:                                          0px 8px 12px rgba(9, 30, 66, 0.15), 0px 0px 1px rgba(9, 30, 66, 0.31);
+$e400:                                          0px 10px 18px rgba(9, 30, 66, 0.15), 0px 0px 1px rgba(9, 30, 66, 0.31);
+$e500:                                          0px 18px 28px rgba(9, 30, 66, 0.15), 0px 0px 1px rgba(9, 30, 66, 0.31);
+$t100:                                          0px 1px 1px rgba(0,0,0,.5), 0px 0px 1px rgba(0,0,0,.5);
+$t200:                                          0px 3px 5px rgba(0,0,0,0.5), 0px 0px 1px rgba(0,0,0,0.5);
+
+// Cards
+$card-background:                               $nass-green;
+$card-background-alt:                           #FFFFFF;
+$card-text-color:                               white;
+$card-link-color-hover:                         map-get($colors_map, lime-200);;
+$card-icon-background:                          map-get($colors_map, grey-300);
+$card-icon-color:                               map-get($colors_map, primary-500);
+$card-box-shadow:                               $e200;
+$card-box-shadow-alt:                           $e200;
+$card-box-shadow-hover:                         $e300;
+
+// Slick
+$slick-arrow-background:                        #FFFFFF;
+$slick-arrow-background-hover:                  map-get($colors_map, slate-100);
+$slick-arrow-border-color:                      map-get($colors_map, slate-400);
+$slick-arrow-border-color-hero:                 #000000;
+$slick-arrow-color:                             $link-regular;
+$slick-arrow-color-hover:                       $link-hover;
+
+$slick-dots-background-ul:                      transparent;
+$slick-dots-background-ul-hero:                 rgba(0, 0, 0, 0.5);
+$slick-dots-background-li:                      map-get($colors_map, grey-400);
+$slick-dots-background-li-active:               map-get($colors_map, grey-900);
+$slick-dots-background-li-active-hero:          #FFFFFF;
+$slick-dots-border-color:                       #999999;
+$slick-dots-border-color-hero:                  #FFFFFF;
+
+// Header
+$header-background:                             map-get($colors_map, primary-700);
+$header-text-color:                             $text-white;
+$header-menu-text-color:                        $text-white;
+$header-menu-bg-hover:                          map-get($colors_map, primary-800);
+$header-menu-active-bg:                         $pure-white;
+$header-menu-active-bg-hover:                   map-get($colors_map, primary-200);
+$header-menu-active-text-color:                 $base-text-color;
+$header-divider-color:                          rgba(255, 255, 255, 0.25);
+$logo-box-shadow:                               0px 10px 6px rgba(0, 0, 0, 0.1);
+$logo-background-hover:                         #F6F6F6;
+$logo-border-color:                             #D0D3DA;
+
+$dropdown-background-color:                     #FFFFFF;
+$dropdown-background-color-hover:               rgba(0, 144, 126, 0.12);
+$dropdown-text-color:                           #000000;
+$dropdown-box-shadow:                           0px 10px 6px rgba(0, 0, 0, 0.1);
+
+$header-search-background:                      #EEEEEE;
+
+// Hero Static Content
+$hero-static-background:                        $pure-white;
+$hero-static-heading-color:                     $base-text-color;
+$hero-static-text-color:                        $base-text-color;
+
+// Tabs
+$tab-header-background:                         map-get($colors_map, slate-200);
+$tab-header-background-alt:                     #EEEEEE;
+$tab-header-background-hover:                   $link-hover;
+$tab-header-background-active:                  $pure-white;
+$tab-header-border-color:                       map-get($colors_map, grey-400);
+$tab-header-text-color:                         $base-text-color;
+$tab-header-text-color-hover:                   $text-white;
+$tab-header-active-color:                       map-get($colors_map, primary-700);
+$tab-header-arrow-background:                   map-get($colors_map, slate-300);
+$tab-header-arrow-background-hover:             $link-hover;
+$tab-header-arrow-color:                        $base-text-color;
+$tab-header-arrow-color-hover:                  $text-white;
+$tab-content-background:                        $pure-white;
+
+// New styles end ==============================================================================================
+
+// Existing styles =============================================================================================
+
+// Base
+$base-background:                               #FFFFFF;
+$base-background-alt:                           map-get($colors_map, slate-50);
+
+$base-border-color:                             #BEBEBE;
+
+$selection-background:                          #000000;
+$selection-text-color:                          #FFFFFF;
+
+
+// Accents
+$number-switch:(
+  1: "primary",
+  2: "secondary"
+);
+
+@mixin color-gradient($deg, $color1, $color2, $gradient2:null, $split: null) {
+  @if $split == null {
+    @if $gradient2 == null {
+      background-image: linear-gradient($deg, $color1 0%, $color2 51%, $color1 100%);
+    }
+    @else {
+      background-image: linear-gradient($deg, $color1 0%, $color2 51%, $color1 100%), $gradient2;
+    }
+  }
+
+  @else {
+    @if $split == "col" {
+      background-image: linear-gradient($deg, $color1 0%, $color1 24%, $color2 51%, $color2 100%)
+    }
+  }
+
+}
+
+/* $colors format
+
+# Summary
+  The $colors array allows you to specific individual colors for all scenarios for a given accent type
+ 
+# Type: site/promo/shade (text)
+  Site are accent types such as culture or libraries
+  Promo are specific brands such as microbit
+  Shade are non-specific accents like white/grey/black
+
+# Match: primary/secondary (text)
+  Determines which accent color is used for light or dark backgrounds
+
+# Background: primary/secondary (color)
+  Set the BG ccent color for primary/secondary
+
+# Tag (color)
+  Set the background color for tags
+
+# Link (color)
+  Set the default link colors when using type specific accents, such as er-link-libraries. Also used for non-solid buttons
+
+# Button (color)
+  Set the button background, hover and text color
+
+# Text (color)
+  Set the default text color when on an accent background
+
+# BG_Link/BG_Hover (color)
+  Set the link color when on an accent background
+
+*/
+
+$color-gradient-color:                          #FFFFFF;
+
+$color-gradient-50-bg:                          linear-gradient(180deg, transparent 0%, transparent 50%, #FFFFFF 50%, #FFFFFF 100%);
+$color-gradient-50-bg-alt:                      linear-gradient(180deg, transparent 0%, transparent 50%, $base-background-alt 50%, $base-background-alt 100%);
+
+$color-gradient-white:                          linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255,255,255,0.001) 50%);
+$color-gradient-white-hover:                    linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255,255,255,0.001) 50%, rgba(255, 255, 255, 1) 51%);
+
+$color-gradient-grey:                           linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0,0,0,0.3) 50%);
+
+// Page Surround
+$pagesurround-background:                       $base-background;
+
+// Top
+$messages-background:                           #343434;
+$messages-text-color:                           #FFFFFF;
+
+// System Messages and Alerts
+$warning-color:                                 #C09853;
+$error-color:                                   #B94A48;
+$info-color:                                    #3A87AD;
+$success-color:                                 #468847;
+
+// Typography
+$rule-color:                                    $base-border-color;
+$code-text-color:                               #C7254E;
+$code-background:                               #F9F2F4;
+$code-background-alt:                           #FFFFFF;
+$pre-text-color:                                #237794;
+$pre-background:                                #F6F6F6;
+$pre-background-alt:                            #FFFFFF;
+$pre-border-color:                              #E4E4E4;
+$color-check:                                   $corp-green-bg;
+$color-cross:                                   #EE0E11;
+
+// Blockquote
+$blockquote-background:                         transparent;
+$blockquote-text-color:                         #707070;
+$blockquote-icon-color:                         #D9D9D9;
+
+// Button
+$primary-button-accent:                         dark;
+$primary-alt-accent:                            offwhite;
+$button-gradient-inset-background:              #FFFFFF;
+$box-shadow-color:                              rgba(0, 0, 0, 0.25);
+
+// Offcanvas
+$offcanvas-background:                          #FFFFFF;
+$offcanvas-text-color:                          #000000;
+$offcanvas-text-color-hover:                    #FFFFFF;
+$offcanvas-toggle-color:                        #000000;
+$offcanvas-toggle-color-open:                   #000000;
+$offcanvas-background-overlay:                  rgba(0,0,0, 0.5);
+$offcanvas-background-hover:                    #000000;
+$offcanvas-background-active:                   #000000;
+
+// Accessibility
+$accessibility-background:                      #FFFFFF;
+$accessibility-text-color:                      #000000;
+
+// Navigation
+$navigation-background:                         map-get($colors_map, slate-100);
+$navigation-text-color:                         $nass-green;
+$navigation-text-color-hover:                   map-get($colors_map, primary-900);
+
+// Bottom
+$bottom-background:                             map_get($colors_map, slate-900);;
+$bottom-border-bg:                              #000000;
+$bottom-text-color:                             #FFFFFF;
+$bottom-link-color-hover:                       yellow;
+
+// Footer
+$footer-background:                             map-get($colors_map, grey-800);
+$footer-border-color:                           rgba(255,255,255,0.15);
+$footer-text-color:                             $text-white;
+$footer-link-color-hover:                       yellow;
+
+// Copyright
+$copyright-background:                          $corp-green-bg;
+$copyright-text-color:                          #FFFFFF;
+$copyright-link-color-hover:                    yellow;
+
+// Shadows
+$base-box-shadow:                               2px 12px 24px #FFF, -12px -12px 24px #D0D2D3;
+
+// Pagination
+$pagination-background:                         #FFFFFF;
+$pagination-border-color:                       #E2E2E2;
+
+// Print
+$print-background:                              #FFFFFF;
+$print-color:                                   #000000;
+
+// Lists
+$list-checks-background:  #E6FFF3;
+$list-checks-color:       #009952;

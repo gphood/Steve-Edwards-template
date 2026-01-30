@@ -1,0 +1,167 @@
+body:not([data-page="cookies"]).eryc-cookie-body {
+  position: fixed;
+}
+
+#cookie-banner {
+
+  *:not(i) {
+    font-family: get-font-family($font-family-default), "Arial";
+    letter-spacing: 0;
+    text-transform: inherit;
+  }
+
+  li {
+    &:before {
+      display: none;
+    }
+  }
+
+  .cookie-title {
+    @include breakpoint(mobile-only) {
+      font-size: 24px;
+    }
+  }
+
+  &.inline {
+    position: relative !important;
+    transform: none !important;
+  }
+
+}
+
+.cookie-trigger {
+  i {
+    margin-right: 0.25rem;
+  }
+}
+
+  #cookie-tabs & {
+}
+
+#cookie-tabs {
+
+  .cookie-padding {
+    padding-bottom: 1.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+  }
+
+  .cookie-border-bottom {
+    border-bottom: 0;
+  }
+
+  .cookie-bg-alt {
+    background: none
+  }
+
+  h2, h3 {
+    &:after {
+      display: none;
+    }
+  }
+
+  h2 {
+    @include breakpoint(mobile-only) {
+      font-size: 1.35rem;
+    }
+  }
+
+  h3 {
+    @include breakpoint(mobile-only) {
+      font-size: 1.25rem;
+    }
+  }
+
+  p {
+    @include breakpoint(mobile-only) {
+      font-size: 1rem;
+    }
+  }
+
+  .position {
+    padding-top: 0;
+  }
+
+  .tab {
+    
+    @include breakpoint(mobile-only) {
+      flex-basis: auto;
+    }
+
+    .inner {
+      @include breakpoint(mobile-only) {
+        padding: 1.25rem 1rem;
+      }
+    }
+
+    
+    i, .title {
+    
+      @include breakpoint(mobile-only) {
+        font-size: 1.125rem;
+      }
+    
+      @include breakpoint(sm-mobile-range) {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.cookie-trigger {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  @include breakpoint(mobile-only) {
+    display: block;
+    margin-left: 0 !important;
+    margin-right: 0;
+    margin-bottom: 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+}
+
+.cookie-heading {
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.cookie-group-checkbox {
+  display: flex;
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+
+  input {
+    left: -9999px;
+    position: absolute;
+  }
+
+  :checked + label:before {
+    content: "\f14a";
+    font-weight: bold
+  }
+
+  &.necessary {
+    filter: grayscale(1);
+  }
+}
+
+.cookie-check-btn {
+  align-items: center;
+  display: flex;
+  margin: 0;
+
+  &:before {
+    content: "\f0c8";
+    display: block;
+    font-family: "Font Awesome 6 Pro";
+    font-weight: 400;
+    margin-right: 0.5rem;
+  }
+
+}

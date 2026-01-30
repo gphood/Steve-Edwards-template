@@ -1,0 +1,386 @@
+$accordion-class-particle:              '.accordion-container';
+$accordion-class-particle-open:         $accordion-class-particle + ' .accordion.open';
+$accordion-class-particle-closed-meta:  $accordion-class-particle + ' .accordion.closed.meta-active';
+
+a.accordion-header {
+  #{$accordion-class-particle} & {
+    display: flex;
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 500;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-left: solid 4px $accordion-header-border-left-accent;
+
+    &.closed {
+      span, h1, h2, h3, h4, h5, h6, .open-close-text, .arrow {
+        color: $accordion-header-color;
+      }
+    }
+
+    &.closed:hover {
+      border-left: solid 4px $accordion-header-border-left-hover-accent;
+      background: $accordion-header-background-accent-hover !important;
+
+      span, h1, h2, h3, h4, h5, h6, .open-close-text, .arrow {
+        color: $accordion-header-parent-hover-text-accent;
+      }
+    }
+
+    @include breakpoint(mobile-only) {
+      font-size: 20px;
+      padding: 16px;
+    }
+
+    &:hover, &:focus, &.open {
+      [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+        background: $accordion-header-background-accent !important;
+      }
+    }
+
+    &.open {
+      span, h2, h3, h4 {
+        &.title {
+          color: $accordion-open-text;
+        }
+      }
+    }
+
+    span, h2, h3 {
+      &.title {
+        margin: 0;
+        font-weight: 500;
+
+        .title-text {
+          align-items: baseline;
+          display: flex;
+
+          p {
+            margin: 0;
+            font-size: 24px;
+            line-height: 32px;
+
+            @include breakpoint(mobile-only) {
+              font-size: 20px;
+              line-height: 28px;
+            }
+          }
+
+          > i {
+            margin-right: 8px;
+            text-align: center;
+            width: 1em;
+
+            &:not([class*="accent-"]) {
+
+              [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+                background: none !important;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.open {
+      background-color: $accordion-background-open;
+      color: $accordion-open-text;
+      border-bottom-color: $accordion-background-open;
+
+      [data-layout-section="i-content"] & {
+        background-color: map-get($colors_map, slate-800);
+        border-bottom-color: map-get($colors_map, slate-800);
+        border-left-color: map-get($colors_map, slate-800);
+      }
+
+      &:hover, &:focus {
+        [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+          background: $accordion-header-background-accent-hover !important;
+        }
+      }
+    }
+
+    &.closed {
+      background: $accordion-header-background-accent !important;
+
+      &:hover, &:focus {
+
+        ~ .accordion-meta {
+
+          [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+            background: $accordion-header-background-accent !important;
+          }
+
+        }
+
+      }
+    }
+
+  }
+
+  #{$accordion-class-particle-open} > & {
+    > .arrow {
+      transform: rotate(135deg);
+    }
+
+  }
+
+  #{$accordion-class-particle-closed-meta} > & {
+    padding-bottom: 0;
+  }
+
+  .subtitle {
+    display: block;
+  }
+
+}
+
+.accordion-container {
+
+  &:not([class*="size-"]) {
+    max-width: $standard-content-width;
+  }
+
+  $selector: &;
+
+  .accordions {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .accordion {
+    background: $accordion-background;
+    flex-basis: 100%;
+    margin: 8px 0;
+    border-bottom: solid 2px $accordion-header-border-bottom-accent;
+
+    &:first-child {
+      margin: 0 0 8px;
+    }
+
+    &.open {
+      border-bottom: none;
+    }
+
+    .accordion-content {
+      border-left: solid 2px $accordion-content-border-accent;
+      border-right: solid 2px $accordion-content-border-accent;
+      border-bottom: solid 2px $accordion-content-border-accent;
+
+      [data-layout-section="i-content"] & {
+        border-left: solid 2px map-get($colors_map, slate-300);
+        border-right: solid 2px map-get($colors_map, slate-300);
+        border-bottom: solid 2px map-get($colors_map, slate-300);
+        background: map-get($colors_map, grey-50);
+      }
+    }
+
+    [class*="body-bg-alt"] & {
+      background: $accordion-background-alt;
+    }
+
+    .tabs & {
+      background: $accordion-background;
+    }
+
+    [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+      background: $accordion-background-accent;
+    }
+
+  }
+
+  .child {
+    margin: 16px 0;
+
+    .accordion {
+      border-bottom: none;
+      
+      .accordion-header {
+        background: $accordion-child-header-bg-accent !important;
+        color: $accordion-child-header-text-accent !important;
+        border-left: solid 4px $accordion-child-header-border-left-accent;
+
+        span, h2, h3, h4 {
+          &.title {
+            color: $accordion-child-header-text-accent;
+          }
+        }
+
+        &.open {
+          border-left: solid 4px $accordion-child-header-bg-accent;
+          color: $text-white;
+        }
+
+        &.closed {
+          background: $accordion-child-header-bg-closed-accent !important;
+          color: $accordion-child-header-text-closed-accent !important;
+
+          &:hover {
+            background: $accordion-child-header-bg-closed-hover-accent !important;
+          }
+        }
+      }
+    }
+
+    .accordion-content {
+      border-left: solid 2px $accordion-child-header-bg-accent;
+      border-right: solid 2px $accordion-child-header-bg-accent;
+      border-bottom: solid 2px $accordion-child-header-bg-accent;
+    }
+  }
+
+  .content {
+    display: none;
+    padding: 24px;
+
+    @include breakpoint(mobile-only) {
+      padding: 16px;
+
+      #cookie-tabs & {
+        padding-top: 16px;
+      }
+    }
+
+  }
+
+  .subtitle {
+    font-size: 0.8em;
+  }
+
+  .icon-active {
+    > .subtitle {
+      padding-left: calc(16px/0.8 + 8px);
+    }
+  }
+
+  .arrow {
+    align-items: center;
+    display: flex;
+    font-style: normal;
+    margin-left: 8px;
+    transition: 0.3s transform;
+    position: relative;
+
+    [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+        background: none !important;
+    }
+
+    &:after {
+      content: "\f067";
+    }
+    &:before, &:after {
+      font-family: "Font Awesome 6 Pro";
+      font-weight: 400;
+    }
+  }
+
+  .desc {
+    &.accordion-extra-desc {
+      margin-top: 8px;
+
+      table:last-child {
+        margin-bottom: 48px;
+      }
+
+      &:last-child {
+        table:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.accordion-child.accordion {
+  .accordion & {
+    background: $accordion-child-background-alt;
+
+    [class*="body-bg-alt"] & {
+      background: $accordion-child-background;
+    }
+
+    [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+      background: $accordion-child-background-accent;
+    }
+
+  }
+}
+
+.accordion-meta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 16px 24px;
+  padding-top: 0;
+  position: relative;
+  transition: 0.3s;
+
+  @include breakpoint(mobile-only) {
+    padding: 0 16px 16px;
+  }
+
+  #{$accordion-class-particle-open} & {
+    margin-top: 0;
+    padding-top: 16px;
+  }
+
+  &:before {
+    background: $accordion-meta-divider;
+    content: "";
+    height: 0;
+    left: 24px;
+    position: absolute;
+    top: 0;
+    width: calc(100% - (24px * 2));
+
+    [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+        background: $accordion-meta-divider-acccent;
+    }
+
+    #{$accordion-class-particle-open} > & {
+      height: 1px;
+    }
+
+  }
+}
+
+.accordion-last-updated {
+  color: $accordion-date-color;
+  display: flex;
+  font-size: 12px;
+}
+
+.accordion-date-lbl {
+  color: $accordion-date-color-label;
+  font-weight: 300;
+  padding-right: 4px;
+
+  [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+    color: inherit;
+  }
+}
+
+.accordion-tags {
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 -4px;
+  margin-bottom: 8px;
+  display: none;
+}
+
+.accordion-tag {
+  background: $accordion-tag-background;
+  border-radius: 20px;
+  color: $accordion-tag-text-color;
+  font-size: 13px;
+  padding: 4px 12px;
+  margin: 4px;
+}
+
+.accordion-tools {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}

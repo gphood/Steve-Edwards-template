@@ -1,0 +1,59 @@
+name: Accessibility
+description: Display Accessibility Bar.
+type: particle
+icon: fa-universal-access
+
+configuration:
+  caching:
+    type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable particle.
+      default: true
+
+    class:
+      type: input.selectize
+      label: CSS Classes
+      description: CSS class name for the particle.
+
+    text:
+      type: input.text
+      label: Accessibility Link Text
+      description: Link text for the accessibility statement
+
+    link:
+      type: input.text
+      label: Accessibility Link URL
+      description: Link url for the accessibility statement
+
+    items:
+      type: collection.list
+      array: true
+      label: Links
+      description: Create a list of jump links.
+      value: name
+      ajax: true
+
+      fields:
+        .name:
+          type: input.text
+        .class:
+          type: input.selectize
+          label: CSS Classes
+          description: CSS class name for the card.
+        .text:
+          type: input.text
+          label: Text
+          description: Enter the link text
+        .linkid:
+          type: input.text
+          label: Link ID
+          description: ID to jump to
+        .linkidBackup:
+          type: input.text
+          label: Backup Link ID
+          description: ID to jump to if the first isn't present

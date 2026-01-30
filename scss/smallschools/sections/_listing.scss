@@ -1,0 +1,138 @@
+#g-listing {
+  .listing-container {
+    margin-top: 48px;
+    margin-bottom: 48px;
+    .parent-container {
+      .parent-heading {
+        margin-bottom: 24px;
+
+        h2 {
+          display: inline-block;
+          padding: 4px 16px;
+          margin-bottom: 28px;
+          background: map-get($colors_map, neutral-400);
+          color: map-get($colors_map, neutral-100);
+        }
+      }
+      .parent-image {
+        float: right;
+        margin: 0 0 16px 16px;
+        border-left: 24px solid #fff;
+        max-width: 500px;
+
+        @media screen and (max-width: 960px) {
+          max-width: 400px;
+        }
+
+        @media screen and (max-width: 767px) {
+          float: none;
+          border: none;
+          display: block;
+          margin: 0 auto 16px;
+          max-width: 100%;
+        }
+      }
+      .parent-content-container {
+        display: flex;
+        flex-direction: row;
+
+        .parent-text-container {
+          .parent-description {
+
+          }
+          .parent-additional-info {
+
+          }
+        }
+      }
+
+      .parent-listings {
+        .parent-listing-item {
+
+        }
+      }
+    }
+
+    .child-container {
+      & + .child-container {
+        margin-top: 24px;
+        border-top: solid 1px lightgrey;
+        padding-top: 24px;
+      }
+      .child-heading {
+        h3 {
+
+        }
+      }
+      .child-image {
+        float: right;
+        margin: 0 0 16px 16px;
+        max-width: 500px;
+
+        @media screen and (max-width: 960px) {
+          max-width: 400px;
+        }
+
+        @media screen and (max-width: 767px) {
+          float: none;
+          display: block;
+          margin: 0 auto 16px;
+          max-width: 100%;
+        }
+      }
+
+      .child-content-container {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        margin-bottom: 28px;
+
+        .child-text-container {
+          .child-description {
+            p {
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+          }
+          & + .child-additional-info {
+            margin-top: 24px;
+          }
+          .child-additional-info {
+
+          }
+        }
+      }
+
+      .child-listings {
+        .child-listing-item {
+          .listing-name {
+            font-weight: 700;
+            &:after {
+              content: '-';
+              padding-left: 4px;
+            }
+          }
+          .listing-details {
+
+          }
+          .listing-price {
+            font-weight: 600;
+          }
+          .listing-price + .listing-additional-details {
+            &:before {
+              content: '-';
+              padding-right: 4px;
+            }
+          }
+          .listing-additional-details {
+
+          }
+          .listing-additional-price {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

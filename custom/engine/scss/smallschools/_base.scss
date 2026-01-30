@@ -1,0 +1,7 @@
+// Base file to load all SCSS variables/includes
+
+// Import variables only (no compiled CSS)
+@import "base-configuration";
+
+// Import includes only (compiled CSS)
+@import "base-includes";

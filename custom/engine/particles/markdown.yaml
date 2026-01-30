@@ -1,0 +1,53 @@
+name: Markdown
+description: Display custom markdown block.
+type: particle
+icon: fa-code
+
+configuration:
+  caching:
+    type: config_matches
+    values:
+      twig: '0'
+      filter: '0'
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable the particle.
+      default: true
+
+    class:
+      type: input.selectize
+      label: CSS Classes
+      description: Enter CSS class names.
+      default:
+
+    variations:
+      type: input.block-variations
+      label: Variations
+      description: Enter Theme Variations.
+      default:
+
+    background:
+      type: input.imagepicker
+      label: Background
+
+    html:
+      type: textarea.textarea
+      label: Custom Markdown
+      description: Enter custom markdown into here.
+      overridable: false
+
+    twig:
+       type: input.checkbox
+       label: Process Twig
+       description: Enable Twig template processing in the content. Twig will be processed before shortcodes.
+       default: '0'
+
+    filter:
+      type: input.checkbox
+      label: Process shortcodes
+      description: Enable shortcode processing / filtering in the content.
+      default: '0'

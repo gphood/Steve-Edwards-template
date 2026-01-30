@@ -1,0 +1,42 @@
+section {
+  &:not(.body-bg-alt):not([class*="er-bg-"]) {
+    + #g-join {
+      background: $base-background-alt;
+    }
+  }
+}
+
+#g-join {
+
+  .g-container, .g-content {
+    @include breakpoint(mobile-only) {
+      padding: 0 !important;
+    }
+  }
+
+  .g-content {
+
+    > div {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 5rem;
+
+      @include breakpoint(mobile-only) {
+        border-radius: 0;
+        padding: 3rem 1.5rem;
+      }
+    }
+
+  }
+}
+
+@media print {
+  #g-join {
+    background: $print-background !important;
+    color: $print-color !important;
+
+    display: none;
+  }
+}

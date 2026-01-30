@@ -1,0 +1,198 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/default.png'
+  name: default
+  timestamp: 1558602532
+layout:
+  messages: {  }
+  accessibility: {  }
+  /banner/: {  }
+  header:
+    -
+      - markdown-5997
+  /tagline/: {  }
+  promo: {  }
+  hero: {  }
+  row-1: {  }
+  row-2: {  }
+  row-3: {  }
+  row-4: {  }
+  row-5: {  }
+  row-6: {  }
+  row-7: {  }
+  row-8: {  }
+  row-9: {  }
+  row-10: {  }
+  /bottom/: {  }
+  /footer/: {  }
+  footer-copyright: {  }
+  offcanvas: {  }
+structure:
+  messages:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  accessibility:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  banner:
+    type: section
+    attributes:
+      boxed: '3'
+      class: ''
+      variations: ''
+      background: ''
+  header:
+    inherit:
+      outline: default
+      include:
+        - attributes
+  tagline:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  promo:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  hero:
+    type: section
+    inherit:
+      outline: _offline
+      include:
+        - attributes
+        - block
+        - children
+  row-1:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-2:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-3:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-4:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-5:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-6:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-7:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-8:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-9:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-10:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  bottom:
+    type: section
+    attributes:
+      boxed: '3'
+      class: ''
+      variations: ''
+      background: ''
+  footer:
+    attributes:
+      boxed: ''
+      class: ''
+      variations: 'section-padding max-width-large'
+      background: ''
+  footer-copyright:
+    title: Copyright
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  offcanvas:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+content:
+  markdown-5997:
+    title: Logo
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+      particle: markdown-1199

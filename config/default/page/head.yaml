@@ -1,0 +1,86 @@
+meta: {  }
+head_bottom: ''
+atoms:
+  -
+    id: cookiebanner-5462
+    type: cookiebanner
+    title: 'Cookie Banner'
+    attributes:
+      enabled: '1'
+      css_external: '0'
+      list_site: '1'
+      list_cookies: '1'
+      cookies:
+        - { summary: 'Site Search', type: session, expires: '10 mins', purpose: 'A technical cookie to help enable the site search.', link: '', necessary: 'Yes', disable: '0', name: ssi--lastInteraction }
+        - { summary: 'Site Search', type: session, expires: '1 year', purpose: 'A technical cookie to help enable the site search.', link: '', necessary: 'Yes', disable: '0', name: ssi--sessionId }
+        - { summary: 'Cookie consent', type: session, expires: '1 year', purpose: 'Stores cookie consent preferences.', link: '', necessary: 'Yes', disable: '0', name: eryc_cookie_consent }
+        - { summary: Hotjar, type: session, expires: '30 mins', purpose: 'Used to detect the first pageview session of a user.', link: 'https://help.hotjar.com/hc/en-us/articles/115011789248-Hotjar-Cookie-Information', necessary: 'No, however used for statistics and feedback.', disable: '0', name: _hjAbsoluteSessionInProgress }
+        - { summary: Hotjar, type: session, expires: '30 mins', purpose: 'Ensures subsequent requests in the session window are attributed to the same session.', link: 'https://help.hotjar.com/hc/en-us/articles/115011789248-Hotjar-Cookie-Information', necessary: 'No', disable: '0', name: '_hjSession_#' }
+        - { summary: Hotjar, type: session, expires: Session, purpose: 'Identifies a new user''s first session.', link: 'https://help.hotjar.com/hc/en-us/articles/115011789248-Hotjar-Cookie-Information', necessary: 'No, however used for statistics and feedback.', disable: '0', name: _hjFirstSeen }
+        - { summary: Hotjar, type: session, expires: '30 mins', purpose: 'Set to determine if a user is included in the data sampling defined by your site''s pageview limit.', link: 'https://help.hotjar.com/hc/en-us/articles/115011789248-Hotjar-Cookie-Information', necessary: 'No, however used for statistics and feedback.', disable: '0', name: _hjIncludedInPageviewSample }
+        - { summary: Hotjar, type: session, expires: '1 year', purpose: 'Stores unique site user ID to allow data to be attributed to the same user.', link: 'https://help.hotjar.com/hc/en-us/articles/115011789248-Hotjar-Cookie-Information', necessary: 'No, however used for statistics and feedback.', disable: '0', name: '_hjSessionUser_#' }
+        - { summary: 'Google Analytics', type: session, expires: '2 years', purpose: 'To identify unique users', link: '', necessary: 'No, however used for statistics.', disable: '0', name: _ga }
+        - { summary: 'Google Analytics', type: session, expires: '1 day', purpose: 'To identify unique users', link: '', necessary: 'No, however used for statistics and feedback.', disable: '0', name: _gid }
+        - { summary: 'Switcher tabs user preference', type: persistent, expires: '365 days', purpose: 'To sort user preferences of switcher tab chosen', link: '', necessary: 'No, however used to store preferences', disable: '0', name: 'eryc_switcher_pref_*' }
+      heading_popup: '0'
+      class_accept_popup: ''
+      class_reject_popup: ''
+      class_checkbox_popup: ''
+      class_save_popup: ''
+      class_h2_popup: ''
+      class_h3_popup: ''
+      class_h4_popup: ''
+      class_h5_popup: ''
+      heading_page: '1'
+      class_accept_page: er-btn-primary
+      class_reject_page: er-btn-warning
+      class_checkbox_page: ''
+      class_save_page: er-btn-cta
+      class_h2_page: ''
+      class_h3_page: ''
+      class_h4_page: ''
+      class_h5_page: ''
+  -
+    id: googletagmanager-3588
+    type: googletagmanager
+    title: 'Google Tag Manager'
+    attributes:
+      enabled: '1'
+      gtm:
+        code: GTM-WDD4N7J
+  -
+    id: frameworks-7000
+    type: frameworks
+    title: 'JavaScript Frameworks'
+    attributes:
+      enabled: '1'
+      jquery:
+        enabled: '1'
+        ui_core: '1'
+        ui_sortable: '0'
+      bootstrap:
+        enabled: '0'
+      mootools:
+        enabled: '0'
+        more: '0'
+  -
+    id: assets-6645
+    type: assets
+    title: 'Custom CSS / JS'
+    attributes:
+      enabled: '1'
+      css:
+        - { location: 'https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.min.css', inline: '', extra: {  }, priority: '0', name: 'jQuery UI' }
+        - { location: //embed.typeform.com/next/css/popup.css, inline: '', extra: {  }, priority: '0', name: Typeform }
+      javascript:
+        - { location: 'https://code.jquery.com/ui/1.13.0/jquery-ui.min.js', inline: '', in_footer: '0', extra: [{ integrity: sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA= }, { crossorigin: anonymous }], priority: '0', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: 'jQuery UI' }
+        - { location: 'gantry-assets://custom/js/jquery.smooth-scroll.js', inline: "(function ($) {\n  $('#g-page-surround > :not(#g-accessibility) a:not(.accordion-header):not(.switcher-tab)').smoothScroll({\n    afterScroll: function(options) {\n      window.location.hash = options.scrollTarget.replace('#', '');\n      $(window).trigger('smoothScrollFinished');\n    }\n  });\n})(jQuery)", in_footer: '1', extra: {  }, priority: '0', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: SmoothScroll }
+        - { location: 'gantry-assets://custom/js/responsive-class.js', inline: '', in_footer: '1', extra: {  }, priority: '0', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: 'Responsive Classes' }
+        - { location: 'gantry-assets://js/querystring.js', inline: '', in_footer: '0', extra: {  }, priority: '0', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: 'Query String' }
+        - { location: 'gantry-assets://js/dateFormat.js', inline: '', in_footer: '1', extra: {  }, priority: '0', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: 'Date Formatter' }
+        - { location: 'gantry-assets://js/modal.js', inline: '', in_footer: '1', extra: {  }, priority: '0', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: Modal }
+        - { location: 'gantry-assets://js/custom.js', inline: '', in_footer: '1', extra: {  }, priority: '0', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: Custom }
+        - { location: 'gantry-assets://custom/js/stacktable.min.js', inline: "(function ($) {\n  $('table:not(.stacktable, .ui-datepicker-calendar)').stacktable();\n  $(document).on('eryc-cookie-html-init', function(){\n   $('table:not(.stacktable, .ui-datepicker-calendar)').stacktable();\n  })\n})(jQuery)", in_footer: '1', extra: {  }, priority: '-10', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: Stacktable }
+        - { location: //embed.typeform.com/next/embed.js, inline: '', in_footer: '1', extra: {  }, priority: '-10', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: Typeform }
+        - { location: 'https://cdn.sitesearch360.com/v13/sitesearch360-v13.min.js', inline: '', in_footer: '1', extra: [{ async: '' }], priority: '0', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: SiteSearch360 }
+        - { location: 'gantry-assets://js/tmpl/ss360/intranet.js', inline: '', in_footer: '1', extra: {  }, priority: '0', cookie_only: '0', cookieName: '', cookieValue: '', cookieValueSearch: contains, name: 'SiteSearch360 - Config (Intranet)' }

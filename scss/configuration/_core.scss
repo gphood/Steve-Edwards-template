@@ -1,0 +1,16 @@
+// Content Block Spacing Variables
+$content-margin:			24px !default;
+$content-padding:			24px !default;
+
+// Section padding
+$section-padding:         24px !default;
+$section-padding-mobile:  16px !default;
+
+// Max widths
+$max-widths: (
+  "large":    1280,
+  "1080":     1080,
+  "default":  900,
+  "small":    750,
+  "narrow":   600,
+);

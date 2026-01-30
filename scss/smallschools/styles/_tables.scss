@@ -1,0 +1,174 @@
+table,
+.table {
+  margin: 24px 0 48px;
+
+  @include breakpoint(mobile-only) {
+    margin: 24px 0;
+  }
+
+  &:first-child {
+    &:not(.stacktable):not(.small-only) {
+      margin-top: 0;
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.small-only {
+    @include breakpoint(no-mobile) {
+      display: none;
+    }
+  }
+
+  &.large-only {
+    @include breakpoint(mobile-only) {
+      display: none;
+    }
+  }
+}
+
+table {
+  &.width-auto {
+    width: auto;
+  }
+}
+
+th,
+.thead .col {
+  background: $table-th-background;
+  color: $table-th-text-color;
+  font-weight: 700;
+  padding: 16px;
+  border-bottom: solid 1px $table-th-border-color;
+
+  @include breakpoint(mobile-only) {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 12px;
+  }
+}
+
+tr {
+  th {
+    &.st-head-row {
+      @include breakpoint(mobile-only) {
+        background: transparent;
+        color: $base-text-color;
+        border-bottom: none;
+
+        &.st-head-row-main {
+          background: $table-th-background;
+          color: $table-th-text-color;
+        }
+      }
+    }
+  }
+}
+
+
+td,
+.tbody .col {
+  padding: 16px;
+
+  @include breakpoint(mobile-only) {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 12px;
+  }
+
+}
+
+tr,
+.tbody .row {
+  background: $table-background;
+
+  &:nth-child(odd) {
+    background: $table-background-alt;
+  }
+
+}
+
+.table-title {
+  font-weight: 900;
+  margin-bottom: 0;
+  padding: 24px 16px 12px;
+  text-transform: uppercase;
+
+  + .caption {
+    margin-top: 0;
+  }
+}
+
+caption,
+.table .caption {
+  font-weight: 700;
+  margin-bottom: 0;
+  padding: 24px 16px 12px 16px;
+  text-align: left;
+
+  &:not(h4):not(h3) {
+    font-size: 32px;
+
+    @include breakpoint(mobile-only) {
+      font-size: $h3-font-size-mobile;
+    }
+
+  }
+}
+
+.table {
+
+  .row {
+    display: flex;
+    @include breakpoint(mobile-only) {
+      flex-wrap: wrap;
+      padding: 16px 0;
+    }
+  }
+
+  .col {
+    &:not([class*="size-"]) {
+      flex: 1;
+    }
+
+    @include breakpoint(mobile-only) {
+      font-size: 16px;
+    }
+
+    &:first-child {
+
+      @include breakpoint(mobile-only) {
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+
+  }
+
+  &:not(.custom-mobile) {
+
+    .col {
+
+      &:not(:last-child) {
+        @include breakpoint(mobile-only) {
+          padding-bottom: 0;
+        }
+      }
+
+    }
+
+  }
+
+}
+
+.tbl-th-inline-mobile {
+  @include breakpoint(no-mobile) {
+    display: none;
+  }
+
+  font-weight: 500;
+  margin-right: 16px;
+  min-width: 48px;
+}

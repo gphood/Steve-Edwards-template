@@ -1,0 +1,193 @@
+@mixin linkFormat() {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  text-decoration: none;
+  font-weight: 600;
+  padding-bottom: 0;
+}
+
+@mixin link-style-hover($color, $important) {
+  border-bottom-width: 2px;
+  border-bottom-color: $link-hover#{$important};
+  color: $color#{$important};
+}
+
+@mixin link-style($color, $hover, $important) {
+  @include linkFormat();
+  border-bottom-color: $color#{$important};
+  color: $color#{$important};
+
+  &:hover {
+    @include link-style-hover($hover, $important);
+  }
+
+  &:active, &:focus {
+    outline: 0;
+    -moz-outline-style: none;
+    color: $link-active;
+    border-bottom-width: 2px;
+    border-bottom-color: $link-active;
+  }
+
+  &:focus {
+    background: $link-active-background;
+  }
+}
+
+a {
+  color: $link-regular;
+
+  &:hover {
+    color: $link-hover
+  }
+
+  &:active, &:focus {
+    &:not([class*="btn-"]) {
+      outline: 0;
+      -moz-outline-style: none;
+      color: $link-active;
+      border-bottom-width: 2px;
+      border-bottom-color: $link-active;
+    }
+  }
+
+  &:focus {
+    background: $link-active-background;
+  }
+
+  #{$link-classes} & {
+    &#{$link-classes-a} {
+      @include link-style($link-regular, $link-hover, null);
+    }
+  }
+
+  &[href*="@"] {
+    word-break: break-all;
+  }
+
+  &:not([class^="btn-"]):not([class^="asset-link"]) {
+    &[href$=".pdf"],
+    &[href$=".doc"],
+    &[href$=".docx"],
+    &[href$=".xls"],
+    &[href$=".xlsx"],
+    &[href$=".ppt"],
+    &[href$=".pptx"] {
+      position: relative;
+      margin-left: 24px;
+
+      &:before {
+        font-family: "Font Awesome 6 Duotone";
+        margin-right: 8px;
+        position: absolute;
+        left: -24px;
+        top: 0;
+      }
+
+      &:after {
+        font-family: "Font Awesome 6 Duotone";
+        color: rgba(0,0,0,.2);
+        opacity: var(--fa-secondary-opacity, .4);
+        position: absolute;
+        left: -24px;
+        top: 0;
+      }
+
+      i.fa-file-pdf + &,
+      i.fa-file-word + &,
+      i.fa-file-excel + &,
+      i.fa-file-powerpoint + &{
+        margin-left: 0;
+
+        &:before, &:after {
+          display: none;
+        }
+      }
+    }
+
+    &[href$=".pdf"] {
+      &:before {
+        content: "\f1c1";
+        color: map-get($colors_map, error-400);
+      }
+      &:after {
+        content: "\10f1c1";
+      }
+    }
+    &[href$=".doc"], &[href$=".docx"] {
+      &:before {
+        content: "\f1c2";
+        color: map-get($colors_map, info-400);
+      }
+      &:after {
+        content: "\10f1c2";
+      }
+    }
+    &[href$=".xls"], &[href$=".xlsx"] {
+      &:before {
+        content: "\f1c3";
+        color: map-get($colors_map, primary-500);
+      }
+      &:after {
+        content: "\10f1c3";
+      }
+    }
+    &[href$=".ppt"], &[href$=".pptx"] {
+      &:before {
+        content: "\f1c4";
+        color: map-get($colors_map, violet-500);
+      }
+      &:after {
+        content: "\10f1c4";
+      }
+    }
+  }
+
+  &.link {
+    @include link-style($link-regular, $link-hover, null);
+  }
+
+  .stacked-links & {
+    color: $base-text-color;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: $base-text-color;
+    display: flex;
+    font-size: 17px;
+    font-weight: 600 !important;
+    line-height: 24px;
+    justify-content: space-between;
+    margin-bottom: 16px !important;
+    padding-bottom: 16px !important;
+    transition: 0.3s;
+
+    &:after {
+      content: "\f061";
+      font-family: "Font Awesome 6 Pro";
+      margin-left: 16px;
+      transform: rotate(-45deg);
+    }
+
+    &:hover, &:focus {
+      color: $link-regular !important;
+      border-bottom-color: $link-regular !important;
+    }
+  }
+}
+
+[id^="logo-"] > a {
+  border: 0 !important;
+  padding-bottom: 0 !important;
+  display: block;
+}
+
+a[class*="btn-"] {
+  &:active {
+    box-shadow: none;
+    border-bottom-color: $focus-yellow;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 4px $focus-yellow;;
+  }
+}

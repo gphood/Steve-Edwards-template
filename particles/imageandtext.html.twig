@@ -1,0 +1,31 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+    {% set url = url(particle.url)|default(gantry.siteUrl()) %}
+    {% if (url == gantry.siteUrl()) %}{% set rel='rel="home"' %}{% endif %}
+    {% set image = url(particle.image) %}
+    {% set height = particle.height ? 'style="max-height: ' ~ particle.height ~ '"' %}
+    {% set imageClasses = particle.imageDropShadow ? 'drop-shadow ' : '' %}
+    {% set imageClasses = imageClasses ~ (particle.imageBorder ? 'image-border ' : '') %}
+    {% set imageClasses = imageClasses ~ (particle.imageAnimateOnLoad ? 'animate-on-load ' : '') %}
+
+    <div class="image-text-container">
+        {% if particle.textAbove %}
+            <div class="text-container text-above">
+                {{ particle.textAbove }}
+            </div>
+        {%  endif %}
+
+        <div class="{{ particle.class|raw }} {{ particle.variations|raw }} {{ imageClasses }}">
+            {% if image %}
+                <img src="{{ url(particle.image) }}" {{ height|default('')|raw }} alt="{{ particle.imageText }}" />
+            {% endif %}
+        </div>
+
+        {% if particle.textBelow %}
+            <div class="text-container text-below">
+                {{ particle.textBelow }}
+            </div>
+        {%  endif %}
+    </div>
+{% endblock %}

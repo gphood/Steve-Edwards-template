@@ -1,0 +1,97 @@
+.home-content-boxes-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+
+  @media screen and (max-width: 640px) {
+    flex-direction: column;
+  }
+
+  .home-content-box {
+    flex: 1;
+    display: flex;
+
+    &.home-content-box-left {
+      background-color: $nass-green;
+
+      .home-content-box-content {
+        margin-left: auto;
+        padding: 48px 40px 48px 0;
+
+        @media screen and (max-width: 1439px) {
+          padding: 48px 40px;
+        }
+
+        @media screen and (max-width: 767px) {
+          padding: 30px;
+        }
+
+        .text-box-link {
+          a {
+            color: lightskyblue !important;
+            border-bottom-color: lightskyblue !important;
+
+            &:hover {
+              color: lightblue !important;
+              border-bottom-color: lightblue !important;
+            }
+          }
+        }
+      }
+
+    }
+    &.home-content-box-right {
+      background-color: map-get($colors_map, orange-500);
+      .home-content-box-content {
+        margin-right: auto;
+        padding: 48px 0 48px 40px;
+
+        @media screen and (max-width: $breakpoints-desktop-container) {
+          padding: 48px 40px;
+        }
+
+        @media screen and (max-width: 767px) {
+          padding: 30px;
+        }
+      }
+    }
+
+    .home-content-box-content {
+      max-width: 640px;
+      width: 100%;
+
+      .text-box-content {
+        margin-bottom: 28px;
+      }
+
+      p, h1, h2, h3, h4, h5, h6 {
+        color: white;
+      }
+
+      p {
+        line-height: 1.7;
+      }
+
+      .text-box-title {
+        h1, h2, h3 {
+          font-weight: 600;
+        }
+      }
+
+      .text-box-link {
+        a {
+          position: relative;
+
+          &:after {
+            position: absolute;
+            font-family: "Font Awesome 6 Pro";
+            content: '\f105';
+            font-weight: 900;
+            right: -15px;
+            top: -1px;
+          }
+        }
+      }
+    }
+  }
+}

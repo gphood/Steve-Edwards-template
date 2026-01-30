@@ -1,0 +1,106 @@
+// Grid Variables
+$grid_map:      "5","10","15","20","25","30","33","35","40","45","50","55","60","65","66","70","75","80","85","90","95","100";
+$grid_unit:     "%";
+$grid_spacing:  1rem !default;
+$grid_spacing_4px: 4;
+
+// Grid Container
+.er-container {
+  width: 100%;
+  display: block;
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+// Grid Blocks
+.er-block {
+  display: block;
+}
+// Grid Widths
+@each $grid in $grid_map {
+  .size-#{$grid} {
+    @if ($grid == "33") {
+      width: 33.33334#{$grid_unit};
+    }
+    @elseif ($grid == "66") {
+      width: 66.66667#{$grid_unit};
+    }
+    @else {
+      width: #{$grid}#{$grid_unit};
+    }
+    @include breakpoint(mobile-only) {
+      width: 100%;
+    }
+  }
+}
+// Grid Spacing
+$grid_spacing_label:  "padding", "margin";
+$grid_spacing_map: "left", "right", "top", "bottom", "all","auto";
+$grid_spacing_size: 30, 20, 15;
+$grid_spacing_4px_map: (
+  1:  'xxsmall',
+  2:  'xsmall',
+  3:  'small',
+  4:  'medium',
+  5:  'big',
+  6:  'xbig',
+  7:  'xxbig',
+  8:  'xxxbig',
+  10: 'large',
+  12: 'xlarge',
+  16: 'xxlarge',
+  20: 'xxxlarge',
+  24: 'huge',
+  32: 'xhuge',
+  40: 'xxhuge',
+  48: 'xxxhuge'
+);
+
+
+@each $label in $grid_spacing_label {
+  .#{$label} {
+    #{$label}: $grid_spacing;
+  }
+  @each $size in $grid_spacing_size {
+    .#{$label}-#{$size} {
+      #{$label}: $grid_spacing / ($size / 10);
+    }
+    .#{$label}-#{$size}x {
+      #{$label}: $grid_spacing * ($size / 10);
+    }
+  }
+  @each $dir in $grid_spacing_map {
+    @if not ($dir == 'auto') {
+      .no#{$label}#{$dir} {
+        @if ($dir == "all") {
+          #{$label}: 0 !important;
+        }
+        @else {
+          #{$label}-#{$dir}: 0 !important;
+        }
+      }
+    }
+  }
+  @each $size, $size_name in $grid_spacing_4px_map {
+    .#{$label}-#{size_name} {
+      #{$label}: ($grid_spacing_4px * $size)+px;
+    }
+
+    @each $dir in $grid_spacing_map {
+      @if not ($dir == "auto") {
+        @if ($dir == "all") {
+          .#{$label}#{$dir}-#{$size_name} {
+            #{$label}: ($grid_spacing_4px * $size)+px;
+          }
+        } @else {
+          .#{$label}#{$dir}-#{$size_name} {
+            #{$label}-#{$dir}: ($grid_spacing_4px * $size)+px;
+          }
+        }
+      }
+    }
+  }
+}

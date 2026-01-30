@@ -1,0 +1,53 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+
+  <div id="{{ id }}" class="accessibility-container {{ particle.class|e }}">
+
+    <div class="jumplinks">
+      {% for item in particle.items %}
+        {% if not item.disable %}
+          <a href="#{{ item.linkid|e }}" class="{{ item.class|e}}" data-backup="#{{ item.linkidBackup|e }}">{{ item.text|e }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if particle.link %}
+    <div class="accessibility-link">
+      <a href="{{ joomla.call('JUri::root') }}{{ particle.link|e }}">{{ particle.text|e }}</a>
+    </div>
+    {% endif %}
+
+  </div>
+
+{% endblock %}
+
+{% block javascript_footer %}
+  <script type="text/javascript">
+    (function ($) {
+      $(document).ready(function() {
+
+        $('.er-accessibility .jumplinks a').each(function(){
+          if ($($(this).attr('href')).length == 0) {
+            $(this).attr('href', $(this).attr('data-backup'));
+          }
+        })
+
+        $('.er-accessibility a').focus(function(){
+          $('#g-accessibility').addClass('focus');
+        })
+
+        $('#g-page-surround > :not(#g-accessibility)').on('keydown', function(event) {
+          $('#g-accessibility').removeClass('focus');
+        });
+
+        if (Object.keys(getUrlParameters()).length > 0) {
+          $('.er-accessibility .jumplinks a').each(function(i,o){
+            $(this).attr('href', window.location.search + $(this).attr('href'));
+          })
+        }
+
+      });
+    })(jQuery)
+  </script>
+{% endblock %}

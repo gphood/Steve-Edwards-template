@@ -1,0 +1,80 @@
+.eryc-searches {
+  align-items: baseline;
+  display: flex;
+
+  .panel & {
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  [data-mode-type="more"] & {
+    display: none;
+  }
+
+  @include breakpoint(mobile-only) {
+    flex-wrap: wrap;
+  }
+
+  .search {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    margin: 0.5rem;
+
+    @include breakpoint(no-mobile) {
+      max-width: 295px;
+    }
+
+    @include breakpoint(mobile-only) {
+      flex-basis: 100%;
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  label {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-right: 0rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+
+    @include breakpoint(mobile-only) {
+      margin-right: 1rem;
+      margin-bottom: 0;
+      text-align: right;
+      width: 4.5rem;
+    }
+  }
+
+  .forms-wrapper,
+  .input-wrapper,
+  .select-wrapper {
+    width: 100%;
+
+    @include breakpoint(mobile-only) {
+      flex: 1;
+    }
+
+  }
+
+  input, select {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  label, input, select, i {
+    @include breakpoint(mobile-only) {
+      font-size: 1rem;
+    }
+  }
+
+}
+
+@media print {
+  .eryc-searches {
+    display: none;
+  }
+}

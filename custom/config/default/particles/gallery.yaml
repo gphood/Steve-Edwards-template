@@ -1,0 +1,18 @@
+enabled: '1'
+class: ''
+server: ''
+directory: ''
+search: '0'
+searchmin: '3'
+pagination: '0'
+rows: '10'
+rowsselect: '0'
+title: Title
+description: '0'
+tags: '0'
+icon: '1'
+date: '1'
+dateLabel: Modified
+dateformat: 'D, d M Y'
+size: '1'
+sizeLabel: Size

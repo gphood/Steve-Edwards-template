@@ -1,0 +1,476 @@
+name: Cards
+description: Display cards.
+type: particle
+icon: fa-sliders
+
+configuration:
+  caching:
+    type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable particle.
+      default: true
+
+    class:
+      type: input.selectize
+      label: CSS Classes
+      description: CSS class name for the particle.
+
+    inject:
+      type: input.text
+      label: Inject ID
+      description: Enter the ID of the target element this Content Block particle is to be injected into if required.
+
+    _tabs:
+      type: container.tabs
+      fields:
+
+        _tab_content:
+          label: Content
+          overridable: false
+          fields:
+
+            items:
+              type: collection.list
+              array: true
+              label: Card
+              description: Create each card to display.
+              value: name
+              ajax: true
+
+              fields:
+
+                _tabs_card:
+                  type: container.tabs
+                  fields:
+
+                    _tab_card_content:
+                      label: Content
+                      overridable: false
+                      fields:
+
+                        .icon:
+                          type: input.text
+                          label: Icon
+                          description: Enter the icon
+                        .title:
+                          type: input.text
+                          label: Title
+                          description: Enter the title
+                        .titleTag:
+                          type: select.select
+                          label: Title Tag
+                          description: Set the heading tag for the title
+                          placeholder: 'Select...'
+                          default: div
+                          options:
+                            div: DIV
+                            h1: H1
+                            h2: H2
+                            h3: H3
+                            h4: H4
+                            h5: H5
+                            h6: H6
+                        .titleClass:
+                          type: input.selectize
+                          label: Title CSS Classes
+                          description: CSS class name for the title.
+                        .subTitle:
+                          type: input.text
+                          label: Subtitle
+                          description: Enter the subtitle
+                        .subTitleTag:
+                          type: select.select
+                          label: Subtitle Tag
+                          description: Set the heading tag for the subtitle
+                          placeholder: 'Select...'
+                          default: div
+                          options:
+                            div: DIV
+                            h1: H1
+                            h2: H2
+                            h3: H3
+                            h4: H4
+                            h5: H5
+                            h6: H6
+                        .subTitleClass:
+                          type: input.selectize
+                          label: Subtitle CSS Classes
+                          description: CSS class name for the subtitle.
+                        .date:
+                          type: input.date
+                          label: Date
+                          description: Select a date.
+                        .location:
+                          type: input.text
+                          label: Location
+                          description: Enter a location.
+                        .tag:
+                          type: input.text
+                          label: Tag
+                          description: Enter the tag
+                        .tag_id:
+                          type: input.text
+                          label: Tag ID
+                          description: Enter the tag id
+                        .tagClass:
+                          type: input.selectize
+                          label: Tag CSS Classes
+                          description: CSS class name for the tag.
+
+                    _tab_card_desc:
+                      label: Description
+                      overridable: false
+                      fields:
+
+                        .desc:
+                          type: textarea.textarea
+                          label: Description
+                          description: Enter the description of the link
+                        .descAlignment:
+                          type: input.radios
+                          label: Desc Alignment
+                          default: flex-align-start
+                          options:
+                            flex-align-start: Start
+                            flex-align-end: End
+                            flex-align-center: Center
+                        .descClass:
+                          type: input.selectize
+                          label: CSS Classes
+                          description: CSS class name for the particle.
+                        .descVariations:
+                          type: input.block-variations
+                          label: Variations
+                          description: Enter Theme Variations.
+
+                    _tab_card_image:
+                      label: Image
+                      overridable: false
+                      fields:
+
+                        .image:
+                          type: input.imagepicker
+                          label: Image
+                          description: Select desired image.
+                        .imageBackgroundOptions:
+                          type: select.selectize
+                          label: Image Background Options
+                          multiple: true
+                          options:
+                            bg-contain: BG Size - Contain
+                            bg-cover: BG Size - Cover
+                            bg-no-repeat: BG No Repeat
+                            bg-repeat-x: BG Repeat X
+                            bg-repeat-y: BG Repeat Y
+                            bg-bottom-right: BG Position - Bottom Right
+                            bg-bottom-left: BG Position - Bottom Left
+                            bg-top-right: BG Position - Top Right
+                            bg-top-left: BG Position - Top Left
+                            bg-bottom-center: BG Position - Bottom Center
+                            bg-top-center: BG Position - Top Center
+                            bg-center-bottom: BG Position - Center Bottom
+                            bg-center-top: BG Position - Center Top
+                            bg-center: BG Position - Center
+                            bg-undraw: BG Undraw
+                        .imageSpacing:
+                          type: input.radios
+                          label: Image Spacing
+                          default: none
+                          options:
+                            none: No Spacing
+                            wrapped: Spacing
+                        .imageHeight:
+                          type: input.text
+                          label: Min Height (Desktop)
+                          description: Set image min. height in rem, em, px, or percentage unit values. Leave empty to use the default height.
+                          pattern: '\d+(\.\d+){0,1}(rem|em|ex|ch|vw|vh|vmin|vmax|%|px|cm|mm|in|pt|pc)'
+                        .imageHeightMax:
+                          type: input.text
+                          label: Max Height (Desktop)
+                          description: Set image max. height in rem, em, px, or percentage unit values. Leave empty to use the default height.
+                          pattern: '\d+(\.\d+){0,1}(rem|em|ex|ch|vw|vh|vmin|vmax|%|px|cm|mm|in|pt|pc)'
+
+                    _tab_card_lists:
+                      label: Lists
+                      overridable: false
+                      fields:
+
+                        .lists:
+                          type: collection.list
+                          array: true
+                          label: Lists
+                          description: Create lists.
+                          value: name
+                          ajax: true
+
+                          fields:
+                            .name:
+                              type: input.text
+                            .icon:
+                              type: input.text
+                              label: Icon
+                              description: Enter the card link
+                            .text:
+                              type: input.text
+                              label: Text
+                              description: Enter the link text
+
+                    _tab_card_links:
+                      label: Links
+                      overridable: false
+                      fields:
+
+                        .links:
+                          type: collection.list
+                          array: true
+                          label: Links
+                          description: Create links.
+                          value: name
+                          ajax: true
+
+                          fields:
+                            .name:
+                              type: input.text
+                            .url:
+                              type: input.text
+                              label: Link URL
+                              description: Enter the card link
+                            .urlText:
+                              type: input.text
+                              label: Link Text
+                              description: Enter the link text
+                            .urlTitle:
+                              type: input.text
+                              label: Link Title
+                              description: Enter the link title
+                            .urlClass:
+                              type: input.selectize
+                              label: Link CSS Classes
+                              description: CSS class name for the link.
+                            .typeformid:
+                              type: input.text
+                              label: Typeform ID
+
+                        .cardLink:
+                          type: input.text
+                          label: Card URL
+                          description: Enter the card link
+
+                        .cardLinkTitle:
+                          type: input.text
+                          label: Card Link Title
+                          description: Enter the cardlink title
+
+                    _tab_card_structure:
+                      label: Structure
+                      overridable: false
+                      fields:
+
+                        .layout:
+                          type: select.select
+                          label: Layout
+                          description: Set the layout
+                          default: stacked
+                          options:
+                            stacked: Stacked
+                            left: Left
+                            right: Right
+                        .border:
+                          type: select.select
+                          label: Coloured border
+                          description: Set the coloured border for the card
+                          placeholder: 'Select...'
+                          default: ''
+                          options:
+                            '': None
+                            info: Info (blue)
+                            warning: Warning (orange)
+                            error: Error (pink)
+                            success: Success (green)
+                            grey: Grey
+                            slate: Slate
+                            primary: Primary (green)
+                            violet: Violet
+                            orange: Orange
+                            pink: Pink
+                            lime: Lime
+                        .nobgoutline:
+                          type: input.checkbox
+                          label: Disable BG
+                          description: Disable background and box shadow
+                          default: false
+                        .class:
+                          type: input.selectize
+                          label: CSS Classes
+                          description: CSS class name for the card.
+                        .variations:
+                          type: input.block-variations
+                          label: Variations
+                          description: Enter Theme Variations.
+                          default:
+                        .size:
+                          type: input.text
+                          label: Block Size
+                          description: Block size in percentages (5-100).
+                          class: 'custom-validation-field'
+                          formnovalidate: true
+                          pattern: '^([5-9]|[1-9][0-9]|8.3|9.1|11.1|12.5|14.3|16.7|33.3|66.7|100|)$'
+                          min: 5
+                          max: 100
+                          append:
+                            type: "text"
+                            text: "%"
+                        .disable:
+                          type: input.checkbox
+                          label: Disable
+                          description: Disables the item on the front end.
+                          default: false
+
+        _tab_slideshow:
+          label: Slideshow
+          overridable: false
+          fields:
+
+            enableSlideshow:
+              type: input.checkbox
+              label: Enable Slideshow
+              description: Enable slideshow function.
+              default: false
+
+            slidesToShow:
+              type: input.number
+              label: Slides to Show
+              description: Number of slides to show per scroll
+              default: 3
+              placeholder: 3
+
+            slidesToScroll:
+              type: input.number
+              label: Slides to Scroll
+              description: Number of slides to scroll
+              default: 1
+              placeholder: 1
+
+            rows:
+              type: input.number
+              label: Rows
+              description: Number of rows
+              default: 1
+              placeholder: 1
+
+            slidesPerRow:
+              type: input.number
+              label: Slides per Row
+              description: Number of sliders per rows
+              default: 1
+
+            arrows:
+              type: select.select
+              label: Prev / Next
+              description: Enable or disable the Prev / Next navigation.
+              default: 'false'
+              options:
+                'true': Enable
+                'false': Disable
+
+            dots:
+              type: select.select
+              label: Dots
+              description: Enable or disable the Dots navigation.
+              default: 'false'
+              options:
+                'true': Enable
+                'false': Disable
+
+            dotStyle:
+              type: select.select
+              label: Dot Styling
+              description: Select the dot styling.
+              default: ''
+              options:
+                '': Standard dots
+                'dot-style-numbered': Numbered buttons
+
+            dotPositioning:
+              type: select.select
+              label: Dot positioning
+              description: Select the dot positioning.
+              default: ''
+              options:
+                '': Central - between nav arrows
+                'dot-position-right': To the right
+
+            sliderBreakpoints:
+              type: collection.list
+              array: true
+              label: Breakpoints
+              description: Set options per breakpoint.
+              value: name
+              ajax: true
+
+              fields:
+
+                .breakpoint:
+                  type: select.select
+                  label: Breakpoint
+                  description: Set the breakpoint.
+                  default: 959
+                  options:
+                    1439: < 1440px (Extra Large Desktop)
+                    1199: < 1200px (Large Desktop)
+                    959: < 960px (Standard Desktop)
+                    767: < 768px (Tablet)
+                    479: < 480px (Large Mobile)
+                    359: < 360px (Medium Mobile)
+                    319: < 320px (Small Mobile)
+
+                .slidesToShow:
+                  type: input.number
+                  label: Slides to Show
+                  description: Number of slides to show per scroll
+                  default: 1
+                  placeholder: 1
+
+                .slidesToScroll:
+                  type: input.number
+                  label: Slides to Scroll
+                  description: Number of slides to scroll
+                  default: 1
+                  placeholder: 1
+
+                .rows:
+                  type: input.number
+                  label: Rows
+                  description: Number of rows
+                  default: 1
+                  placeholder: 1
+
+                .slidesPerRow:
+                  type: input.number
+                  label: Slides per Row
+                  description: Number of sliders per rows
+                  default: 1
+                  placeholder: 1
+
+                .arrows:
+                  type: select.select
+                  label: Prev / Next
+                  description: Enable or disable the Prev / Next navigation.
+                  default: 'false'
+                  options:
+                    'true': Enable
+                    'false': Disable
+
+                .dots:
+                  type: select.select
+                  label: Dots
+                  description: Enable or disable the Dots navigation.
+                  default: 'false'
+                  options:
+                    'true': Enable
+                    'false': Disable

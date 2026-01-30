@@ -1,0 +1,215 @@
+// lists
+@mixin list-reset() {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Left and Right Definitions
+// .er-align-left, .er-align-right, .er-float-left, .er-float-right
+$dir_value: "left", "right";
+@each $dir in $dir_value {
+  .er-align-#{$dir} {
+    text-align: #{$dir};
+  }
+  .er-float-#{$dir} {
+    float: #{$dir};
+  }
+}
+
+// Body
+body {
+  -ms-overflow-style: -ms-autohiding-scrollbar; // IE mediaquery scrollbar conflict fix
+}
+
+// Text transform
+.upper {
+  text-transform: uppercase;
+}
+.lower {
+  text-transform: lowercase;
+}
+
+// Line Height
+$line-height-arr: 80, 90, 100, 110, 120, 135, 150, 175, 200;
+@each $height in $line-height-arr {
+  .line-height-#{$height} {
+    line-height: $height * 1% !important;
+  }
+}
+
+// Align element to the center
+.align-center {
+  text-align: center;
+}
+.block-center {
+  display: block;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+// Display
+.display-block {
+  display: block;
+}
+// No Border
+.noborder {
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+}
+// Break Word
+.breakword {
+  word-break: break-word;
+  word-wrap: break-word;
+}
+// Responsive Utility Classes
+.hidden {
+  display: none !important;
+}
+.hide, .invisible {
+  display: none;
+}
+// Video
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  iframe, video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+// Internal vs External
+.local-true {
+  .hidden-local {
+    display: none !important;
+  }
+  .visible-local {
+    display: inherit !important;
+  }
+  .visible-external {
+    display: none !important;
+  }
+}
+.local-false {
+  .hidden-external {
+    display: none !important;
+  }
+  .visible-local {
+    display: none !important;
+  }
+  .visible-external {
+    display: inherit !important;
+  }
+}
+// Large Desktop
+@include breakpoint(large-desktop-range) {
+  .hidden- {
+    &large, &desktop-only {
+      display: none !important;
+    }
+    &portables, &phone, &tablet, &st-desktop {
+      display: inherit !important;
+    }
+  }
+  .visible- {
+    &portables, &phone, &tablet, &desktop, &st-desktop {
+      display: none !important;
+    }
+    &large, &desktop-only {
+      display: inherit !important;
+    }
+  }
+}
+// Desktop
+@include breakpoint(st-desktop-range) {
+  .hidden- {
+    &st-desktop, &desktop-only {
+      display: none !important;
+    }
+    &portables, &phone, &tablet, &large {
+      display: inherit !important;
+    }
+  }
+  .visible- {
+    &portables, &phone, &tablet, &desktop, &large {
+      display: none !important;
+    }
+    &st-desktop, &desktop-only {
+      display: inherit !important;
+    }
+  }
+}
+@include breakpoint(desktop-range) {
+  .hidden- {
+    &desktop, &desktop-only {
+      display: none !important;
+    }
+    &portables, &phone, &tablet, &large {
+      display: inherit !important;
+    }
+  }
+  .visible- {
+    &portables, &phone, &tablet, &large {
+      display: none !important;
+    }
+    &desktop, &desktop-only {
+      display: inherit !important;
+    }
+  }
+}
+// Tablet
+@include breakpoint(tablet-range) {
+  .hidden- {
+    &portables, &tablet {
+      display: none !important;
+    }
+    &phone, &desktop, &large, &desktop-only, &st-desktop {
+      display: inherit !important;
+    }
+  }
+  .visible- {
+    &phone, &desktop, &large, &desktop-only, &st-desktop {
+      display: none !important;
+    }
+    &portables, &tablet {
+      display: inherit !important;
+    }
+  }
+}
+// Mobile
+@include breakpoint(mobile-only) {
+  .hidden- {
+    &portables, &phone {
+      display: none !important;
+    }
+    &tablet, &desktop, &large, &desktop-only, &st-desktop {
+      display: inherit !important;
+    }
+  }
+  .visible- {
+    &tablet, &desktop, &large, &desktop-only, &st-desktop {
+      display: none !important;
+    }
+    &portables, &phone {
+      display: inherit !important;
+    }
+  }
+}
+
+// Font Awesome animation
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear
+}
+
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8);
+}

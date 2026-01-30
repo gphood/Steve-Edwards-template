@@ -1,0 +1,373 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/default.png'
+  name: default
+  timestamp: 1691342274
+layout:
+  header: {  }
+  navigation: {  }
+  /hero/:
+    -
+      - herostaticcontent-4104
+  /home-content-boxes/:
+    -
+      - homecontentboxes-3221
+  /home-page-content/:
+    -
+      - homecontentblock-4025
+  /row-1/:
+    -
+      - contentblocks-6785
+  /row-2/:
+    -
+      - contentblocks-9073
+  /row-3/: {  }
+  /row-4/: {  }
+  /row-5/: {  }
+  /row-6/: {  }
+  /row-7/: {  }
+  /row-8/: {  }
+  /row-9/: {  }
+  /row-10/: {  }
+  footer: {  }
+  /inject/:
+    -
+      - cards-1761
+  offcanvas: {  }
+structure:
+  header:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  navigation:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  hero:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: 'bg-center bg-cover'
+      background: 'gantry-media://hero/children-at-table.jpg'
+  home-content-boxes:
+    type: section
+    attributes:
+      boxed: '2'
+      class: max-width
+      variations: ''
+      background: ''
+  home-page-content:
+    type: section
+    attributes:
+      boxed: ''
+      class: row-alt
+      variations: no-section-padding
+      background: ''
+  row-1:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-2:
+    type: section
+    attributes:
+      boxed: '0'
+      class: ''
+      variations: ''
+      background: ''
+  row-3:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-4:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-5:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-6:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-7:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-8:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-9:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-10:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  footer:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  inject:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  offcanvas:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+content:
+  herostaticcontent-4104:
+    title: 'Hero Static Content'
+    attributes:
+      class: nass-hero-content
+      variations: ''
+      backgroundImage: ''
+      backgroundSize: bg-cover
+      backgroundPosition: bg-center
+      contentStyleClass: content-flush
+      titlePrefix: ''
+      title: 'Welcome to NASS'
+      titleTag: h1
+      titleLarge: '0'
+      subtitle: 'The voice of small schools'
+      content: "NASS is a registered charity supporting and promoting the work of small schools across the UK.\n\n<div class=\"margintop paddingtop\">\n<a href=\"/home/join-nass\" class=\"btn-primary btn-arrow\">Join NASS</a>\n</div>"
+      contentSize: full
+      url: ''
+      urlText: ''
+      urlClass: ''
+      searchInput: '0'
+      disable: '0'
+  homecontentboxes-3221:
+    title: 'Home Content Boxes'
+    attributes:
+      leftTextBoxTitle: 'How we help'
+      leftTextBoxContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+      leftTextBoxReadMoreUrl: /
+      rightTextBoxTitle: 'About membership'
+      rightTextBoxContent: 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?'
+      rightTextBoxReadMoreUrl: /
+  homecontentblock-4025:
+    title: 'Home Content Block'
+    attributes:
+      enabled: 0
+      textBoxTitle: 'Join NASS'
+      textBoxContent: "NASS is your insurance!\n\nAt just £15 a year YOU NEED NASS!\n\nThe small-scale, human-scale model of education represented in small schools is the closest to the way all of us learn in the real world at home and at work. It thrives on mixed talents, teamwork and individual ideas mediated through others as Vygotsky, Bruner and Wenger have so well argued.\n\nSmall schools are at the top of national performance, not least in low income and remote areas. The effective ingredient is the close partnership between parents and teachers. The children feel from the start safe and secure, that effort is worthwhile and achievement possible. The evidence shows exactly that and the high quality of teaching, relationships and related achievement endures."
+      facebookUrl: 'https://www.facebook.com/697000610346633'
+      xUrl: 'https://x.com/NASmallSchools?lang=en'
+      bulletPointItems:
+        -
+          name: 'We represent'
+          description: 'small schools and their communities across the country'
+          bulletPoint: 'We represent'
+        -
+          name: 'We promote'
+          description: 'the value and virtues of the human scale aspects of small schools'
+          bulletPoint: 'We promote'
+        -
+          name: 'We offer'
+          description: 'advice tailored to meet the needs of teachers, heads, parents, pupils and governors on an individual or group basis'
+          bulletPoint: 'We offer'
+        -
+          name: 'We promote'
+          description: 'best practice from the many outstanding small schools across the country in order to share expertise'
+          bulletPoint: 'We promote'
+        -
+          name: 'We publicise'
+          description: 'events which will enable the dissemination of good practice via effective collaboration'
+          bulletPoint: 'We publicise'
+        -
+          name: 'We inform'
+          description: 'all branches of the media on the many benefits of small schools'
+          bulletPoint: 'We inform'
+        -
+          name: 'We advise'
+          description: 'those small schools whose existence and autonomy may be threatened'
+          bulletPoint: 'We advise'
+        -
+          name: 'We provide'
+          description: 'expert guidance to decision makers where this should be requested'
+          bulletPoint: 'We provide'
+  contentblocks-6785:
+    title: 'About us'
+    attributes:
+      items:
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: 'About us'
+          titleTag: h2
+          content: "NASS is a registered charity supporting and promoting the work of small schools across the UK.\L\L\n\nWe bring together leaders, teachers, and researchers from all over the country, working together to help small schools and their communities grow and succeed.\L\LSmall schools are important because they create close, supportive learning environments where students can thrive. We focus on the needs of these schools to help them keep their unique role in the community.\n\n[More about NASS...](/about-nass)"
+          bottomBorder: '0'
+          iconListItems: {  }
+          buttonItems: {  }
+          inject: ''
+          cssid: ''
+          class: ''
+          lightBorder: '0'
+          notice: ''
+          name: 'About us'
+  contentblocks-9073:
+    title: 'What we do'
+    attributes:
+      items:
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: 'What we do'
+          titleTag: h2
+          content: ''
+          bottomBorder: '0'
+          iconListItems: {  }
+          buttonItems: {  }
+          inject: what-we-do-cards
+          cssid: ''
+          class: ''
+          lightBorder: '0'
+          notice: ''
+          name: Heading
+  cards-1761:
+    title: 'What we do cards'
+    attributes:
+      inject: what-we-do-cards
+      items:
+        -
+          icon: ''
+          title: 'Support and consultancy'
+          titleTag: div
+          titleClass: ''
+          subTitle: ''
+          subTitleTag: div
+          subTitleClass: ''
+          date: ''
+          location: ''
+          tag: ''
+          tag_id: ''
+          tagClass: ''
+          desc: ''
+          descAlignment: flex-align-start
+          descClass: ''
+          descVariations: ''
+          animateOnLoad: '0'
+          fullImageCard: '0'
+          image: 'gantry-media://cards/children-drawing.jpg'
+          imageSpacing: none
+          imageHeight: ''
+          cardLink: /support-and-consultancy
+          cardLinkTitle: 'Support and consultancy'
+          layout: stacked
+          border: ''
+          nobgoutline: '0'
+          class: ''
+          variations: ''
+          size: ''
+          disable: '0'
+          name: 'Support and consultancy'
+        -
+          icon: ''
+          title: 'Training and events'
+          titleTag: div
+          titleClass: ''
+          subTitle: ''
+          subTitleTag: div
+          subTitleClass: ''
+          date: ''
+          location: ''
+          tag: ''
+          tag_id: ''
+          tagClass: ''
+          desc: ''
+          descAlignment: flex-align-start
+          descClass: ''
+          descVariations: ''
+          animateOnLoad: '0'
+          fullImageCard: '0'
+          image: 'gantry-media://cards/children-writing.jpg'
+          imageSpacing: none
+          imageHeight: ''
+          cardLink: /training-and-events
+          cardLinkTitle: 'Training and events'
+          layout: stacked
+          border: ''
+          nobgoutline: '0'
+          class: ''
+          variations: ''
+          size: ''
+          disable: '0'
+          name: 'Training and events'
+        -
+          icon: ''
+          title: 'Research and policy influence'
+          titleTag: div
+          titleClass: ''
+          subTitle: ''
+          subTitleTag: div
+          subTitleClass: ''
+          date: ''
+          location: ''
+          tag: ''
+          tag_id: ''
+          tagClass: ''
+          desc: ''
+          descAlignment: flex-align-start
+          descClass: ''
+          descVariations: ''
+          animateOnLoad: '0'
+          fullImageCard: '0'
+          image: 'gantry-media://cards/girl-writing.jpg'
+          imageSpacing: none
+          imageHeight: ''
+          cardLink: /research-and-policy-influence
+          cardLinkTitle: 'Research and policy influence'
+          layout: stacked
+          border: ''
+          nobgoutline: '0'
+          class: ''
+          variations: ''
+          size: ''
+          disable: '0'
+          name: 'Research and policy influence'
+    block:
+      variations: 'no-section-padding-top nopadding nomargin'

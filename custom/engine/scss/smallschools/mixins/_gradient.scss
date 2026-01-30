@@ -1,0 +1,16 @@
+// Gradient Mixin
+// For example @include gradient(180deg, #000000, #FFFFFF);
+@mixin gradient($direction, $color-stops...) {
+ @if is-direction($direction) == false {
+  $color-stops: $direction, $color-stops;
+  $direction: 180deg;
+ }
+ $first-color: nth($color-stops, 1);
+ $last-color: nth($color-stops, length($color-stops));
+
+ background: $last-color;
+ background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+ background: linear-gradient($direction, $color-stops);
+ -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$first-color}', EndColorStr='#{$last-color}')";
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$first-color}', endColorstr='#{$last-color}');
+}

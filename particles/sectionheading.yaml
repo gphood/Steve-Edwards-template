@@ -1,0 +1,74 @@
+name: Section Heading
+description: Section heading.
+type: particle
+icon: fa-heading
+
+configuration:
+  caching:
+    type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable particle.
+      default: true
+    class:
+      type: input.selectize
+      label: CSS Classes
+      description: CSS class name for the item.
+    removeTopSpacing:
+      type: input.checkbox
+      label: No top spacing
+      description: Remove any top spacing.
+      default: true
+    removeBottomSpacing:
+      type: input.checkbox
+      label: No bottom spacing
+      description: Remove any bottom spacing.
+      default: true
+    headingIconClasses:
+      type: input.text
+      label: Heading icon classes
+      description: Enter the icon classes if you want an icon preceding the main heading
+    heading:
+      type: input.text
+      label: Main heading
+      description: Enter the heading text
+    headingTag:
+      type: select.select
+      label: Main heading Tag
+      description: Set the tag type for the main heading
+      placeholder: 'Select...'
+      default: h2
+      options:
+        div: DIV
+        h1: H1
+        h2: H2
+        h3: H3
+        h4: H4
+        h5: H5
+        h6: H6
+    subheadingIconClasses:
+      type: input.text
+      label: Subheading icon classes
+      description: Enter the icon classes if you want an icon preceding the subheading
+    subheading:
+      type: input.text
+      label: Subheading
+      description: Enter the subheading text
+    subheadingTag:
+      type: select.select
+      label: Subheading Tag
+      description: Set the tag type for the subheading
+      placeholder: 'Select...'
+      default: h4
+      options:
+        div: DIV
+        h1: H1
+        h2: H2
+        h3: H3
+        h4: H4
+        h5: H5
+        h6: H6

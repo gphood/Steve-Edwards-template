@@ -1,0 +1,92 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+  <div id="{{ id }}" class="content-blocks-container {{ particle.class|e }}" {% if particle.inject %}data-particle-inject-from="{{ particle.inject|e }}"{% endif %}>
+    <div class="content-blocks">
+      {% for item in particle.items %}
+        {% if item.enabled %}
+          {% set border_class = '' %}
+          {% if item.bottomBorder %}
+            {% set border_class = 'border-bottom' %}
+          {% endif %}
+          {% set custom_style = '' %}
+          {% if item.lightBorder %}
+            {% set custom_style = 'light-border' %}
+          {% endif %}
+
+          <div class="content-block {{ item.class }} {{ border_class }} {{ custom_style }}" {% if item.cssid %}id="{{ item.cssid|e }}"{% endif %}>
+
+            {% if item.iconListItems and item.iconListPosition == 'above' %}
+              <div class="content-block-inner">
+                <ul class="bullet-icon-list">
+                  {% for listItem in item.iconListItems %}
+                    <li><i class="far {{ listItem.iconClass }} {{ listItem.iconColour }}"></i> {{ listItem.content|raw }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+
+            <div class="content-block-inner {{ item.class }}">
+              {% if item.notice %}
+                <div class="notice-{{ item.notice }} notice-icon">
+              {% endif %}
+
+                {% if item.title %}
+                    {% set title_prefix = '' %}
+                    {% if item.titlePrefix %}
+                      {% set title_prefix = '<div class="title-prefix">' ~ item.titlePrefix ~ '</div>' %}
+                    {% endif %}
+
+                    <{{ item.titleTag }} class="title">{{ title_prefix|raw }}{{ item.title }}</{{ item.titleTag }}>
+                {% endif %}
+
+                {{ item.content|markdown }}
+
+                {% if item.inject %}
+                  <div data-particle-inject-to="{{ item.inject|e }}"></div>
+                {% endif %}
+
+              {% if item.notice %}
+                </div>
+              {% endif %}
+            </div>
+
+            {% if item.iconListItems %}
+              <div class="content-block-inner">
+                <ul class="bullet-icon-list">
+                  {% for listItem in item.iconListItems %}
+                    <li><i class="far {{ listItem.iconClass }} {{ listItem.iconColour }}"></i> {{ listItem.content|raw }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+
+            {% if item.buttonItems %}
+              <div class="content-block-inner">
+                {% for button in item.buttonItems %}
+                  {% set buttonStyle = '' %}
+                  {% if button.buttonArrow %}
+                    {% set buttonStyle = 'er-btn-arrow' %}
+                  {% endif %}
+                  {% set iconHtml = '' %}
+                  {% if button.iconClass %}
+                    {% set iconHtml = '<i class="fal ' ~ button.iconClass ~ '"></i>' %}
+                  {% endif %}
+                  <div class="button-container">
+                    <a href="{{ button.url }}" class="{{ button.buttonClass }} {{ buttonStyle }}">{{ iconHtml|raw }}{{ button.displayText }}</a>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+
+{% block javascript_footer %}
+  {% do gantry.load('jquery') %}
+  {% do gantry.document.addScript(url('gantry-theme://js/eryc-inject.js'), 1, 'footer') %}
+{% endblock %}

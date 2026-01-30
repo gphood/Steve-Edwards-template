@@ -1,0 +1,318 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% set accordion_tag_tag = 'a' %}
+{% if not particle.clickableTags %}
+  {% set accordion_tag_tag = 'div' %}
+{% endif %}
+
+{% block particle %}
+
+  <div id="{{ id }}" class="accordion-container {{ particle.class|e }}" {% if particle.inject %}data-particle-inject-from="{{ particle.inject|e }}"{% endif %}>
+
+    {% if particle.tags or particle.reorder or particle.openClose %}
+    <div class="accordion-tools">
+
+      {% if particle.tags %}
+        <div class="accordion-tags-selector">
+          <a href="#" class="link-styled active" id="accordion-tag-selector-all" data-id="all" data-search="All">All</a>
+          <a href="#" class="link-styled" id="accordion-tag-selector-loader"><i class="fad fa-circle-notch fa-spin" aria-hidden="true"></i></a>
+        </div>
+      {% endif %}
+
+      {% if particle.reorder %}
+        <div class="accordion-reorder">
+          <div class="accordion-reorder-btns">
+            <a href="#" class="link-styled" data-id="latest">Latest</a>
+            <a href="#" class="link-styled active" data-id="atoz">A-Z</a>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if particle.openClose %}
+        <div class="accordion-openclose">
+          <div class="accordion-openclose-btns">
+            <a href="#" class="link-styled active" data-id="closeall">Close all</a>
+            <a href="#" class="link-styled" data-id="openall">Open all</a>
+          </div>
+        </div>
+      {% endif %}
+
+    </div>
+    {% endif %}
+
+    <div class="accordions">
+    {% for item in particle.items %}
+      {% set is_enabled = true %}
+      {% if item.disable %}
+        {% set is_enabled = false %}
+      {% endif %}
+
+      {% if is_enabled %}
+
+        {% set parentloop = loop.index %}
+        {% if item.linkid %}
+          {% if particle.linkIdMode == 'exact' %}
+            {% set accordionid = item.linkid %}
+          {% else %}
+            {% set accordionid = "accordion-" ~ item.linkid %}
+          {% endif %}
+        {% else %}
+          {% set accordionid = "accordion-" ~ id ~ "-" ~  loop.index %}
+        {% endif %}
+
+        {% set accordionState = 'closed' %}
+        {% set accordionStyle = 'style=""' %}
+        {% if item.open %}
+          {% set accordionState = 'open' %}
+          {% set accordionStyle = 'style="display: block;"' %}
+        {% endif %}
+
+        {% set accordionMeta = 'meta-none' %}
+        {% if item.lastUpdated or item.tags %}
+          {% set accordionMeta = 'meta-active' %}
+        {% endif %}
+
+        <div class="accordion {{ accordionState }} {{ accordionMeta }} {{ item.class|e }} {% if item.children %}accordion-parent{% endif %}" id="{{ accordionid }}" data-order-latest="{{ item.lastUpdated|date("ymdHi") }}" data-order-atoz="{{ item.title|e|lower|replace({' ': ''}) }}">
+          <a class="styled accordion-header {{ accordionState }}" href="#{{ accordionid }}">
+            <{{ item.titleTag|default('span') }} class="title {% if item.titleIcon %}acc-icon-active{% endif %}"><span class="title-text">{% if item.titleIcon %}<i class="{{ item.titleIcon|e }}" aria-hidden="true"></i>{% endif %}{{ item.title|markdown }}</span>{% if item.subtitle %}<span class="subtitle">{{ item.subtitle|markdown }}</span>{% endif %}</{{ item.titleTag|default('span') }}>
+            <span class="open-close-text"></span>
+            <i aria-hidden="true" class="arrow"></i>
+          </a>
+          <div class="content accordion-content" {{ accordionStyle|raw }}>
+            <div class="desc accordion-desc">
+              {{ (particle.filter ? gantry.platform.filter(item.desc) : item.desc)|markdown|raw }}
+            </div>
+
+            {% for desc in item.descs %}
+              {% if not desc.disable and desc.position == "above" %}
+                <div class="desc accordion-desc accordion-extra-desc {{ desc.class|e}} {{ desc.variations|e }}" {% if desc.inject %}data-particle-inject-to="{{ desc.inject|e }}"{% endif %}>{{ desc.text|markdown }}</div>
+              {% endif %}
+            {% endfor %}
+
+            {% if item.children %}
+              <div class="child">
+
+                {% for child in item.children %}
+                  {% set is_enabled = true %}
+                  {% if child.start and child.end %}
+                    {% if now_timestamp >= gantry.strtotime.str_to_time(child.start) and now_timestamp < gantry.strtotime.str_to_time(child.end) %}
+                      {% set is_enabled = true %}
+                    {% else %}
+                      {% set is_enabled = false %}
+                    {% endif %}
+                  {% endif %}
+                  {% if child.disable %}
+                    {% set is_enabled = false %}
+                  {% endif %}
+
+                  {% if is_enabled %}
+
+                    {% if child.linkid %}
+                      {% if particle.linkIdMode == 'exact' %}
+                        {% set accordionid = child.linkid %}
+                      {% else %}
+                        {% set accordionid = "accordion-" ~ child.linkid %}
+                      {% endif %}
+                    {% else %}
+                      {% set accordionid = "accordion-" ~ id ~ "-" ~  parentloop ~ "-" ~ loop.index %}
+                    {% endif %}
+
+                    {% set accordionState = 'closed' %}
+                    {% set accordionStyle = 'style=""' %}
+                    {% if child.open %}
+                      {% set accordionState = 'open' %}
+                      {% set accordionStyle = 'style="display: block;"' %}
+                    {% endif %}
+
+                    {% set accordionMeta = 'meta-none' %}
+                    {% if child.lastUpdated or child.tags %}
+                      {% set accordionMeta = 'meta-active' %}
+                    {% endif %}
+
+                    <div class="accordion {{ accordionState }} {{ accordionMeta }} {{ child.class|e }} accordion-child" id="{{ accordionid }}">
+                      <a class="styled accordion-header {{ accordionState }}" href="#{{ accordionid }}">
+                        <{{ item.titleTag|default('span') }} class="title {% if child.titleIcon %}acc-icon-active{% endif %}"><span class="title-text">{% if child.titleIcon %}<i class="{{ child.titleIcon|e }}" aria-hidden="true"></i>{% endif %}{{ child.title|markdown }}</span>{% if child.subtitle %}<span class="subtitle">{{ child.subtitle|markdown }}</span>{% endif %}</{{ item.titleTag|default('span') }}>
+                        <span class="open-close-text"></span>
+                        <i aria-hidden="true" class="arrow"></i>
+                      </a>
+                      <div class="content accordion-content" {{ accordionStyle|raw }}>
+                        <div class="desc accordion-desc">
+                          {{ (particle.filter ? gantry.platform.filter(child.desc) : child.desc)|markdown|raw }}
+                        </div>
+
+                        {% for desc in child.descs %}
+                          {% if not desc.disable and desc.position == "above" %}
+                            <div class="desc accordion-desc accordion-extra-desc {{ desc.class|e}} {{ desc.variations|e }}" {% if desc.inject %}data-particle-inject-to="{{ desc.inject|e }}"{% endif %}>{{ desc.text|markdown }}</div>
+                          {% endif %}
+                        {% endfor %}
+
+                        {% if child.subchildren %}
+                          <div class="child">
+
+                            {% for subchild in child.subchildren %}
+                              {% set is_enabled = true %}
+                              {% if subchild.start and subchild.end %}
+                                {% if now_timestamp >= gantry.strtotime.str_to_time(item.subchild) and now_timestamp < gantry.strtotime.str_to_time(item.subchild) %}
+                                  {% set is_enabled = true %}
+                                {% else %}
+                                  {% set is_enabled = false %}
+                                {% endif %}
+                              {% endif %}
+                              {% if subchild.disable %}
+                                {% set is_enabled = false %}
+                              {% endif %}
+
+                              {% if is_enabled %}
+
+                                {% if subchild.linkid %}
+                                  {% if particle.linkIdMode == 'exact' %}
+                                    {% set accordionid = subchild.linkid %}
+                                  {% else %}
+                                    {% set accordionid = "accordion-" ~ subchild.linkid %}
+                                  {% endif %}
+                                {% else %}
+                                  {% set accordionid = "accordion-" ~ id ~ "-" ~  parentloop ~ "-" ~ loop.index %}
+                                {% endif %}
+
+                              {% set accordionState = 'closed' %}
+                              {% set accordionStyle = 'style=""' %}
+                              {% if subchild.open %}
+                                {% set accordionState = 'open' %}
+                                {% set accordionStyle = 'style="display: block;"' %}
+                              {% endif %}
+
+                              {% set accordionMeta = 'meta-none' %}
+                              {% if subchild.lastUpdated or subchild.tags %}
+                                {% set accordionMeta = 'meta-active' %}
+                              {% endif %}
+
+                                <div class="accordion {{ accordionState }} {{ accordionMeta }} {{ subchild.class|e }} accordion-child" id="{{ accordionid }}">
+                                  <a class="styled accordion-header {{ accordionState }}" href="#{{ accordionid }}">
+                                    <{{ item.titleTag|default('span') }} class="title {% if subchild.titleIcon %}acc-icon-active{% endif %}"><span class="title-text">{% if subchild.titleIcon %}<i class="{{ subchild.titleIcon|e }}" aria-hidden="true"></i>{% endif %}{{ subchild.title|markdown }}</span>{% if subchild.subtitle %}<span class="subtitle">{{ subchild.subtitle|markdown }}</span>{% endif %}</{{ item.titleTag|default('span') }}>
+                                    <span class="open-close-text"></span>
+                                    <i aria-hidden="true" class="arrow"></i>
+                                  </a>
+                                  <div class="content accordion-content" {{ accordionStyle|raw }}>
+                                    <div class="desc accordion-desc">
+                                      {{ (particle.filter ? gantry.platform.filter(subchild.desc) : subchild.desc)|markdown|raw }}
+                                    </div>
+                                    {% for desc in subchild.descs %}
+                                      {% if not desc.disable %}
+                                        <div class="desc accordion-desc accordion-extra-desc {{ desc.class|e}} {{ desc.variations|e }}" {% if desc.inject %}data-particle-inject-to="{{ desc.inject|e }}"{% endif %}>{{ desc.text|markdown }}</div>
+                                      {% endif %}
+                                    {% endfor %}
+                                  </div>
+
+                                  {% if subchild.lastUpdated or subchild.tags %}
+                                  <div class="accordion-meta">
+
+                                    {% if subchild.lastUpdated %}
+                                    <div class="accordion-last-updated">
+                                      {% if subchild.lastUpdatedLabel %}
+                                      <span class="accordion-date-lbl">{{ subchild.lastUpdatedLabel|e }}</span>
+                                      {% endif %}
+                                      <div class="accordion-date" data-timestamp="{{ subchild.lastUpdated|date("YmdHi") }}">{{ subchild.lastUpdated|date(subchild.dateFormat) }}</div>
+                                    </div>
+                                    {% endif %}
+
+                                    {% if subchild.tags %}
+                                    <div class="accordion-tags">
+                                      {% for tag in subchild.tags %}
+                                        <{{ accordion_tag_tag }} {{ accordion_tag_tag == 'a' ? 'href="#"' : ''}} data-id="{{ tag.text|e|lower|replace(' ', '-') }}" class="accordion-tag {{ tag.class|e }} {{ tag.variations|e}}">{{ tag.text|e }}</{{ accordion_tag_tag }}>
+                                      {% endfor %}
+                                    </div>
+                                    {% endif %}
+
+                                  </div>
+                                  {% endif %}
+
+                                </div>
+                              {% endif %}
+                            {% endfor %}
+
+                          </div>
+                        {% endif %}
+
+                        {% for desc in child.descs %}
+                          {% if not desc.disable and desc.position == "below" %}
+                            <div class="desc accordion-desc accordion-extra-desc {{ desc.class|e}} {{ desc.variations|e }}" {% if desc.inject %}data-particle-inject-to="{{ desc.inject|e }}"{% endif %}>{{ desc.text|markdown }}</div>
+                          {% endif %}
+                        {% endfor %}
+
+                      </div>
+
+                      {% if child.lastUpdated or child.tags %}
+                      <div class="accordion-meta">
+
+                        {% if child.lastUpdated %}
+                        <div class="accordion-last-updated">
+                          {% if child.lastUpdatedLabel %}
+                          <span class="accordion-date-lbl">{{ child.lastUpdatedLabel|e }}</span>
+                          {% endif %}
+                          <div class="accordion-date" data-timestamp="{{ child.lastUpdated|date("YmdHi") }}">{{ child.lastUpdated|date(child.dateFormat) }}</div>
+                        </div>
+                        {% endif %}
+
+                        {% if child.tags %}
+                        <div class="accordion-tags">
+                          {% for tag in child.tags %}
+                            <{{ accordion_tag_tag }} {{ accordion_tag_tag == 'a' ? 'href="#"' : ''}} data-id="{{ tag.text|e|lower|replace(' ', '-') }}" class="accordion-tag {{ tag.class|e }} {{ tag.variations|e}}">{{ tag.text|e }}</{{ accordion_tag_tag }}>
+                          {% endfor %}
+                        </div>
+                        {% endif %}
+
+                      </div>
+                      {% endif %}
+
+                    </div>
+                  {% endif %}
+                {% endfor %}
+
+              </div>
+            {% endif %}
+
+            {% for desc in item.descs %}
+              {% if not desc.disable and desc.position == "below" %}
+                <div class="desc accordion-desc accordion-extra-desc {{ desc.class|e}} {{ desc.variations|e }}" {% if desc.inject %}data-particle-inject-to="{{ desc.inject|e }}"{% endif %}>{{ desc.text|markdown }}</div>
+              {% endif %}
+            {% endfor %}
+
+          </div>
+
+          {% if item.lastUpdated or item.tags %}
+          <div class="accordion-meta">
+
+            {% if item.lastUpdated %}
+            <div class="accordion-last-updated">
+              {% if item.lastUpdatedLabel %}
+              <span class="accordion-date-lbl">{{ item.lastUpdatedLabel|e }}</span>
+              {% endif %}
+              <div class="accordion-date" data-timestamp="{{ item.lastUpdated|date("YmdHi") }}">{{ item.lastUpdated|date(item.dateFormat) }}</div>
+            </div>
+            {% endif %}
+
+            {% if item.tags %}
+            <div class="accordion-tags">
+              {% for tag in item.tags %}
+                <{{ accordion_tag_tag }} {{ accordion_tag_tag == 'a' ? 'href="#"' : ''}} data-id="{{ tag.text|e|lower|replace(' ', '-') }}" class="accordion-tag {{ tag.class|e }} {{ tag.variations|e}}">{{ tag.text|e }}</{{ accordion_tag_tag }}>
+              {% endfor %}
+            </div>
+            {% endif %}
+
+          </div>
+          {% endif %}
+
+        </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+
+  </div>
+
+{% endblock %}
+
+{% block javascript %}
+  {% do gantry.load('jquery') %}
+  {% do gantry.document.addScript(url('gantry-theme://js/eryc-accordion.js'), 1, 'footer') %}
+  {% do gantry.document.addScript(url('gantry-theme://js/eryc-inject.js'), 1, 'footer') %}
+{% endblock %}

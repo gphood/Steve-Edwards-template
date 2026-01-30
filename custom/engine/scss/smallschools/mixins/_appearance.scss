@@ -1,0 +1,6 @@
+// Appearance
+@mixin css-appearance ($value) {
+  -webkit-appearance: $value;
+     -moz-appearance: $value;
+          appearance: $value;
+}

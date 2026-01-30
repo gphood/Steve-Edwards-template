@@ -1,0 +1,208 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/default.png'
+  name: default
+  timestamp: 1691342274
+layout:
+  header: {  }
+  navigation: {  }
+  /hero/:
+    -
+      - herostaticcontent-4104
+  heading: {  }
+  /row-1/:
+    -
+      - contentblocks-5399
+  row-2: {  }
+  row-3: {  }
+  row-4: {  }
+  row-5: {  }
+  row-6: {  }
+  row-7: {  }
+  row-8: {  }
+  row-9: {  }
+  row-10: {  }
+  footer: {  }
+  inject: {  }
+  offcanvas: {  }
+structure:
+  header:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  navigation:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  hero:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: 'bg-center bg-cover'
+      background: 'gantry-media://hero/children-in-the-classroom.jpg'
+  heading:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-1:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-2:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-3:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-4:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-5:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-6:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-7:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-8:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-9:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-10:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  footer:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  inject:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  offcanvas:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+content:
+  herostaticcontent-4104:
+    title: 'Hero Static Content'
+    attributes:
+      class: nass-hero-content
+      variations: ''
+      backgroundImage: ''
+      backgroundSize: bg-cover
+      backgroundPosition: bg-center
+      contentStyleClass: content-flush
+      titlePrefix: ''
+      title: 'Support and consultancy'
+      titleTag: h1
+      titleLarge: '0'
+      subtitle: 'NASS - the voice of small schools'
+      content: "NASS is a registered charity supporting and promoting the work of small schools across the UK.\n\n<a href=\"/home/join-nass\" class=\"btn-primary btn-arrow\">Join NASS</a>"
+      contentSize: full
+      url: ''
+      urlText: ''
+      urlClass: ''
+      searchInput: '0'
+      disable: '0'
+  contentblocks-5399:
+    title: 'Support and consultancy content'
+    attributes:
+      items:
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: 'Support for your small schools'
+          titleTag: h2
+          content: "We support headteachers, senior leaders, teaching staff, and school teams in small schools to fulfil their roles with confidence.\L\L\n\nOur services can be tailor-made to meet the unique needs, challenges, and priorities of each small school and its community."
+          bottomBorder: '0'
+          iconListItems: {  }
+          buttonItems: {  }
+          inject: ''
+          cssid: ''
+          class: ''
+          lightBorder: '0'
+          notice: ''
+          name: Support
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: Consultancy
+          titleTag: h2
+          content: 'NASS provides resources and guidance to help you navigate the unique challenges of running a small school. With our collective knowledge and experience, we aim to empower small school leaders to achieve their goals and create successful and sustainable communities.'
+          bottomBorder: '0'
+          inject: ''
+          cssid: ''
+          class: ''
+          lightBorder: '0'
+          notice: ''
+          name: Consultancy

@@ -1,0 +1,15 @@
+{% if not particle %}
+    {% set enabled = gantry.config.get('particles.' ~ segment.type ~ '.enabled', 1) %}
+    {% set spacer = gantry.config.getJoined('particles.' ~ segment.type, segment.attributes) %}
+{% endif %}
+
+{% set attr_background = segment.attributes.background %}
+
+{% set class = (segment.attributes.variations ? ' ' ~ segment.attributes.variations|join(' '))
+~ (segment.attributes.class ? ' ' ~ segment.attributes.class|join(' ')) %}
+
+{% set attr_extra = segment.attributes.extra|attribute_array %}
+
+{% if enabled and (segment.attributes.enabled is null or segment.attributes.enabled) %}
+    <div class="spacer{{ segment.classes ? ' ' ~ segment.classes|join(' ')|e }} {{ class }}" {% if attr_background %}style="background-image: url('{{ url(attr_background) }}')"{% endif %} {{- attr_extra|raw }} ></div>
+{% endif %}

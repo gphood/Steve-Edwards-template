@@ -1,0 +1,108 @@
+.home-content-block-container {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  border-top: solid 4px map-get($colors_map, warning-500);
+
+  .home-content-block {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .text-box {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      &.bg-lime-800 {
+        .text-box-title {
+          h1, h2, h3, h4, h5, h6 {
+            color: map-get($colors_map, text-white);
+          }
+        }
+      }
+
+      .text-box-title {
+        flex: 0;
+      }
+      .text-box-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        p {
+          line-height: 1.8;
+          font-size: 18px;
+
+          &:not(:last-child) {
+            margin-bottom: 36px;
+          }
+        }
+      }
+    }
+
+    .social-media-box {
+      .facebook-box {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 24px;
+      }
+    }
+
+    .bullet-point-items {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      .bullet-point-item {
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+
+        gap: 24px;
+
+        &:not(:last-child) {
+          padding-bottom: 24px;
+          border-bottom: solid 1px black;
+        }
+
+        .bullet-point-icon {
+          width: 65px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 40px auto;
+
+          &.circle-tick {
+            background-image: url("/templates/smallschools/custom/images/icons/circle_tick.png");
+          }
+        }
+
+        .bullet-point-content {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          .bullet-point,
+          .bullet-point-detail {
+            width: 100%;
+          }
+
+          .bullet-point {
+            font-weight: bold;
+            font-size: 18px;
+          }
+          .bullet-point-detail {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}

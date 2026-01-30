@@ -1,0 +1,105 @@
+// Global Variables
+$base:                          1rem;
+
+// FontAwsome
+$fa_version:                    "4.7.0";
+$fa_version5:                   "5.1.0";
+
+// Color - General
+$white:                         #FFFFFF;
+$black:                         #000000;
+$darkgrey:                      #333333;
+$altgrey:                       #666666;
+$midgrey:                       #999999;
+$grey:                          #CCCCCC;
+$lightgrey:                     #EEEEEE;
+$red:                           #FF0000;
+$yellow:                        #FFFF00;
+
+// Color - Social Media
+$facebook_bg:                   #005397;
+$facebook_color:                $white;
+
+$twitter_bg:                    #00AEDD;
+$twitter_color:                 $white;
+
+$pinterest_bg:                  #C92326;
+$pinterest_color:               $white;
+
+$instagram_bg:                  $white;
+$instagram_bg_gradient:         linear-gradient(#400080, transparent), linear-gradient(200deg, #d047d1, #ff0000, #ffff00);
+$instagram_color:               $black;
+$instagram_color_gradient:      $white;
+
+$social_media_bgs:              (facebook: $facebook_bg,
+                                 twitter: $twitter_bg,
+                                 instagram: $instagram_bg,
+                                 pinterest-p: $pinterest_bg,
+                                 pinterest: $pinterest_bg);
+
+$social_media_colors:           (facebook: $facebook_color,
+                                 twitter: $twitter_color,
+                                 instagram: $instagram_color,
+                                 pinterest-p: $pinterest_color,
+                                 pinterest: $pinterest_color);
+
+// Colors - ERYC
+$corp_green:                    #008A76;  // HSL 174° 100% 23%
+$corp_green_alt:                #007569;
+$corp_blue:                     #006DAB;
+$corp_orange:                   #D54307;
+$corp_black:                    #212123;
+$corp_red:                      #AF1E2D;
+$corp_yellow:                   #C4D600;
+$corp_magenta:                  #D9017A;
+
+// Backgrounds - ERYC
+$corp_green_bg:                 $corp_green_alt;
+$corp_green_bg_hover:           darken($corp_green_bg, 10%);
+$corp_green_bg_active_hover:    darken($corp_green_bg_hover, 2.5%);
+
+// SVGs
+$eryc_img_ratio:                0.171875;
+
+// Paths
+$e6_support_path:               "/EasySiteWeb/EasySite/SupportFiles";
+$e6_default_path:               "/EasySiteWeb/EasySite/StyleData/Default";
+$e6_style_path:                 "/EasySiteWeb/EasySite/StyleData";
+$e6_admin_path:                 "/EasySiteWeb/EasySite/Administration/Style";
+
+// Copyright
+$copyright_height:              $base * 4;
+$copyright_height_mobile:       $base * 7.5;
+$copyright_bg:                  $corp_green_alt;
+$copyright_text:                $white;
+$copyright_color_hover:         darken($copyright_text, 15%);
+$copyright_spacing:             $base * 1.5;
+$copyright_padding:             ($copyright_spacing / 1.5) $copyright_spacing;
+$copyright_font_size:           $base * 0.75;
+$copyright_font_family:         Roboto;
+$copyright_font_weight:         300;
+$default_font_family_fallback:  Arial;
+$default_transition_time:       0.3s;
+
+// Alerts
+$alert_danger_bg:               #f2dede;
+$alert_danger_color:            #a94442;
+$alert_danger_border:           #ebccd1;
+$alert_success_bg:              #dff0d8;
+$alert_success_color:           #3c763d;
+$alert_success_border:          #d6e9c6;
+$alert_info_bg:                 #d9edf7;
+$alert_info_color:              #31708f;
+$alert_info_border:             #bce8f1;
+$alert_warning_bg:              #fcf8e3;
+$alert_warning_color:           #8a6d3b;
+$alert_warning_border:          #faebcc;
+
+// Font Awesome
+$font_awesome_classes:             ".fad, .fal, .far, .fab, .fas, [class*='icon-']" !default;
+$font_awesome_sizes:               ".fa-xs, .fa-sm, .fa-lg, .fa-2x, .fa-3x, .fa-4x, .fa-5x, .fa-6x, .fa-7x, .fa-8x, .fa-9x, .fa-10x";
+$font_awesome_sizes_not:           ":not(.fa-xs):not(.fa-sm):not(.fa-lg):not(.fa-2x):not(.fa-3x):not(.fa-4x):not(.fa-5x):not(.fa-6x):not(.fa-7x):not(.fa-8x):not(.fa-9x):not(.fa-10x)";
+$font_awesome_classes_amp:         str-replace($font_awesome_classes, ".", "&.") !default;
+
+// Headings
+$heading_tags:                    "h1, h2, h3, h4, h5, h6";

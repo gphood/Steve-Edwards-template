@@ -1,0 +1,106 @@
+{% set attr_extra = segment.attributes.extra|attribute_array %}
+{% set attr_background = segment.attributes.background %}
+{% set attr_size = segment.attributes.size|toGrid %}
+
+{% set class = 'g-block ' ~ attr_size
+    ~ (segment.attributes.variations ? ' ' ~ segment.attributes.variations|join(' '))
+    ~ (segment.attributes.class ? ' ' ~ segment.attributes.class|join(' ')) %}
+
+{% set class_desktop = '' %}
+{% if segment.attributes.desktopVariations or segement.attributes.desktopClass or segment.attributes.desktopSize %}
+{% set attr_size =  (segment.attributes.desktopSize|toGrid) ? segment.attributes.desktopSize|toGrid : attr_size %}
+{% set class_desktop = 'data-desktop="g-block ' ~ attr_size
+    ~ (segment.attributes.desktopVariations ? ' ' ~ segment.attributes.desktopVariations|join(' '))
+    ~ (segment.attributes.desktopClass ? ' ' ~ segment.attributes.desktopClass|join(' ')) ~ '"' %}
+{% endif %}
+
+{% set class_tablet = '' %}
+{% if segment.attributes.tabletVariations or segement.attributes.tabletClass or segment.attributes.tabletSize %}
+{% set attr_size =  (segment.attributes.tabletSize|toGrid) ? segment.attributes.tabletSize|toGrid : attr_size %}
+{% set class_tablet = 'data-tablet="g-block ' ~ attr_size
+    ~ (segment.attributes.tabletVariations ? ' ' ~ segment.attributes.tabletVariations|join(' '))
+    ~ (segment.attributes.tabletClass ? ' ' ~ segment.attributes.tabletClass|join(' ')) ~ '"' %}
+{% endif %}
+
+{% set class_mobile = '' %}
+{% if segment.attributes.mobileVariations or segement.attributes.mobileClass or segment.attributes.mobileSize %}
+{% set attr_size =  (segment.attributes.mobileSize|toGrid) ? segment.attributes.mobileSize|toGrid : attr_size %}
+{% set class_mobile = 'data-mobile="g-block ' ~ attr_size
+    ~ (segment.attributes.mobileVariations ? ' ' ~ segment.attributes.mobileVariations|join(' '))
+    ~ (segment.attributes.mobileClass ? ' ' ~ segment.attributes.mobileClass|join(' ')) ~ '"' %}
+{% endif %}
+
+{% set class_portable = '' %}
+{% if segment.attributes.portableVariations or segement.attributes.portableClass or segment.attributes.portableSize %}
+{% set attr_size =  (segment.attributes.portableSize|toGrid) ? segment.attributes.portableSize|toGrid : attr_size %}
+{% set class_portable = 'data-portable="g-block ' ~ attr_size
+    ~ (segment.attributes.portableVariations ? ' ' ~ segment.attributes.portableVariations|join(' '))
+    ~ (segment.attributes.portableClass ? ' ' ~ segment.attributes.portableClass|join(' ')) ~ '"' %}
+{% endif %}
+
+{% set class_xl_desktop = '' %}
+{% if segment.attributes.xl_desktopVariations or segement.attributes.xl_desktopClass or segment.attributes.xl_desktopSize %}
+{% set attr_size =  (segment.attributes.xl_desktopSize|toGrid) ? segment.attributes.xl_desktopSize|toGrid : attr_size %}
+{% set class_xl_desktop = 'data-xl-desktop="g-block ' ~ attr_size
+    ~ (segment.attributes.xl_desktopVariations ? ' ' ~ segment.attributes.xl_desktopVariations|join(' '))
+    ~ (segment.attributes.xl_desktopClass ? ' ' ~ segment.attributes.xl_desktopClass|join(' ')) ~ '"' %}
+{% endif %}
+
+{% set class_lg_desktop = '' %}
+{% if segment.attributes.lg_desktopVariations or segement.attributes.lg_desktopClass or segment.attributes.lg_desktopSize %}
+{% set attr_size =  (segment.attributes.lg_desktopSize|toGrid) ? segment.attributes.lg_desktopSize|toGrid : attr_size %}
+{% set class_lg_desktop = 'data-lg-desktop="g-block ' ~ attr_size
+    ~ (segment.attributes.lg_desktopVariations ? ' ' ~ segment.attributes.lg_desktopVariations|join(' '))
+    ~ (segment.attributes.lg_desktopClass ? ' ' ~ segment.attributes.lg_desktopClass|join(' ')) ~ '"' %}
+{% endif %}
+
+{% set class_st_desktop = '' %}
+{% if segment.attributes.st_desktopVariations or segement.attributes.st_desktopClass or segment.attributes.st_desktopSize %}
+{% set attr_size =  (segment.attributes.st_desktopSize|toGrid) ? segment.attributes.st_desktopSize|toGrid : attr_size %}
+{% set class_st_desktop = 'data-st-desktop="g-block ' ~ attr_size
+    ~ (segment.attributes.st_desktopVariations ? ' ' ~ segment.attributes.st_desktopVariations|join(' '))
+    ~ (segment.attributes.st_desktopClass ? ' ' ~ segment.attributes.st_desktopClass|join(' ')) ~ '"' %}
+{% endif %}
+
+{% set class_large_mobile = '' %}
+{% if segment.attributes.large_mobileVariations or segement.attributes.large_mobileClass or segment.attributes.large_mobileSize %}
+{% set attr_size =  (segment.attributes.large_mobileSize|toGrid) ? segment.attributes.large_mobileSize|toGrid : attr_size %}
+{% set class_large_mobile = 'data-large-mobile="g-block ' ~ attr_size
+    ~ (segment.attributes.large_mobileVariations ? ' ' ~ segment.attributes.large_mobileVariations|join(' '))
+    ~ (segment.attributes.large_mobileClass ? ' ' ~ segment.attributes.large_mobileClass|join(' ')) ~ '"' %}
+{% endif %}
+
+{% set class_md_mobile = '' %}
+{% if segment.attributes.md_mobileVariations or segement.attributes.md_mobileClass or segment.attributes.md_mobileSize %}
+{% set attr_size =  (segment.attributes.md_mobileSize|toGrid) ? segment.attributes.md_mobileSize|toGrid : attr_size %}
+{% set class_md_mobile = 'data-md-mobile="g-block ' ~ attr_size
+    ~ (segment.attributes.md_mobileVariations ? ' ' ~ segment.attributes.md_mobileVariations|join(' '))
+    ~ (segment.attributes.md_mobileClass ? ' ' ~ segment.attributes.md_mobileClass|join(' ')) ~ '"' %}
+{% endif %}
+
+{% set class_sm_mobile = '' %}
+{% if segment.attributes.sm_mobileVariations or segement.attributes.sm_mobileClass or segment.attributes.sm_mobileSize %}
+{% set attr_size =  (segment.attributes.sm_mobileSize|toGrid) ? segment.attributes.sm_mobileSize|toGrid : attr_size %}
+{% set class_sm_mobile = 'data-sm-mobile="g-block ' ~ attr_size
+    ~ (segment.attributes.sm_mobileVariations ? ' ' ~ segment.attributes.sm_mobileVariations|join(' '))
+    ~ (segment.attributes.sm_mobileClass ? ' ' ~ segment.attributes.sm_mobileClass|join(' ')) ~ '"' %}
+{% endif %}
+
+{% set html %}
+    {% if segment.children %}
+        {% for segment in segments %}
+            {% if segment.content %}
+                {{ segment.content|raw }}
+            {% else %}
+                {% include ['@nucleus/content/' ~ segment.type ~ '.html.twig', '@nucleus/layout/' ~ segment.type ~ '.html.twig'] with { 'segments': segment.children } %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endset %}
+
+{%- if html|trim %}
+    <div {% if segment.attributes.id %}id="{{ segment.attributes.id }}" {% endif %}class="{{ class }}" {% if attr_background %}style="background-image: url('{{ url(attr_background) }}')"{% endif %} {{- attr_extra|raw }} {{ class_desktop|raw }} {{ class_tablet|raw }} {{ class_mobile|raw }} {{ class_portable|raw }} {{ class_xl_desktop|raw }} {{ class_lg_desktop|raw }} {{ class_st_desktop|raw }} {{ class_large_mobile|raw }} {{ class_md_mobile|raw }} {{ class_sm_mobile|raw }}>
+         {{ html|trim|raw }}
+    </div>
+{% endif -%}
+

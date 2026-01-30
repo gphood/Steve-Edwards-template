@@ -1,0 +1,39 @@
+#g-accessibility {
+  left: 0;
+  position: relative;
+
+  &:not(.focus) {
+    left: -9999px;
+    position: absolute;
+  }
+
+}
+
+.accessibility {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @include breakpoint(no-mobile) {
+    padding-right: 52px;
+  }
+
+  a {
+    @include breakpoint(mobile-only) {
+      display: block;
+    }
+  }
+
+  .jumplinks {
+    margin: 0 -1.5rem;
+
+    @include breakpoint(mobile-only) {
+      width: 100%;
+    }
+
+    a {
+      margin: 0 1.5rem;
+    }
+
+  }
+}

@@ -1,0 +1,228 @@
+// Forms
+%er-inputs-original {
+  background-color: $form-background;
+  border: 2px solid $form-border-color;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: $form-text-color;
+  font-size: $form-font-size;
+  font-weight: 400;
+  height: 3.5rem;
+  line-height: $form-font-size/1rem;
+  margin: 1rem 0;
+  padding: 0 $form-padding-side;
+  width: auto;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.error {
+    border-color: $form-border-color-error;
+    color: $form-text-color-error;
+  }
+
+  &:disabled, &.disabled {
+    background-color: $form-background-disabled;
+    border-color: $form-border-color-disabled;
+    color: $form-text-color-disabled;
+  }
+
+}
+
+%er-inputs {
+  background-color: $form2-background-color;
+  border: $form2-border;
+  border-radius: $form2-border-radius;
+  box-sizing: border-box;
+  color: $form2-text-color;
+  font-size: $form2-font-size;
+  font-weight: $form2-font-weight;
+  line-height: $form2-line-height;
+  margin: 1rem 0;
+  padding: $form2-padding-vert $form2-padding-horiz-right $form2-padding-vert $form2-padding-horiz-left;
+  width: auto;
+
+  &:active {
+
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px $focus-yellow;
+  }
+
+  @include breakpoint(mobile-only) {
+    height: auto;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.error {
+    border-color: $form-border-color-error;
+    color: $form-text-color-error;
+  }
+
+  &:disabled, &.disabled, :disabled {
+    color: $form2-text-color;
+  }
+
+}
+
+textarea, select[multiple=multiple] {
+	background-color: white;
+	border: 1px solid $base-border-color;
+
+	&:hover {
+    box-shadow: $base-box-shadow;
+	}
+
+	&:focus {
+        box-shadow: $base-box-shadow;
+	}
+}
+
+textarea {
+	width: 100%;
+	box-sizing: border-box;
+    padding: 0.75rem 1.25rem;
+}
+
+fieldset.input {
+	margin: 0;
+	padding: 0;
+}
+
+#{$all-text-inputs} {
+  @extend %er-inputs;
+
+  &::placeholder {
+    color: lighten($form-text-color, 30%);
+  }
+}
+
+#{$all-text-inputs-hover} {
+	border-color: $form-border-color-hover;
+}
+
+#{$all-text-inputs-focus} {
+	border-color: $form-border-color-focus;
+}
+
+
+select {
+  @extend %er-inputs;
+  @include css-appearance(none);
+  min-width: auto;
+
+  &:not(.wrapped) {
+    background-image: url('../images/fa-svgs/light/4D4D4D/chevron-down.svg');
+    background-position: calc(100% - #{$form2-padding-horiz}) 50%;
+    background-repeat: no-repeat;
+    background-size: $form2-font-size;
+    padding-right: $form2-padding-horiz + $form2-font-size + $form2-padding-horiz;
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+.input-wrapper,
+.select-wrapper {
+  align-items: center;
+  background-color: $form2-background-color;
+  display: flex;
+  position: relative;
+  width: 100%;
+
+  input,
+  select {
+    background-color: transparent;
+    z-index: 1;
+
+    &.before {
+      padding-left: $form2-padding-horiz + $form2-font-size + $form2-padding-horiz;
+    }
+
+    &.after {
+      padding-right: $form2-padding-horiz + $form2-font-size + $form2-padding-horiz;
+    }
+
+  }
+
+  i {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 1.25em;
+    z-index: 0;
+
+    &:first-child {
+      left: $form2-padding-horiz;
+    }
+
+    &:last-child {
+      right: $form2-padding-horiz;
+    }
+
+  }
+
+  ~ [class*="-wrapper"] {
+    margin-top: 0.75rem;
+  }
+
+}
+
+#scopedByScopedPolyfill_1 #prefix-overlay-outer input[type="email"] {
+  &:focus {
+    border-color: $form-border-color-focus;
+  }
+}
+
+#scopedByScopedPolyfill_1 #prefix-overlay-outer {
+  &:focus {
+    border: 1px solid $form-border-color-focus;
+  }
+}
+
+.search-input-container {
+  position: relative;
+
+  input[type="text"] {
+    margin: 0;
+    width: 100%;
+    line-height: 48px;
+
+    @include breakpoint(mobile-only) {
+      font-size: 17px;
+      line-height: 24px;
+    }
+  }
+
+  button {
+    &.search-home, &.ss360-btn {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+
+      @include breakpoint(mobile-only) {
+        right: 6px;
+        top: 6px;
+        border-bottom: 0;
+        padding: 12px;
+      }
+    }
+  }
+}

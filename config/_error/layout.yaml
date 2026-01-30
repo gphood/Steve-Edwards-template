@@ -1,0 +1,184 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/default.png'
+  name: _error
+  timestamp: 1679385192
+layout:
+  messages: {  }
+  accessibility: {  }
+  banner: {  }
+  header: {  }
+  tagline: {  }
+  promo: {  }
+  /hero/:
+    -
+      - markdown-2432
+  row-1: {  }
+  row-2: {  }
+  row-3: {  }
+  row-4: {  }
+  row-5: {  }
+  row-6: {  }
+  row-7: {  }
+  row-8: {  }
+  row-9: {  }
+  row-10: {  }
+  bottom: {  }
+  footer: {  }
+  footer-copyright: {  }
+  inject-topmenu: {  }
+  offcanvas: {  }
+structure:
+  messages:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  accessibility:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  banner:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  header:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  tagline:
+    type: section
+  promo:
+    type: section
+  hero:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: 'section-padding max-width-large mx-margin-large'
+      background: ''
+  row-1:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-2:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-3:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-4:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-5:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-6:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-7:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-8:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-9:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  row-10:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  bottom:
+    type: section
+  footer:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+  footer-copyright:
+    title: Copyright
+  inject-topmenu:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+    type: section
+  offcanvas:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - block
+        - children
+content:
+  markdown-2432:
+    title: Oops
+    attributes:
+      html: "#Oops\n\nSorry, but the page you are looking for cannot currently be found."

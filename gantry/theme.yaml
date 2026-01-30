@@ -1,0 +1,381 @@
+details:
+  name: Small Schools Gantry theme
+  version: '1.0.0.0'
+  icon: paper-plane
+  date: 'Jul 31, 2023'
+  author:
+    name: Grant Hood
+    email: info@granthood.co.uk
+    link: https://granthood.co.uk
+
+  documentation:
+    link: 'https://granthood.co.uk'
+
+  support:
+    link: 'https://granthood.co.uk'
+
+  updates:
+    link: 'https://granthood.co.uk'
+    server: 'https://granthood.co.uk/tmpl-smallschools/updates.xml'
+
+  copyright: (C) 2023 Grant Hood. All rights reserved.
+  license: GPLv2
+  description: Small Schools Theme
+  images:
+    thumbnail: 'admin/images/preset1.png'
+    preview: 'admin/images/preset1.png'
+
+configuration:
+  gantry:
+    platform: joomla
+    engine: nucleus
+
+  theme:
+    parent: smallschools
+    base: gantry-theme://common
+    file: 'gantry-theme://includes/theme.php'
+    class: '\Gantry\Framework\Theme'
+
+  fonts:
+    Alegreya:
+      900: 'gantry-theme://fonts/alegreya/alegreya-black/Alegreya-Black'
+      900italic: 'gantry-theme://fonts/alegreya/alegreya-blackitalic/Alegreya-BlackItalic'
+      800: 'gantry-theme://fonts/alegreya/alegreya-extrabold/Alegreya-ExtraBold'
+      700italic: 'gantry-theme://fonts/alegreya/alegreya-bolditalic/Alegreya-BoldItalic'
+      700: 'gantry-theme://fonts/alegreya/alegreya-bold/Alegreya-Bold'
+      700italic: 'gantry-theme://fonts/alegreya/alegreya-bolditalic/Alegreya-BoldItalic'
+      600italic: 'gantry-theme://fonts/alegreya/alegreya-semibolditalic/Alegreya-SemiBoldItalic'
+      600: 'gantry-theme://fonts/alegreya/alegreya-semibold/Alegreya-SemiBold'
+      500italic: 'gantry-theme://fonts/alegreya/alegreya-mediumitalic/Alegreya-MediumItalic'
+      500: 'gantry-theme://fonts/alegreya/alegreya-medium/Alegreya-Medium'
+      400italic: 'gantry-theme://fonts/alegreya/alegreya-italic/Alegreya-Italic'
+      400: 'gantry-theme://fonts/alegreya/alegreya-regular/Alegreya-Regular'
+    Cinzel:
+      900: 'gantry-theme://fonts/cinzel/cinzel-black/Cinzel-Black'
+      800: 'gantry-theme://fonts/cinzel/cinzel-extrabold/Cinzel-ExtraBold'
+      700: 'gantry-theme://fonts/cinzel/cinzel-bold/Cinzel-Bold'
+      600: 'gantry-theme://fonts/cinzel/cinzel-semibold/Cinzel-SemiBold'
+      500: 'gantry-theme://fonts/cinzel/cinzel-medium/Cinzel-Medium'
+      400: 'gantry-theme://fonts/cinzel/cinzel-regular/Cinzel-Regular'
+    HKGrotesk:
+      900: 'gantry-theme://fonts/hk-grotesk/hk-grotesk-black/HKGrotesk-Black'
+      800: 'gantry-theme://fonts/hk-grotesk/hk-grotesk-extrabold/HKGrotesk-ExtraBold'
+      700italic: 'gantry-theme://fonts/hk-grotesk/hk-grotesk-bolditalic/HKGrotesk-BoldItalic'
+      700: 'gantry-theme://fonts/hk-grotesk/hk-grotesk-bold/HKGrotesk-Bold'
+      600italic: 'gantry-theme://fonts/hk-grotesk/hk-grotesk-semibolditalic/HKGrotesk-SemiBoldItalic'
+      600: 'gantry-theme://fonts/hk-grotesk/hk-grotesk-semibold/HKGrotesk-SemiBold'
+      500italic: 'gantry-theme://fonts/hk-grotesk/hk-grotesk-mediumitalic/HKGrotesk-MediumItalic'
+      500: 'gantry-theme://fonts/hk-grotesk/hk-grotesk-medium/HKGrotesk-Medium'
+      400italic: 'gantry-theme://fonts/hk-grotesk/hk-grotesk-italic/HKGrotesk-Italic'
+      400: 'gantry-theme://fonts/hk-grotesk/hk-grotesk-regular/HKGrotesk-Regular'
+      300italic: 'gantry-theme://fonts/hk-grotesk/hk-grotesk-lightitalic/HKGrotesk-LightItalic'
+      300: 'gantry-theme://fonts/hk-grotesk/hk-grotesk-light/HKGrotesk-Light'
+    Merienda:
+      900: 'gantry-theme://fonts/merienda/merienda-black/Merienda-Black'
+      800: 'gantry-theme://fonts/merienda/merienda-extrabold/Merienda-ExtraBold'
+      700: 'gantry-theme://fonts/merienda/merienda-bold/Merienda-Bold'
+      600: 'gantry-theme://fonts/merienda/merienda-semibold/Merienda-SemiBold'
+      500: 'gantry-theme://fonts/merienda/merienda-medium/Merienda-Medium'
+      400: 'gantry-theme://fonts/merienda/merienda-regular/Merienda-Regular'
+      300: 'gantry-theme://fonts/merienda/merienda-light/Merienda-Light'
+    Montserrat:
+      900: 'gantry-theme://fonts/montserrat/montserrat-black/Montserrat-Black'
+      900italic: 'gantry-theme://fonts/montserrat/montserrat-blackitalic/Montserrat-Blackitalic'
+      800: 'gantry-theme://fonts/montserrat/montserrat-extrabold/Montserrat-ExtraBold'
+      800italic: 'gantry-theme://fonts/montserrat/montserrat-extrabolditalic/Montserrat-ExtraBoldItalic'
+      700: 'gantry-theme://fonts/montserrat/montserrat-bold/Montserrat-Bold'
+      700italic: 'gantry-theme://fonts/montserrat/montserrat-bolditalic/Montserrat-BoldItalic'
+      600: 'gantry-theme://fonts/montserrat/montserrat-semibold/Montserrat-SemiBold'
+      600italic: 'gantry-theme://fonts/montserrat/montserrat-semibolditalic/Montserrat-SemiBoldItalic'
+      500: 'gantry-theme://fonts/montserrat/montserrat-medium/Montserrat-Medium'
+      500italic: 'gantry-theme://fonts/montserrat/montserrat-mediumitalic/Montserrat-MediumItalic'
+      400: 'gantry-theme://fonts/montserrat/montserrat-regular/Montserrat-Regular'
+      400italic: 'gantry-theme://fonts/montserrat/montserrat-italic/Montserrat-Italic'
+      300: 'gantry-theme://fonts/montserrat/montserrat-light/Montserrat-Light'
+      300italic: 'gantry-theme://fonts/montserrat/montserrat-lightitalic/Montserrat-LightItalic'
+      200: 'gantry-theme://fonts/montserrat/montserrat-extralight/Montserrat-ExtraLight'
+      200italic: 'gantry-theme://fonts/montserrat/montserrat-extralightitalic/Montserrat-ExtraLightItalic'
+      100: 'gantry-theme://fonts/montserrat/montserrat-thin/Montserrat-Thin'
+      100italic: 'gantry-theme://fonts/montserrat/montserrat-thinitalic/Montserrat-ThinItalic'
+    Philosopher:
+      700italic: 'gantry-theme://fonts/philosopher/philosopher-bolditalic/Philosopher-BoldItalic'
+      700: 'gantry-theme://fonts/philosopher/philosopher-bold/Philosopher-Bold'
+      400italic: 'gantry-theme://fonts/philosopher/philosopher-italic/Philosopher-Italic'
+      400: 'gantry-theme://fonts/philosopher/philosopher-regular/Philosopher-Regular'
+  css:
+    compiler: '\Gantry\Component\Stylesheet\ScssCompiler'
+    options:
+      compatibility: '5.5'
+      deprecations: true
+    target: 'gantry-theme://css-compiled'
+    paths:
+      - 'gantry-theme://scss'
+      - 'gantry-engine://scss'
+    files:
+      - smallschools
+      - custom
+    persistent:
+      - smallschools
+    overrides:
+      - custom
+
+  dependencies:
+    gantry: '5.5'
+
+  section-variations:
+    Utility:
+      nodash: No Heading Dash
+      heading-promo: Heading Promo
+      promo-tagline: Promo Tagline
+      promo-subtitle: Promo Subtitle
+      promo-text: Promo Text
+      h2-dash: H1/2 Dash
+      hidden: Hidden
+      nomarginall: No Margin
+      nopaddingall: No Padding
+      no-section-padding: No Section Padding
+      no-section-padding-top: No Section Padding Top
+      no-section-padding-bottom: No Section Padding Bottom
+      section-bottom-border: Section Bottom Border
+      section-bottom-border-small-screens: Section Bottom Border (< 960px)
+      section-padding: Section Padding
+      section-padding-top: Section Padding Top
+      section-padding-bottom: Section Padding Bottom
+      section-padding-vertical-variable: Section Padding Vertical Variable
+      center: Center
+      equal-height: Equal Height
+      spacer-min-height: Spacer Min Height
+      spacer-min-height-large: Spacer Min Height (Large)
+      max-width: Max Width
+      max-width-1080: Max Width 1080
+      max-width-large: Max Width (Large)
+      max-width-small: Max Width (Small)
+      max-width-narrow: Max Width (Narrow)
+      max-width-nocenter: Max Width (No Center)
+      mx-margin-large: Max Width Left Margin (Large)
+      large: Large
+      h1-size: H1 Size
+      h2-size: H2 Size
+      h3-size: H3 Size
+      h4-size: H4 Size
+      h5-size: H5 Size
+      h6-size: H6 Size
+      section-txtimg-left: Section - Left Text - Right Image
+      section-txtimg-right: Section - Left Image - Right Text
+      section-stack-tablet: Section Stack (Tablet)
+      blocks-portables-50: Blocks 50% (Mobile/Tablet)
+      switcher-absolute: Switcher Absolute
+    Spacing:
+      nomargin: No Margin
+      nopadding: No Padding
+      nomarginleft: No Margin Left
+      -marginleft: Negative Margin Left
+      nomarginright: No Margin Right
+      -marginright: Negative Margin Right
+      nomargintop: No Margin Top
+      -margintop: Negative Margin Top
+      nomarginbottom: No Margin Bottom
+      -marginbottom: Negative Margin Bottom
+      -marginall: Negative Margin
+      margin: Margin
+      margin1-25x: Margin 1.25x
+      margin1-5x: Margin 1.5x
+      margin2x:  Margin 2x
+      margin3x:  Margin 3x
+      nopaddingleft: No Padding Left
+      nopaddingright: No Padding Right
+      nopaddingtop: No Padding Top
+      nopaddingbottom: No Padding Bottom
+      padding: Padding
+      padding1-25x: Padding 1.25x
+      padding1-5x: Padding 1.5x
+      padding2x:  Padding 2x
+      padding3x:  Padding 3x
+    Background Types:
+      er-bg-overlay: BG Overlay
+      bg-center: BG Center
+      bg-contain: BG Contain
+      bg-cover: BG Cover
+      bg-no-repeat: BG No Repeat
+      bg-repeat-x: BG Repeat X
+      bg-repeat-y: BG Repeat Y
+      bg-radius: BG Border Radius
+      bg-overlap: BG Overlap
+      bg-image-static: BG Image Static
+    Background Colours:
+      body-bg: BG Body
+      body-bg-alt: BG Body Alt
+      body-bg-alt-50: Body BG Alt 50%
+      er-bg-site: BG Current Site
+      er-bg-site-light: BG Light Current Site
+      er-bg-site-dark: BG Dark Current Site
+      er-bg-gradient-site: BG Gradient Current Site
+      er-bg-overlay-gradient-site: BG Gradient Current Site
+      er-bg-pastelblue: BG Pastel Blue
+      er-bg-overlay-pastelblue: BG Pastel Blue (Overlay)
+      er-bg-pastelpink: BG Pastel Pink
+      er-bg-overlay-pastelpink: BG Pastel Pink (Overlay)
+      er-bg-pastelyellow: BG Pastel Yellow
+      er-bg-overlay-pastelyellow: BG Pastel Yellow (Overlay)
+      er-bg-pastelgreen: BG Pastel Green
+      er-bg-overlay-pastelgreen: BG Pastel Green (Overlay)
+      er-bg-pastellime: BG Pastel Lime
+      er-bg-overlay-pastellime: BG Pastel Lime (Overlay)
+      er-bg-white: BG White
+      er-bg-overlay-white: BG White (Overlay)
+      er-bg-black: BG Black
+      er-bg-overlay-black: BG Black (Overlay)
+      er-bg-dark: BG Dark
+      er-bg-overlay-dark: BG Dark (Overlay)
+      er-bg-grey: BG Grey
+      er-bg-overlay-grey: BG Grey (Overlay)
+      er-bg-purple: BG Purple
+      er-bg-overlay-purple: BG Purple (Overlay)
+    Borders:
+      er-border: Border
+      er-radius: Border Radius
+      er-border-left: Border Left
+      er-border-right: Border Right
+      er-border-top: Border Top
+      er-border-bottom: Border Bottom
+
+  block-variations:
+    Utility:
+      nodash: No Heading Dash
+      heading-promo: Heading Promo
+      promo-tagline: Promo Tagline
+      promo-subtitle: Promo Subtitle
+      promo-text: Promo Text
+      h2-dash: H1/2 Dash
+      hidden: Hidden
+      center: Center
+      title-center: Centered Title
+      equal-height: Equal Height
+      spacer-min-height: Spacer Min Height
+      spacer-min-height-large: Spacer Min Height (Large)
+      disabled: Disabled
+      align-right: Align Right
+      align-left: Align Left
+      no-section-padding: No Section Padding
+      no-section-padding-top: No Section Padding Top
+      no-section-padding-bottom: No Section Padding Bottom
+      section-padding: Section Padding
+      section-padding-top: Section Padding Top
+      section-padding-bottom: Section Padding Bottom
+      flex-align-center: Flex Align Center
+      flex-justify-center: Flex Justify Center
+      max-width: Max Width
+      max-width-1080: Max Width 1080
+      max-width-large: Max Width (Large)
+      max-width-small: Max Width (Small)
+      max-width-narrow: Max Width (Narrow)
+      max-width-nocenter: Max Width (No Center)
+      mx-margin-large: Max Width Left Margin (Large)
+      large: Large
+      h1-size: H1 Size
+      h2-size: H2 Size
+      h3-size: H3 Size
+      h4-size: H4 Size
+      h5-size: H5 Size
+      h6-size: H6 Size
+      stacked-links: Stacked Links
+    Spacing:
+      nomargin: No Margin
+      nopadding: No Padding
+      nomarginleft: No Margin Left
+      -marginleft: Negative Margin Left
+      nomarginright: No Margin Right
+      -marginright: Negative Margin Right
+      nomargintop: No Margin Top
+      -margintop: Negative Margin Top
+      nomarginbottom: No Margin Bottom
+      -marginbottom: Negative Margin Bottom
+      -marginall: Negative Margin
+      margin: Margin
+      margin1-25x: Margin 1.25x
+      margin1-5x: Margin 1.5x
+      margin2x:  Margin 2x
+      margin3x:  Margin 3x
+      nopaddingleft: No Padding Left
+      nopaddingright: No Padding Right
+      nopaddingtop: No Padding Top
+      nopaddingbottom: No Padding Bottom
+      padding: Padding
+      padding1-25x: Padding 1.25x
+      padding1-5x: Padding 1.5x
+      padding2x:  Padding 2x
+      padding3x:  Padding 3x
+      size-start: Spacing Start
+      size-mid: Spacing Middle
+      size-end: Spacing End
+      para: Paragraph Spacing
+    Background Types:
+      er-bg-overlay: BG Overlay
+      bg-center: BG Center
+      bg-contain: BG Contain
+      bg-cover: BG Cover
+      bg-no-repeat: BG No Repeat
+      bg-repeat-x: BG Repeat X
+      bg-repeat-y: BG Repeat Y
+      bg-radius: BG Border Radius
+    Background Colours:
+      body-bg: BG Body
+      body-bg-alt: BG Body Alt
+      body-bg-alt-50: Body BG Alt 50%
+      er-bg-site: BG Current Site
+      er-bg-site-light: BG Light Current Site
+      er-bg-site-dark: BG Dark Current Site
+      er-bg-gradient-site: BG Gradient Current Site
+      er-bg-overlay-gradient-site: BG Gradient Current Site
+      er-bg-pastelblue: BG Pastel Blue
+      er-bg-overlay-pastelblue: BG Pastel Blue (Overlay)
+      er-bg-pastelpink: BG Pastel Pink
+      er-bg-overlay-pastelpink: BG Pastel Pink (Overlay)
+      er-bg-pastelyellow: BG Pastel Yellow
+      er-bg-overlay-pastelyellow: BG Pastel Yellow (Overlay)
+      er-bg-pastelgreen: BG Pastel Green
+      er-bg-overlay-pastelgreen: BG Pastel Green (Overlay)
+      er-bg-pastellime: BG Pastel Lime
+      er-bg-overlay-pastellime: BG Pastel Lime (Overlay)
+      er-bg-white: BG White
+      er-bg-overlay-white: BG White (Overlay)
+      er-bg-black: BG Black
+      er-bg-overlay-black: BG Black (Overlay)
+      er-bg-dark: BG Dark
+      er-bg-overlay-dark: BG Dark (Overlay)
+      er-bg-grey: BG Grey
+      er-bg-overlay-grey: BG Grey (Overlay)
+      er-bg-purple: BG Purple
+      er-bg-overlay-purple: BG Purple (Overlay)
+    Borders:
+      er-border: Border
+      er-radius: Border Radius
+      er-border-left: Border Left
+      er-border-right: Border Right
+      er-border-top: Border Top
+      er-border-bottom: Border Bottom
+    Notices:
+      notice-icon: Notice Icon
+      notice-trans: Notice Translucent
+      notice-info: Blue Notice (Info)
+      notice-warning: Yellow Notice (Warning)
+      notice-danger: Red Notice (Error)
+      notice-success: Green Notice (Success)
+    Lists:
+      list-checks: List Checks
+      list-crosses: List Crosses
+      list-50: List 50%
+
+admin:
+  styles:
+    core:
+      - base
+      - font
+    section:
+      - messages
+      - header
+      - footer
+      - footercopyright
+      - offcanvas
+    configuration:
+      - breakpoints

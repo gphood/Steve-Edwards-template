@@ -1,0 +1,33 @@
+section#g-contact-form {
+  .page-header {
+    margin-bottom: 20px;
+  }
+  .com-contact__container {
+    h3 {
+      display: none;
+    }
+
+    dl.contact-address {
+
+    }
+  }
+  .com-contact.contact > h3 {
+    display: none;
+  }
+
+  .com-contact__info {
+    dl.contact-address {
+      display: flex;
+      flex-wrap: wrap;
+
+      dt {
+        width: 24px;
+      }
+      dt, dd {
+        flex: 1;
+        height: 30px;
+        width: auto;
+      }
+    }
+  }
+}

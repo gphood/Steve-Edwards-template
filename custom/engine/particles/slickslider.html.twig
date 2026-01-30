@@ -1,0 +1,221 @@
+ {% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+
+  <div id="{{ id }}" class="slick-slider-container {{ particle.class|e }}">
+
+    {% for item in particle.items %}
+      {% set to_display = false %}
+
+      {% if item.querystring %}
+        {% if item.querystring_display == 'with' %}
+          {% if gantry.query_string.query_string_isset(item.querystring) %}
+          {% set to_display = true %}
+          {% else %}
+          {% set to_display = false %}
+          {% endif %}
+        {% endif %}
+
+        {% if item.querystring_display == 'without' %}
+          {% if gantry.query_string.query_string_isset(item.querystring) %}
+          {% set to_display = false %}
+          {% else %}
+          {% set to_display = true %}
+          {% endif %}
+        {% endif %}
+
+        {% if item.querystring_display == 'both' %}
+        {% set to_display = true %}
+        {% endif %}
+      {% else %}
+        {% set to_display = true %}
+      {% endif %}
+
+      {% if item.disable %}
+      {% set to_display = false %}
+      {% endif %}
+
+      {% if to_display %}
+
+        {% set img_alt = item.title %}
+        {% set img_caption_above_html = '' %}
+        {% set img_caption_below_html = '' %}
+
+        {% if item.link %}
+        {% set img_alt = item.linkTitle|e %}
+        {% endif %}
+
+        {% if item.caption %}
+        {% set img_alt = item.caption|e %}
+          {% if item.captionPosition == 'above' %}
+            {% set img_caption_above_html = '<div class="img-caption above">' ~ item.caption|markdown ~ '</div>' %}
+          {% endif %}
+          {% if item.captionPosition == 'below' %}
+            {% set img_caption_below_html = '<div class="img-caption below">' ~ item.caption|markdown ~ '</div>' %}
+          {% endif %}
+        {% endif %}
+
+        {% set img_html = img_caption_above_html ~ '<img src="' ~ item.image ~ '" alt="' ~ img_alt ~ '" data-caption="' ~ img_alt ~ '"/>' ~ img_caption_below_html %}
+
+        {% if item.image and item.link %}
+        {% set img_html = '<a href="' ~ item.link ~ '">' ~ img_html ~ '</a>' %}
+        {% endif %}
+
+        {% if item.image and particle.imageType == 'image' %}
+        {% set image_html = '<div class="image">' ~ img_html ~ '</div>' %}
+        {% endif %}
+
+        {% if item.image and particle.imageType == 'bgInline' %}
+        {% set image_html = '<div class="image" style="background-image: url(' ~ url(item.image) ~ ')"></div>' %}
+        {% endif %}
+
+        {% set subtitle_html = '<div class="subtitle">' ~ item.subtitle|e ~ '</div>' %}
+
+        {% set classes = item.variations ~ ' ' ~ item.class %}
+
+        {% set empty = '' %}
+        {% if not (item.image or item.subtitle or item.title or item.desc or particle.link) %}
+        {% set empty = 'empty' %}
+        {% endif %}
+        
+        <div class="item {{ classes|e }} {{ empty }}" style="{% if particle.imageType == 'background' and item.image %}background-image: url('{{ url(item.image) }}'){% endif %}" data-imgpos="{{ particle.imagePosition|e }}">
+
+          {% if item.image or item.subtitle or item.title or item.desc or particle.link %}
+          <div class="content">
+
+            {% if (particle.imagePosition == 'top' or particle.imagePosition == 'left') and item.image and (particle.imageType == 'image' or particle.imageType == 'bgInline')%}
+            {{ image_html|raw }}
+            {% endif %}
+
+            {% if (particle.imagePosition == 'left' or particle.imagePosition == 'right') and item.image and (particle.imageType == 'image' or particle.imageType == 'bgInline') %}
+            <div class="txt-wrap">
+            {% endif %}
+
+            {% if item.subtitle and item.subtitlePosition == 'above' %}
+            {{ subtitle_html|raw }}
+            {% endif %}
+
+            {% if item.title %}
+            <{{ item.titleTag|e }} class="title">{{ item.title|raw }}</{{ item.titleTag|e }}>
+            {% endif %}
+
+            {% if item.subtitle and item.subtitlePosition == 'below' %}
+            {{ subtitle_html|raw }}
+            {% endif %}
+
+            {% if item.desc %}
+              <div class="desc">{{ item.desc|markdown }}</div>
+            {% endif %}
+
+            {% if item.link and item.linkType != 'image' %}
+            <div class="link {{ item.linkAlign }}">
+              <a class="linka {{ item.linkClass }}" href="{{ item.link }}">
+                {% if item.linkIcon %}<i class="{{ item.linkIcon|e }}"></i>{% endif %} {{ item.linkText|e }}</a>
+            </div>
+            {% endif %}
+
+            {% if (particle.imagePosition == 'left' or particle.imagePosition == 'right') and item.image and (particle.imageType == 'image' or particle.imageType == 'bgInline') %}
+            </div>
+            {% endif %}
+
+            {% if (particle.imagePosition == 'bottom' or particle.imagePosition == 'right') and item.image and (particle.imageType == 'image' or particle.imageType == 'bgInline')%}
+            {{ image_html|raw }}
+            {% endif %}
+
+          </div>
+          {% endif %}
+
+        </div>
+
+      {% endif %}
+    {% endfor %}
+
+  </div>
+
+{% endblock %}
+
+{% spaceless %}
+{% do gantry.load('jquery') %}
+{% do gantry.document.addStyle(url('//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css')) %}
+{% do gantry.document.addScript(url('//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'), 0, 'footer') %}
+{% if particle.lightbox %}
+{% do gantry.document.addStyle(url('//cdnjs.cloudflare.com/ajax/libs/slick-lightbox/0.2.12/slick-lightbox.css')) %}
+{% do gantry.document.addScript(url('//cdnjs.cloudflare.com/ajax/libs/slick-lightbox/0.2.12/slick-lightbox.js'), 0, 'footer') %}
+{% endif %}
+{% endspaceless %}
+
+{% block javascript_footer %}
+<script type="text/javascript">
+  (function ($) {
+
+    {% set dots = particle.dots|default('false') %}
+    {% if particle.items|length < 2 %}
+    {% set dots = 'false' %}
+    {% endif %}
+
+    {% if particle.lightbox %}
+    $('#{{ id }}').slickLightbox({
+      src: 'src',
+      itemSelector: '.image img',
+      caption: 'caption'
+    })
+    {% endif %}
+
+    $('#{{ id }}').slick({
+        {% if particle.rows > 1 or particle.slidesPerRow > 1 %}
+        rows: {{ particle.rows|default('1') }},
+        slidesPerRow: {{ particle.slidesPerRow|default('1') }},
+        {% else %}
+        slidesToShow: {{ particle.slidesToShow|default('1') }},
+        slidesToScroll: {{ particle.slidesToScroll|default('1') }},
+        {% endif %}
+        arrows: {{ particle.arrows|default('true') }},
+        dots: {{ dots }},
+        autoplay: {{ particle.autoplay|default('false') }},
+        autoplaySpeed: {{ particle.autoplaySpeed|default('5000') }},
+        fade: {{ particle.fade|default('false') }},
+        centerMode: {{ particle.centerMode|default('false') }},
+        centerPadding: '{{ particle.centreModePadding|default('60') }}px',
+        speed: {{ particle.speed|default('500') }},
+        infinite: {{ particle.infinite|default('false') }},
+        adaptiveHeight: {{ particle.adaptiveHeight|default('true') }},
+        pauseOnHover: {{ particle.pauseOnHover|default('false') }}{% if particle.sliderBreakpoints %},
+        responsive: [
+
+          {% for item in particle.sliderBreakpoints|sort|reverse %}
+            {% set dots = particle.dots|default('false') %}
+            {% if particle.items|length < 2 %}
+            {% set dots = 'false' %}
+            {% endif %}
+            {
+              breakpoint: {{ item.breakpoint }},
+              settings: {
+                {% if item.rows > 1 or item.slidesPerRow > 1 %}
+                rows: {{ item.rows|default('1') }},
+                slidesPerRow: {{ item.slidesPerRow|default('1') }},
+                {% else %}
+                slidesToShow: {{ item.slidesToShow|default('1') }},
+                slidesToScroll: {{ item.slidesToScroll|default('1') }},
+                {% endif %}
+                arrows: {{ item.arrows|default('true') }},
+                dots: {{ dots }},
+                autoplay: {{ particle.autoplay|default('false') }},
+                autoplaySpeed: {{ particle.autoplaySpeed|default('5000') }},
+                fade: {{ particle.fade|default('false') }},
+                centerMode: {{ particle.centerMode|default('false') }},
+                centerPadding: '{{ item.centreModePadding|default('60') }}px',
+                speed: {{ particle.speed|default('500') }},
+                infinite: {{ particle.infinite|default('false') }},
+                pauseOnHover: {{ particle.pauseOnHover|default('false') }}
+              }
+            }{% if loop.last == false %},{% endif %}
+          {% endfor %}
+
+        ]{% endif %}
+      });
+
+      $('#{{ id }} .slick-track').attr('data-adaptiveHeight', {{ particle.adaptiveHeight|default('true') }});
+
+  })(jQuery)
+</script>
+{% endblock %}

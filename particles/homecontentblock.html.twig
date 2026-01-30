@@ -1,0 +1,60 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+    {% if particle.enabled %}
+        <div id="{{ id }}" class="home-content-block-container {{ particle.class|e }}">
+            <div class="home-content-block">
+                <div class="text-box bg-lime-800 paddingall-large accent-text-white">
+                    {% if particle.textBoxTitle %}
+                        <div class="text-box-title">
+                            <{{ particle.textBoxTitleTag }}>{{  particle.textBoxTitle }}</{{ particle.textBoxTitleTag }}>
+                        </div>
+                    {% endif %}
+                    <div class="text-box-content">
+                        {{ particle.textBoxContent|markdown }}
+                    </div>
+                </div>
+                <div class="social-media-box bg-lime-800">
+                    {% if particle.facebookUrl %}
+                        <div class="facebook-box">
+                            <div class="fb-page"
+                                 data-href="{{ particle.facebookUrl }}"
+                                 data-tabs="timeline"
+                                 data-width="500"
+                                 data-height="0"
+                                 data-small-header="false"
+                                 data-adapt-container-width="true"
+                                 data-hide-cover="false"
+                                 data-show-facepile="false">
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if particle.xUrl %}
+                        <div class="x-box">
+
+                        </div>
+                    {% endif %}
+                    <div id="fb-root"></div>
+                </div>
+            </div>
+            <div class="home-content-block bg-pure-white">
+                <div class="bullet-point-items paddingall-large">
+                    {% for item in particle.bulletPointItems %}
+                        <div class="bullet-point-item">
+                            <div class="bullet-point-icon circle-tick"></div>
+                            <div class="bullet-point-content">
+                                <div class="bullet-point">{{ item.name }}</div>
+                                <div class="bullet-point-detail">{{ item.description }}</div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascript_footer %}
+    {% do gantry.load('jquery') %}
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v18.0"></script>
+{% endblock %}

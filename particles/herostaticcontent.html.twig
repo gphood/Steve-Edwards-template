@@ -1,0 +1,64 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+  {% set background_image_classes = particle.class|e ~ ' ' ~ particle.backgroundSize ~ ' ' ~ particle.backgroundPosition %}
+
+  {% set background_image_inline_style = '' %}
+  {% set static_content_class = '' %}
+  {% if particle.backgroundImage %}
+    {% set background_image_inline_style = 'background-image: url(' ~ url(particle.backgroundImage) ~ ');' %}
+    {% set static_content_class = 'box-shadow' %}
+  {% else %}
+    {% set static_content_class = 'no-background-image' %}
+  {% endif %}
+  {% set title_prefix = '' %}
+  {% if particle.titlePrefix %}
+    {% set title_prefix = '<span class="title-prefix">' ~ particle.titlePrefix ~ '</span>' %}
+  {% endif %}
+  {% set title_class = '' %}
+  {% if particle.titleLarge %}
+    {% set title_class = 'large-title' %}
+  {% endif %}
+  {% set content_class = 'small' %}
+  {% if particle.contentSize %}
+    {% set content_class = particle.contentSize %}
+  {% endif %}
+
+<div id="{{ id }}" class="hero-static-content-container hero-static-content {{ background_image_classes }}" style="{{ background_image_inline_style }}">
+  <div class="static-content-container {{ particle.contentStyleClass }}">
+    {% if particle.backgroundImage %}
+      <div class="static-image-container-mobile-view">
+        <img src="{{ particle.backgroundImage }}" alt="{{ particle.title }}">
+      </div>
+    {% endif %}
+    <div class="static-content {{ static_content_class }}">
+
+      {% if particle.title %}
+        <{{ particle.titleTag|e }} class="title {{ title_class }}">{{ title_prefix|raw }}{{ particle.title|raw }}</{{ particle.titleTag|e }}>
+      {% endif %}
+
+      {% if particle.subtitle %}
+          <div class="subtitle">{{ particle.subtitle }}</div>
+      {% endif %}
+
+      {% if particle.content %}
+        <div class="content {{ content_class }}">{{ particle.content|markdown }}</div>
+      {% endif %}
+
+      {% if particle.url %}
+        <div class="link">
+          <a href="{{ particle.url|raw }}" class="{{ particle.urlClass|e }}"><span>{{ particle.urlText|e }}</span></a>
+        </div>
+      {% endif %}
+
+      {% if particle.searchInput %}
+        <div class="search-input-container">
+          <input type="text" class="ss360-input search-home" data-ss360-exclude-suggest="['News']" placeholder="Search eastriding.gov.uk" />
+          <button class="ss360-btn search-home"><i class="fas fa-search" aria-hidden="true"></i>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

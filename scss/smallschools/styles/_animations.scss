@@ -1,0 +1,41 @@
+/* Set initial styling for the element */
+.animate-on-load {
+  opacity: 0;
+  transform: translate(-32px, -32px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+  .testimonials & {
+    @media screen and (max-width: 767px) {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+
+  &.animate-centre {
+    transform: translateY(-32px);
+
+    .testimonials & {
+      @media screen and (max-width: 767px) {
+        opacity: 1;
+        transform: translate(0);
+      }
+    }
+  }
+
+  &.animate-right {
+    transform: translate(32px, 32px);
+
+    .testimonials & {
+      @media screen and (max-width: 767px) {
+        opacity: 1;
+        transform: translate(0);
+      }
+    }
+  }
+}
+
+/* Add a class to the element to trigger the animation */
+.animate-on-load.show {
+  opacity: 1;
+  transform: translate(0);
+}

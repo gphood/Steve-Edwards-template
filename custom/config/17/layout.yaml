@@ -1,0 +1,225 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/default.png'
+  name: default
+  timestamp: 1691342274
+layout:
+  header: {  }
+  navigation: {  }
+  /hero/:
+    -
+      - herostaticcontent-4104
+  heading: {  }
+  /row-1/:
+    -
+      - contentblocks-6505
+  row-2: {  }
+  row-3: {  }
+  row-4: {  }
+  row-5: {  }
+  row-6: {  }
+  row-7: {  }
+  row-8: {  }
+  row-9: {  }
+  row-10: {  }
+  footer: {  }
+  inject: {  }
+  offcanvas: {  }
+structure:
+  header:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  navigation:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  hero:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: 'bg-center bg-cover'
+      background: 'gantry-media://hero/young-boy-with-book.jpg'
+  heading:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-1:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-2:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-3:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-4:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-5:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-6:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-7:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-8:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-9:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  row-10:
+    type: section
+    inherit:
+      outline: '12'
+      include:
+        - attributes
+        - block
+        - children
+  footer:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  inject:
+    type: section
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+  offcanvas:
+    inherit:
+      outline: default
+      include:
+        - attributes
+        - children
+content:
+  herostaticcontent-4104:
+    title: 'Hero Static Content'
+    attributes:
+      class: nass-hero-content
+      variations: ''
+      backgroundImage: ''
+      backgroundSize: bg-cover
+      backgroundPosition: bg-center
+      contentStyleClass: content-flush
+      titlePrefix: ''
+      title: 'About NASS'
+      titleTag: h1
+      titleLarge: '0'
+      subtitle: 'The voice of small schools'
+      content: "NASS is a registered charity supporting and promoting the work of small schools across the UK.\n\n<a href=\"/home/join-nass\" class=\"btn-primary btn-arrow\">Join NASS</a>"
+      contentSize: full
+      url: ''
+      urlText: ''
+      urlClass: ''
+      searchInput: '0'
+      disable: '0'
+  contentblocks-6505:
+    title: 'Who we are'
+    attributes:
+      items:
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: 'Who we are'
+          titleTag: h2
+          content: "We bring together leaders, teachers, and researchers from all over the country, working together to help small schools and their communities grow and succeed. As a registered charity, NASS is dedicated to supporting and promoting small schools across the UK. We serve headteachers, governors, teachers, support staff, and all those connected to small schools - which are often the heartbeat of their communities.\n\nSmall schools are important because they create close, supportive learning environments where students can thrive. In these settings, every child is known as an individual, relationships are strong, and learning can be personalised in ways that larger institutions often struggle to achieve. But small schools also face distinct challenges - from managing limited budgets and recruiting specialist staff to navigating policies and inspection frameworks designed with larger schools in mind.\n\nOur mission is to ensure small schools have the resources, voice, and recognition they deserve. We champion the unique strengths and contributions of small schools whilst working to address the systemic challenges they face. Through our advocacy work, we influence national education policy to better reflect the realities of small school contexts. Through our research, we build the evidence base that demonstrates the value and impact of small schools. Through our training programmes and consultancy services, we provide practical support that helps school leaders and staff excel in their roles. And through our membership community, we create connections and opportunities for small school educators to learn from one another.\n\nWe aim to secure a sustainable future for small schools, ensuring they remain vibrant centres of educational excellence and community life for generations to come. Every small school matters, and NASS exists to make sure they have the support they need to flourish."
+          bottomBorder: '0'
+          iconListItems: {  }
+          buttonItems: {  }
+          inject: ''
+          cssid: ''
+          class: ''
+          lightBorder: '0'
+          notice: ''
+          name: 'Intro text'
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: 'Meet the team'
+          titleTag: h2
+          content: "NASS is led by a dedicated team of education professionals who understand small schools from the inside out. Many of our trustees have worked in or led small schools ourselves, and we're passionate about ensuring these vital institutions have the support and recognition they deserve.\n\nOur team brings together expertise in school leadership, governance, policy development, research, and teacher training. We work closely with our members, and partners across the education sector to deliver high-quality support and advocacy for small schools nationwide.\n\nWhether you're seeking consultancy advice, attending one of our training events, or getting involved in our research and policy work, you'll find a team that listens, understands your context, and is committed to helping your school succeed.\n\nWe're here for you - get in touch and let us know how we can help."
+          bottomBorder: '0'
+          iconListItems: {  }
+          buttonItems: {  }
+          inject: ''
+          cssid: ''
+          class: ''
+          lightBorder: '0'
+          notice: ''
+          name: 'Meet the team'
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: 'What we do'
+          titleTag: h2
+          content: "We provide support for your small school. We support headteachers, senior leaders, teaching staff, and school teams in small schools to fulfil their roles with confidence. Our services can be tailor-made to meet the unique needs, challenges, and priorities of each small school and its community.\n\nFrom expert consultancy on school improvement and governance to professional development training and national policy advocacy, we offer a comprehensive range of services designed specifically for the small school context. We understand that small schools operate differently - with multi-age classes, smaller budgets, and staff wearing multiple hats - and our support reflects that reality.\n\nWe deliver high-quality training events that bring small school educators together to share best practice and build networks. We conduct and publish research that highlights the strengths of small schools and informs policy debates. We advocate at a national level to ensure the voices of small schools are heard by policymakers and inspectors. And we provide one-to-one consultancy support for schools facing particular challenges, whether that's preparing for an Ofsted inspection, developing curriculum approaches, or planning for long-term sustainability.\n\nWhatever your school needs, we're here to help you thrive."
+          bottomBorder: '0'
+          iconListItems: {  }
+          buttonItems: {  }
+          inject: ''
+          cssid: ''
+          class: ''
+          lightBorder: '0'
+          notice: ''
+          name: 'What we do'

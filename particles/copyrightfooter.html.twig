@@ -1,0 +1,19 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+{% if particle.enabled %}
+  <div id="{{ id }}" class="footer-copyright-container {{ particle.class|e }}">
+    <div class="footer-copyright">Copyright <i class="fal fa-copyright"></i> <span id="copyrightYear"></span> - {{ particle.text }}</div>
+  </div>
+{% endif %}
+
+{% endblock %}
+
+{% block javascript_footer %}
+  <script>
+    window.onload = () => {
+      const copyrightYear = document.getElementById('copyrightYear');
+      copyrightYear.innerHTML = String(new Date().getFullYear());
+    };
+  </script>
+{% endblock %}

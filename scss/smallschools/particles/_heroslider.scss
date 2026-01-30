@@ -1,0 +1,308 @@
+$heroslider-box-background-color: $pure-white;
+$heroslider-box-heading-color:    map-get($colors_map, slate-500);
+$heroslider-box-text-color:       map-get($colors_map, slate-500);;
+$selector-heroslider:             '.hero-slider-container';
+
+[id^="heroslider-"] {
+  padding: 0;
+  margin: 0;
+}
+
+.hero-slider-container {
+  display: flex !important;
+  padding-bottom: 0 !important;
+  position: relative;
+  width: 100%;
+
+  .slick-slide {
+    @media screen and (min-width: 768px) {
+      min-height: 35rem;
+    }
+
+    @media screen and (min-width: 960px) {
+      min-height: 35rem;
+    }
+
+    @media screen and (min-width: 1200px) {
+      min-height: 35rem;
+      max-height: 900px;
+    }
+
+    &.hero-increased-height {
+      @media screen {
+        min-height: auto;
+      }
+      @media screen and (min-width: 960px) {
+        min-height: 28rem;
+      }
+
+      @media screen and (min-width: 1200px) {
+        min-height: 44rem;
+        max-height: 900px;
+      }
+    }
+  }
+}
+
+.slick-track {
+  #{$selector-heroslider} & {
+    @include breakpoint(no-desktop) {
+      align-items: flex-start;
+      display: flex;
+    }
+  }
+}
+
+.slick-list {
+  #{$selector-heroslider} & {
+    @include breakpoint(desktop-only) {
+      display: flex;
+      width: 100%;
+    }
+  }
+}
+
+.slick-slide {
+  #{$selector-heroslider} & {
+    display: flex !important;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+
+    &.style-hero {
+
+      @include breakpoint(no-desktop) {
+        flex-direction: column;
+      }
+
+      @include breakpoint(desktop-only) {
+        align-items: flex-end;
+      }
+
+    }
+
+    &.style-page {
+      align-items: center;
+    }
+
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.box-background {
+  #{$selector-heroslider} & {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+
+
+  }
+
+  #{$selector-heroslider} .style-hero & {
+    @include breakpoint(no-desktop) {
+      height: 200px;
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  #{$selector-heroslider} .style-hero.hero-increased-height & {
+    @include breakpoint(no-desktop) {
+      height: auto;
+    }
+
+    @media screen and (max-width: 960px) {
+      min-height: 350px;
+    }
+    @media screen and (max-width: 768px) {
+      min-height: 300px;
+    }
+    @media screen and (max-width: 480px) {
+      min-height: 250px;
+    }
+  }
+
+  .about-me-hero #{$selector-heroslider} .style-hero & {
+    @include breakpoint(no-desktop) {
+      height: auto;
+    }
+
+    @media screen and (max-width: 960px) {
+      min-height: 300px;
+    }
+    @media screen and (max-width: 768px) {
+      min-height: 250px;
+    }
+    @media screen and (max-width: 480px) {
+      min-height: 200px;
+    }
+  }
+}
+
+.box-container {
+  #{$selector-heroslider} & {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: #{map-get($max-widths, "large")}#{"px"};
+    width: 100%;
+    z-index: 0;
+
+  }
+
+  #{$selector-heroslider} .style-hero & {
+    @include breakpoint(no-desktop) {
+      display: flex;
+      flex: 1;
+    }
+  }
+}
+
+.box {
+  #{$selector-heroslider} & {
+    h1, h2, h3, h4, h5, .h1-size, .h2-size, .h3-size, .h4-size, .h5-size, .h6-size {
+      color: $heroslider-box-heading-color;
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: 32px;
+      line-height: 40px;
+
+      &:only-child {
+        margin-top: 0;
+        margin-bottom: 0 !important;
+      }
+    }
+
+    background: rgba(255,255,255,.8);
+    color: $heroslider-box-text-color;
+    display: inline-block;
+    margin: 0 auto 28px;
+    padding: 20px;
+
+    $selector: &;
+
+    @at-root .slick-dotted#{$selector} {
+
+      @include breakpoint(no-desktop) {
+        padding-bottom: 5rem;
+        margin-bottom: 0;
+      }
+    }
+
+    @include breakpoint(no-desktop) {
+    }
+  }
+
+  #{$selector-heroslider} .style-hero & {
+    @include breakpoint(no-desktop) {
+      display: block;
+      margin: 0;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    @include breakpoint(mobile-only) {
+      padding: 3rem 1.5rem;
+    }
+  }
+
+  #{$selector-heroslider}.slick-arrows .style-hero & {
+    @include breakpoint(no-desktop) {
+      padding-bottom: 7rem;
+    }
+
+  }
+
+  #{$selector-heroslider} .style-page & {
+    border-top: none;
+    border-radius: $card-border-radius;
+    box-shadow: $e500;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+    padding: 3rem;
+    width: 80%;
+
+    @include breakpoint(mobile-only) {
+      width: calc(100% - 3rem);
+    }
+  }
+
+}
+
+.box-title {
+  #{$selector-heroslider} .style-page & {
+    flex-basis: 100%;
+  }
+}
+
+.box-desc {
+  #{$selector-heroslider} .style-page & {
+    flex: 1;
+  }
+}
+
+.slick-arrow {
+  #{$selector-heroslider} & {
+    bottom: 1.5rem;
+
+    @include breakpoint(no-desktop) {
+      bottom: 2rem;
+    }
+  }
+}
+
+.slick-dots {
+  #{$selector-heroslider} & {
+    bottom: 1.5rem;
+  }
+}
+
+.box-link {
+  #{$selector-heroslider} & {
+    margin-top: 1.75rem;
+  }
+
+  #{$selector-heroslider} .style-page & {
+    @include breakpoint(desktop-only) {
+      margin-top: 0;
+      margin-left: 1.5rem;
+    }
+
+    @include breakpoint(no-desktop) {
+      width: 100%;
+    }
+  }
+}
+
+.ba-form-submit-btn-wrapper {
+  border: none !important;
+  background-color: map_get($colors_map, slate-50);
+}
+.ba-field-container input[type="text"], .ba-field-container input[type="email"], .ba-field-container textarea {
+  background-color: map_get($colors_map, slate-50) !important;
+
+  &:hover {
+    background-color: map_get($colors_map, slate-100) !important;
+  }
+}
+.ba-form-footer {
+  display: none;
+}
+
+.ba-form-submit-btn {
+
+}
+
+.ba-form-submit-wrapper[class*="animation"] {
+  .ba-form-submit-btn {
+    background-color: map_get($colors_map, primary-600) !important;
+    text-decoration: none;
+  }
+}

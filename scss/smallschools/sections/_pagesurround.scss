@@ -1,0 +1,20 @@
+#g-page-surround {
+	background: $pagesurround-background;
+    overflow: unset;
+
+    @media screen and (max-width: 767px) {
+      //overflow: hidden;
+    }
+
+    .g-bodyonly & {
+		color: $base-text-color;
+		background: $base-background;
+    }
+}
+
+@media print {
+	#g-page-surround {
+    background: $print-background !important;
+    color: $print-color !important;
+	}
+}

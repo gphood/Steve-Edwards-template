@@ -1,0 +1,319 @@
+#g-page-surround {
+  > section, > header, > footer, > nav {
+    &:not([class*="max-width"]) {
+      > .g-container > .g-grid {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: #{map-get($max-widths, "large")}#{"px"};
+        width: 100%;
+
+        @media print {
+          max-width: 100%;
+        }
+
+      }
+    }
+  }
+}
+
+#g-page-surround {
+  > section.g-flushed {
+    > .g-container > .g-grid {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: 100%;
+      width: 100%;
+
+      @media print {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+section {
+  &#{$section-variants} {
+    > .g-container {
+      padding-top: $section-padding;
+      padding-bottom: $section-padding;
+
+      @include breakpoint(mobile-only) {
+        padding-top: $section-padding-mobile;
+        padding-bottom: $section-padding-mobile;
+      }
+
+      .g-container {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+    }
+  }
+}
+
+$section-spacer-min-height: 300px;
+
+.section-txtimg-left,
+.section-txtimg-right {
+  .spacer {
+    &:not(.bg-contain) {
+      background-size: cover;
+    }
+
+    @include breakpoint(mobile-only) {
+      min-height: $section-spacer-min-height;
+    }
+  }
+
+  .size-100 {
+    .spacer {
+      min-height: $section-spacer-min-height;
+    }
+  }
+
+  &[id^="g-container"] {
+    section, .g-container, .g-block {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    section {
+      height: 100%;
+    }
+
+  }
+
+  &.section-stack-tablet {
+    @include breakpoint(tablet-range) {
+      .spacer {
+        min-height: $section-spacer-min-height;
+        margin: 0 !important;
+      }
+    }
+  }
+}
+
+$section-txtimg-list: "left", "right";
+
+@mixin section_stack_reorder($direction) {
+
+  $txt-block: "first";
+  $padding-dir: "right";
+  $margin-dir: "left";
+  $img-block: "last";
+
+  @if $direction == "right" {
+    $txt-block: "last";
+    $padding-dir: "left";
+    $margin-dir: "right";
+    $img-block: "first";
+  }
+
+  .g-block {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  .g-block:#{$txt-block}-child {
+    order: 1;
+
+    .g-block {
+      padding: 1rem 1rem 0 1rem;
+    }
+  }
+
+  .g-block:#{$img-block}-child {
+    order: 2;
+  }
+
+}
+
+@each $direction in $section-txtimg-list {
+  $txt-block: "first";
+  $padding-dir: "right";
+  $margin-dir: "left";
+  $img-block: "last";
+
+  @if $direction == "right" {
+    $txt-block: "last";
+    $padding-dir: "left";
+    $margin-dir: "right";
+    $img-block: "first";
+  }
+
+  .section-txtimg-#{$direction} {
+
+    &[id^="g-container"] {
+
+      @include breakpoint(no-mobile) {
+
+        .g-block:#{$img-block}-child {
+          display: flex;
+          flex-wrap: wrap;
+
+          > div {
+            width: calc(100% - 0.75rem);
+
+            &.spacer {
+              margin-top: 1.5rem;
+              margin-#{$padding-dir}: 1.5rem;
+              width: calc(100% - 3.75rem);
+            }
+          }
+
+        }
+
+        > .g-container > .g-grid {
+
+          > .g-block:#{$txt-block}-child {
+            padding-#{$padding-dir}: 0.75rem;
+          }
+
+        }
+
+      }
+
+    }
+
+    &:not([id^="g-container"]) {
+
+      .g-block:#{$img-block}-child {
+        padding: 1.5rem;
+
+        @include breakpoint(mobile-only) {
+          > .g-content {
+            padding: 0;
+          }
+        }
+      }
+
+      @include breakpoint(no-mobile) {
+
+        .g-block:#{$txt-block}-child {
+          padding-#{$padding-dir}: 0.75rem;
+        }
+
+        .g-block:#{$img-block}-child {
+          display: flex;
+          flex-wrap: wrap;
+
+          > div {
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-#{$padding-dir}: 0;
+            padding-#{$margin-dir}: 0.75rem !important;
+            width: 100%;
+
+            &.spacer {
+              @include breakpoint(desktop-only) {
+                margin-#{$margin-dir}: 0.75rem;
+                padding-#{$margin-dir}: 0;
+              }
+            }
+
+          }
+        }
+
+      }
+
+      &.section-stack-tablet {
+        @include breakpoint(tablet-range) {
+          @include section_stack_reorder($direction);
+        }
+      }
+
+      @include breakpoint(mobile-only) {
+        @include section_stack_reorder($direction);
+      }
+
+    }
+
+  }
+
+}
+
+.spacer {
+  width: 100%;
+}
+
+// Drop-shadows
+
+.shadow-xsmall {
+  box-shadow: 0 1px 2px 0 rgba(16,24, 40, 0.05);
+}
+
+.shadow-small {
+  box-shadow: 0 1px 2px -1px rgba(16, 24, 40, 0.1), 0 1px 2px -1px rgba(16, 24, 40, 0.1);
+}
+
+.shadow-medium {
+  box-shadow: 0 4px 6px -1px rgba(16, 24, 40, 0.1), 0 2px 4px -2px rgba(16, 24, 40, 0.1);
+}
+
+.shadow-large {
+  box-shadow: 0 10px 15px -3px rgba(16, 24, 40, 0.1), 0 4px 6px -4px rgba(16, 24, 40, 0.1);
+}
+
+.shadow-xlarge {
+  box-shadow: 0 20px 25px -5px rgba(16, 24, 40, 0.1), 0 8px 10px -6px rgba(16, 24, 40, 0.1);
+}
+
+.shadow-xxlarge {
+  box-shadow: 0 28px 36px -8px rgba(16, 24, 40, 0.1), 0 10px 12px -8px rgba(16, 24, 40, 0.1);
+}
+
+// Background image blur
+
+.blur-small {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.blur-medium {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.blur-large {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.blur-xlarge {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.blur-xxlarge {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+// Width setters
+
+$widths: (5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95);
+.size-33 {
+  width: 33.333%;
+}
+
+.size-67 {
+  width: 66.666%;
+}
+
+@each $width in $widths {
+  .size-#{$width} {
+    width: $width + '%';  }
+}
+
+// Left and Right Definitions
+// .align-left, .align-right, .float-left, .float-right
+$dir_value: "left", "right";
+@each $dir in $dir_value {
+  .align-#{$dir} {
+    text-align: #{$dir};
+  }
+  .float-#{$dir} {
+    float: #{$dir};
+  }
+}

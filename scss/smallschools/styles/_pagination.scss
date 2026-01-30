@@ -1,0 +1,215 @@
+.filter-paging, div.pagination, .pagination {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    @include breakpoint(mobile-only) {
+      flex-basis: 100%;
+      margin: 1rem 0;
+    }
+    a {
+      height: 2.5rem;
+      padding: 0;
+      width: 2.5rem;
+    }
+  }
+
+  li {
+    display: flex;
+    line-height: 100%;
+    padding: 0 3px;
+
+    @include breakpoint(mobile-only) {
+      padding: 3px;
+    }
+
+    &:before {
+      display: none;
+    }
+
+  }
+
+  a {
+    @extend %button-class;
+    align-items: center;
+    border: 1px solid $pagination-border-color;
+    background: $pagination-background;
+    display: flex;
+    justify-content: center;
+    line-height: 100%;
+    padding: 12px 28px;
+    margin: 0 4px;
+
+    &:hover {
+      background: $link-regular;
+      color: $text-white;
+    }
+
+    &.selected {
+      background: $link-regular;
+      color: $text-white !important;
+    }
+
+    &:not(:hover):not(:focus) {
+      color: $link-regular;
+    }
+
+    &.disabled {
+      color: $base-text-color;
+      cursor: not-allowed;
+      visibility: hidden;
+
+      @include breakpoint(mobile-only) {
+        display: none;
+      }
+
+    }
+
+    &.selected {
+      &, &:hover, &:focus {
+        cursor: default;
+      }
+    }
+
+  }
+
+  .first, .arrow.first {
+    &:before {
+      content: "\f048";
+    }
+    &:after {
+      content: none;
+    }
+  }
+
+  .prev, .arrow.prev {
+    &:before {
+      content: "\f053";
+    }
+    &:after {
+      content: none;
+    }
+  }
+
+  .prev, .first {
+    &:before {
+      font-family: "Font Awesome 6 Pro";
+      font-weight: 400;
+      margin-right: 8px;
+    }
+
+  }
+
+  .last, .arrow.last {
+    &:before {
+      content: none;
+    }
+    &:after {
+      content: "\f051";
+    }
+  }
+
+  .next, .arrow.next {
+    &:before {
+      content: none;
+    }
+    &:after {
+      content: "\f054";
+    }
+  }
+
+  .next, .last {
+
+    &:after {
+      font-family: "Font Awesome 6 Pro";
+      font-weight: 400;
+      margin-left: 8px;
+    }
+  }
+}
+
+.pagination {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  order: 3;
+  width: 100%;
+
+  @include breakpoint(mobile-only) {
+    flex-wrap: nowrap;
+  }
+
+  .left,
+  .right {
+    display: flex;
+  }
+
+  .arrow {
+    padding: 12px 16px;
+
+    &:before, &:after {
+      font-weight: bold;
+      font-family: "Font Awesome 6 Pro";
+    }
+
+    &:before {
+      margin-right: 0;
+    }
+
+    &:after {
+      margin-left: 0;
+    }
+
+  }
+
+  .width {
+    left: -9999px;
+    position: absolute;
+  }
+
+  .first, .last {
+    @include breakpoint(mobile-only) {
+      display: none;
+    }
+  }
+
+}
+
+.limiter {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  order: 2;
+  width: 25%;
+}
+
+.pagination-tools {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top: 24px;
+  position: relative;
+}
+
+.total {
+  display: flex;
+  justify-content: center;
+  order: 1;
+  text-align: center;
+  width: 100%;
+
+  &:not(.eryc-limiter-hidden) {
+    width: 50%;
+  }
+}

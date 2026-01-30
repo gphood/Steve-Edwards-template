@@ -1,0 +1,163 @@
+.accordion-tags-selector,
+.asset-manager .search-tags {
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: -6px;
+
+  a {
+    align-items: center;
+    background: $accordion-tag-select-background-alt;
+    border-radius: 1rem;
+    color: $accordion-tag-select-color;
+    display: flex;
+    font-size: 0.75em;
+    font-weight: 400;
+    justify-content: center;
+    letter-spacing: 0;
+    line-height: 1;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    margin: 6px;
+
+    @include breakpoint(mobile-only) {
+      border-radius: 2rem;
+      width: 100%;
+    }
+
+    [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+      color: $accordion-tag-select-color-accent;
+
+      &:hover, &:focus {
+        color: $accordion-tag-select-color-accent !important;
+      }
+
+    }
+
+    &:not(.active) {
+
+      .body-bg-alt & {
+        background: $accordion-tag-select-background;
+      }
+
+      [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+        background: $accordion-tag-select-background-accent !important;
+
+        &:hover,
+        &:focus {
+          background: $accordion-tag-select-active-background-accent !important;
+        }
+
+      }
+
+      &:hover,
+      &:focus {
+        color: $accordion-tag-select-color-hover;
+      }
+
+    }
+
+  }
+
+  .active {
+    background: $accordion-tag-select-active-background;
+    color: $accordion-tag-select-active-color;
+
+    &:hover, &:focus {
+      color: $accordion-tag-select-active-hover;
+    }
+
+    [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+      background: $accordion-tag-select-active-background-accent !important;
+    }
+  }
+}
+
+.accordion-reorder, .accordion-openclose,
+.asset-manager .switcher-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.accordion-reorder-btns, .accordion-openclose-btns {
+  background: $accordion-reorder-background;
+  border-radius: 10px;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 3px;
+
+  .body-bg-alt & {
+    background: $accordion-reorder-background-alt;
+  }
+
+  [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+    background: $accordion-reorder-background-accent;
+  }
+
+  a {
+    border-radius: 8px;
+    color: $accordion-reorder-color;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 24px;
+    padding: 8px 24px;
+    margin: 2px;
+
+    &.active {
+      color: $accordion-reorder-color-hover;
+    }
+
+    [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+      color: $accordion-reorder-color-accent;
+    }
+
+    &:not(.active) {
+
+      &:hover,
+      &:focus {
+        color: $accordion-reorder-color-hover;
+
+        [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+          background: $accordion-reorder-active-background-accent;
+          color: $accordion-reorder-color-accent;
+        }
+      }
+
+    }
+
+  }
+
+  .active {
+    background: $accordion-reorder-active-background;
+
+    .body-bg-alt & {
+      background: $accordion-reorder-active-background-alt;
+    }
+
+    [class*="bg-"]:not(.bg-white) .g-block:not(.bg-white) > .g-particle & {
+      background: $accordion-reorder-active-background-accent;
+    }
+
+  }
+}
+
+.tag {
+  #{$selector-cards} & {
+    border-radius: 8px;
+    border: 3px solid;
+    box-shadow: 0px 8px 12px rgba(9, 30, 66, 0.15), 0px 0px 1px rgba(9, 30, 66, 0.31);
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1;
+    padding: 5px 10px;
+
+    &:not([class*="er-bg-"]) {
+      background: #333333;
+      color: #FFFFFF;
+    }
+  }
+}

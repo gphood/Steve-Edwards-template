@@ -1,0 +1,500 @@
+name: Accordion
+description: Display accordion.
+type: particle
+icon: fa-sliders
+
+configuration:
+  caching:
+    type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable particle.
+      default: true
+
+    class:
+      type: input.selectize
+      label: CSS Classes
+      description: CSS class name for the particle.
+
+    linkIdMode:
+      type: input.radios
+      label: Link ID mode
+      description: Set whether the custom link id contains er-accordion-
+      default: exact
+      options:
+        prepend: Prepend
+        exact: Exact
+
+    clickableTags:
+      type: input.checkbox
+      label: Clickable Tags
+      description: Set whether tags are links
+      default: true
+
+    tags:
+      type: input.checkbox
+      label: Tags filter
+      description: Enable filtering by tags
+      default: false
+
+    reorder:
+      type: input.checkbox
+      label: Reorder Selector
+      description: Enable reorder switcher
+      default: false
+
+    openClose:
+      type: input.checkbox
+      label: Open Accordion Selector
+      description: Enable switcher to auto-open all accordion items.
+      default: false
+
+    items:
+      type: collection.list
+      array: true
+      label: Accordion Items
+      description: Create each Accordion item to display.
+      value: name
+      ajax: true
+
+      fields:
+        .name:
+          type: input.text
+        .title:
+          type: input.text
+          label: Title
+          description: Enter the title
+        .titleTag:
+          type: select.select
+          label: Title Tag
+          description: Set the heading tag for the title
+          placeholder: 'Select...'
+          default: span
+          options:
+              span: SPAN
+              div: DIV
+              h1: H1
+              h2: H2
+              h3: H3
+              h4: H4
+              h5: H5
+              h6: H6
+        .titleIcon:
+          type: input.text
+          label: Title Icon
+          description: Enter the icon title
+        .subtitle:
+          type: input.text
+          label: Subtitle
+          description: Enter the subtitle
+        .desc:
+          type: textarea.textarea
+          label: Description
+          description: Customize the description.
+          placeholder: Enter short description
+
+        .descs:
+          type: collection.list
+          array: true
+          label: Content blocks
+          description: Create each block of content to display.
+          value: name
+          ajax: true
+
+          fields:
+            .name:
+              type: input.text
+            .text:
+              type: textarea.textarea
+              label: Description
+              description: Customize the description.
+              placeholder: Enter short description
+            .class:
+              type: input.selectize
+              label: CSS Classes
+              description: CSS class name for the content block.
+            .variations:
+              type: input.block-variations
+              label: Variations
+              description: Enter Theme Variations.
+              default:
+            .position:
+              type: input.radios
+              label: Position
+              description: Set the position of the content block relative to child accordions
+              default: above
+              options:
+                above: Above
+                below: Below
+            .inject:
+              type: input.text
+              label: Inject ID
+              description: ID of element to be injected into accordion
+            .disable:
+              type: input.checkbox
+              label: Disable
+              description: Disables the item on the front end.
+              default: false
+
+        .linkid:
+          type: input.text
+          label: Link ID
+          description: Set a unique ID to link directly to the accordion
+        .open:
+          type: input.checkbox
+          label: Open
+          description: Set the accordion to be open by default
+          default: false
+        .lastUpdated:
+          type: input.datetime-local
+          label: Last updated Date
+          description: Time to show visitor when content was updated
+        .lastUpdatedLabel:
+          type: input.text
+          label: Last updated Label
+          description: Legend for last updated
+        .dateFormat:
+          type: select.date
+          label: Date Format
+          description: Select preferred date format.
+          default: D d M
+          placeholder: 'Select...'
+          selectize:
+              allowEmptyOption: true
+          options:
+              'l, F d, Y': Date1
+              'l, d F Y H:i': Date2
+              'l, d F': Date3
+              'D, d F': Date4
+              'F d': Date5
+              'd F': Date6
+              'd M': Date7
+              'D, M d, Y': Date8
+              'D, M d, y': Date9
+              'l': Date10
+              'l j F Y': Date11
+              'j F Y': Date12
+              'D M d': Date13
+              'D d M': Date14
+        .tags:
+          type: collection.list
+          array: true
+          label: Tags
+          description: Create tags for accordion.
+          value: name
+          ajax: true
+
+          fields:
+            .name:
+              type: input.text
+            .text:
+              type: input.text
+              label: Tag
+              description: Enter tag name
+            .class:
+              type: input.selectize
+              label: CSS Classes
+              description: CSS class name for the tag.
+            .variations:
+              type: input.block-variations
+              label: Variations
+              description: Enter Theme Variations.
+              default:
+        .class:
+          type: input.selectize
+          label: CSS Classes
+          description: CSS class name for the accordion.
+        .disable:
+          type: input.checkbox
+          label: Disable
+          description: Disables the item on the front end.
+          default: false
+        .children:
+          type: collection.list
+          array: true
+          label: Child Items
+          description: Create each Accordion item to display.
+          value: name
+          ajax: true
+
+          fields:
+            .name:
+              type: input.text
+            .title:
+              type: input.text
+              label: Title
+              description: Enter the title
+            .titleTag:
+              type: select.select
+              label: Title Tag
+              description: Set the heading tag for the title
+              placeholder: 'Select...'
+              default: span
+              options:
+                  span: SPAN
+                  div: DIV
+                  h1: H1
+                  h2: H2
+                  h3: H3
+                  h4: H4
+                  h5: H5
+                  h6: H6
+            .titleIcon:
+              type: input.text
+              label: Title Icon
+              description: Enter the icon title
+            .subtitle:
+              type: input.text
+              label: Subtitle
+              description: Enter the subtitle
+            .desc:
+              type: textarea.textarea
+              label: Description
+              description: Customize the description.
+              placeholder: Enter short description
+            .descs:
+              type: collection.list
+              array: true
+              label: Content blocks
+              description: Create each block of content to display.
+              value: name
+              ajax: true
+
+              fields:
+                .name:
+                  type: input.text
+                .text:
+                  type: textarea.textarea
+                  label: Description
+                  description: Customize the description.
+                  placeholder: Enter short description
+                .class:
+                  type: input.selectize
+                  label: CSS Classes
+                  description: CSS class name for the content block.
+                .variations:
+                  type: input.block-variations
+                  label: Variations
+                  description: Enter Theme Variations.
+                  default:
+                .position:
+                  type: input.radios
+                  label: Position
+                  description: Set the position of the content block relative to child accordions
+                  default: above
+                  options:
+                    above: Above
+                    below: Below
+                .inject:
+                  type: input.text
+                  label: Inject ID
+                  description: ID of element to be injected into accordion
+                .disable:
+                  type: input.checkbox
+                  label: Disable
+                  description: Disables the item on the front end.
+                  default: false
+            .linkid:
+              type: input.text
+              label: Link ID
+              description: Set a unique ID to link directly to the accordion
+            .open:
+              type: input.checkbox
+              label: Open
+              description: Set the accordion to be open by default
+              default: false
+            .lastUpdated:
+              type: input.datetime-local
+              label: Last updated Date
+              description: Time to show visitor when content was updated
+            .lastUpdatedLabel:
+              type: input.text
+              label: Last updated Label
+              description: Legend for last updated
+            .dateFormat:
+              type: select.date
+              label: Date Format
+              description: Select preferred date format.
+              default: D d M
+              placeholder: 'Select...'
+              selectize:
+                  allowEmptyOption: true
+              options:
+                  'l, F d, Y': Date1
+                  'l, d F Y H:i': Date2
+                  'l, d F': Date3
+                  'D, d F': Date4
+                  'F d': Date5
+                  'd F': Date6
+                  'd M': Date7
+                  'D, M d, Y': Date8
+                  'D, M d, y': Date9
+                  'l': Date10
+                  'l j F Y': Date11
+                  'j F Y': Date12
+                  'D M d': Date13
+                  'D d M': Date14
+            .tags:
+              type: collection.list
+              array: true
+              label: Tags
+              description: Create tags for accordion.
+              value: name
+              ajax: true
+
+              fields:
+                .name:
+                  type: input.text
+                .text:
+                  type: input.text
+                  label: Tag
+                  description: Enter tag name
+                .class:
+                  type: input.selectize
+                  label: CSS Classes
+                  description: CSS class name for the tag.
+                .variations:
+                  type: input.block-variations
+                  label: Variations
+                  description: Enter Theme Variations.
+                  default:
+            .class:
+              type: input.selectize
+              label: CSS Classes
+              description: CSS class name for the accordion.
+            .disable:
+              type: input.checkbox
+              label: Disable
+              description: Disables the item on the front end.
+              default: false
+
+            .subchildren:
+              type: collection.list
+              array: true
+              label: Accordion Items
+              description: Create each Accordion item to display.
+              value: name
+              ajax: true
+
+              fields:
+                .name:
+                  type: input.text
+                .title:
+                  type: input.text
+                  label: Title
+                  description: Enter the title
+                .titleTag:
+                  type: select.select
+                  label: Title Tag
+                  description: Set the heading tag for the title
+                  placeholder: 'Select...'
+                  default: span
+                  options:
+                      span: SPAN
+                      div: DIV
+                      h1: H1
+                      h2: H2
+                      h3: H3
+                      h4: H4
+                      h5: H5
+                      h6: H6
+                .titleIcon:
+                  type: input.text
+                  label: Title Icon
+                  description: Enter the icon title
+                .subtitle:
+                  type: input.text
+                  label: Subtitle
+                  description: Enter the subtitle
+                .desc:
+                  type: textarea.textarea
+                  label: Description
+                  description: Customize the description.
+                  placeholder: Enter short description
+                .linkid:
+                  type: input.text
+                  label: Link ID
+                  description: Set a unique ID to link directly to the accordion
+                .open:
+                  type: input.checkbox
+                  label: Open
+                  description: Set the accordion to be open by default
+                  default: false
+                .lastUpdated:
+                  type: input.datetime-local
+                  label: Last updated Date
+                  description: Time to show visitor when content was updated
+                .lastUpdatedLabel:
+                  type: input.text
+                  label: Last updated Label
+                  description: Legend for last updated
+                .dateFormat:
+                  type: select.date
+                  label: Date Format
+                  description: Select preferred date format.
+                  default: D d M
+                  placeholder: 'Select...'
+                  selectize:
+                      allowEmptyOption: true
+                  options:
+                      'l, F d, Y': Date1
+                      'l, d F Y H:i': Date2
+                      'l, d F': Date3
+                      'D, d F': Date4
+                      'F d': Date5
+                      'd F': Date6
+                      'd M': Date7
+                      'D, M d, Y': Date8
+                      'D, M d, y': Date9
+                      'l': Date10
+                      'l j F Y': Date11
+                      'j F Y': Date12
+                      'D M d': Date13
+                      'D d M': Date14
+                .tags:
+                  type: collection.list
+                  array: true
+                  label: Tags
+                  description: Create tags for accordion.
+                  value: name
+                  ajax: true
+
+                  fields:
+                    .name:
+                      type: input.text
+                    .text:
+                      type: input.text
+                      label: Tag
+                      description: Enter tag name
+                    .class:
+                      type: input.selectize
+                      label: CSS Classes
+                      description: CSS class name for the tag.
+                    .variations:
+                      type: input.block-variations
+                      label: Variations
+                      description: Enter Theme Variations.
+                      default:
+                .class:
+                  type: input.selectize
+                  label: CSS Classes
+                  description: CSS class name for the accordion.
+                .disable:
+                  type: input.checkbox
+                  label: Disable
+                  description: Disables the item on the front end.
+                  default: false
+
+    inject:
+      type: input.text
+      label: Inject ID
+
+    filter:
+      type: input.checkbox
+      label: Process shortcodes
+      description: Enable shortcode processing / filtering in the content.
+      default: '0'

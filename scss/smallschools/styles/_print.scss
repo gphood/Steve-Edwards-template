@@ -1,0 +1,12 @@
+@media print {
+  #er-modal,
+  #g-messages,
+  #g-nav,
+  #g-accessibility,
+  #g-header,
+  #g-breadcrumbs,
+  #g-footer,
+  #g-cookies {
+    display: none;
+  }
+}

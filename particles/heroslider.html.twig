@@ -1,0 +1,99 @@
+ {% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+
+  {% set items_classes = particle.class|e ~ ' ' ~ particle.backgroundSizeDefault ~ ' ' ~ particle.backgroundPositionDefault ~ ' ' ~ particle.backgroundRepeatDefault %}
+
+  {% set items_inline_style = [] %}
+  {% if particle.image %}
+    {% set items_inline_style = items_inline_style|merge(['background-image: url(' ~ url(particle.image) ~ ')']) %}
+  {% endif %}
+
+
+  <div id="{{ id }}" class="hero-slider-container slick-container {{ items_classes }}" style="{{ items_inline_style|join(';') }}" {% if particle.backgroundSizeDefault %}data-bg-size="active"{% endif %} {% if particle.backgroundPositionDefault
+  %}data-bg-position="active"{% endif %} {% if particle.backgroundRepeatDefault %}data-bg-repeat="active"{% endif %}>
+
+    {% for item in particle.items %}
+
+      {% if not item.disable %}
+
+        {% set item_classes = item.variations ~ ' ' ~ item.class %}
+
+        <div class="item slick-slide {{ item_classes }} style-{{ item.styleMode|default('hero')|e }}" style="{% if particle.minHeight %}min-height: {{ particle.minHeight }}{% endif %}">
+
+          {% if item.image %}
+          <div class="box-background {{ item.backgroundSize|default('bg-cover') }} {{ item.backgroundPosition|default('bg-center') }} {{ item.backgroundRepeat|default('no-repeat') }}" style="background-image: url('{{ url(item.image) }}')"></div>
+          {% endif %}
+
+          {% if item.title or item.desc or items.links %}
+          <div class="box-container">
+          <div class="box">
+
+            {% if item.title %}
+            <{{ item.titleTag|e }} class="box-title">{{ item.title|raw }}</{{ item.titleTag|e }}>
+            {% endif %}
+
+            {% if item.desc %}
+            <div class="box-desc">{{ item.desc|markdown }}</div>
+            {% endif %}
+
+            {% if item.links %}
+            <div class="box-link">
+              {% for link in item.links %}
+                <a href="{{ link.url|raw }}" class="{{ link.urlClass|e }}" {% if link.urlTitle %}title="{{ link.urlTitle|e }}"{% endif %}><span>{{ link.urlText|e }}</span></a>
+              {% endfor %}
+            </div>
+            {% endif %}
+
+          </div>
+          </div>
+          {% endif %}
+
+        </div>
+
+      {% endif %}
+    {% endfor %}
+
+  </div>
+
+{% endblock %}
+
+{% spaceless %}
+{% do gantry.load('jquery') %}
+{% do gantry.document.addStyle(url('//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css')) %}
+{% do gantry.document.addScript(url('gantry-theme://js/er-slick-functions.js'), 0, 'footer') %}
+{% do gantry.document.addScript(url('//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'), 2, 'footer') %}
+{% endspaceless %}
+
+{% block javascript_footer %}
+<script type="text/javascript">
+  (function ($) {
+
+    {% set dots = particle.dots|default('true') %}
+    {% if particle.items|length < 2 %}
+    {% set dots = 'false' %}
+    {% endif %}
+
+    {% if particle.items|length > 1 %}
+
+    er_slick_add_arrows_class($('#{{ id }}'));
+
+    $(document).on('er-cookie-banner-hide', function(){
+      $('#{{ id }}').slick('setPosition');
+    })
+
+    $('#{{ id }}').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      adaptiveHeight: true,
+      arrows: {{ particle.arrows|default('true') }},
+      dots: {{ dots }},
+      accessibility: false,
+      infinite: false
+    });
+
+    {% endif %}
+
+  })(jQuery)
+</script>
+{% endblock %}

@@ -1,0 +1,4 @@
+#g-display-images {
+  background: map_get($colors_map, lime-900);
+  border-bottom: solid 4px map-get($colors_map, warning-500);
+}

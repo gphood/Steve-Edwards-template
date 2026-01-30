@@ -1,0 +1,174 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/default.png'
+  name: default
+  timestamp: 1679385192
+layout:
+  /messages/: {  }
+  /accessibility/: {  }
+  /header/: {  }
+  /breadcrumbs/: {  }
+  /hero/: {  }
+  /row-1/: {  }
+  /row-2/: {  }
+  /row-3/: {  }
+  /row-4/: {  }
+  /row-5/: {  }
+  /row-6/: {  }
+  /row-7/: {  }
+  /row-8/: {  }
+  /row-9/: {  }
+  /row-10/: {  }
+  /footer/: {  }
+  /cookies/: {  }
+  /inject/: {  }
+  offcanvas: {  }
+structure:
+  messages:
+    type: section
+    attributes:
+      boxed: ''
+  accessibility:
+    type: section
+    attributes:
+      boxed: ''
+  banner:
+    type: section
+    attributes:
+      boxed: '3'
+      class: ''
+      variations: ''
+      background: ''
+  header:
+    attributes:
+      boxed: ''
+      class: ''
+      variations: null
+      background: ''
+  breadcrumbs:
+    type: section
+    attributes:
+      class: ''
+      variations: ''
+      extra:
+        -
+          data-layout-section: i-breadcrumb
+      boxed: ''
+  hero:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      extra:
+        -
+          data-layout-section: i-hero
+      background: ''
+  row-1:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-2:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-3:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-4:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-5:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-6:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-7:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-8:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-9:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-10:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  tell-us-what-you-think:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  footer:
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  cookies:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      extra:
+        -
+          style: 'display: none;'
+      background: ''
+  inject:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  offcanvas:
+    attributes:
+      position: g-offcanvas-right
+      class: ''
+      extra: {  }
+      swipe: '0'
+      css3animation: '1'
+content:

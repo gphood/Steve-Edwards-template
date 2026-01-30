@@ -1,0 +1,189 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/default.png'
+  name: default
+  timestamp: 1679385192
+layout:
+  /header/: {  }
+  /navigation/:
+    -
+      - 'image-1264 20'
+      - 'menu-9093 80'
+  /hero/: {  }
+  /heading/: {  }
+  /row-1/: {  }
+  /row-2/: {  }
+  /row-3/: {  }
+  /row-4/: {  }
+  /row-5/: {  }
+  /row-6/: {  }
+  /row-7/: {  }
+  /row-8/: {  }
+  /row-9/: {  }
+  /row-10/: {  }
+  /footer/:
+    -
+      - custom-1927
+    -
+      - custom-9329
+    -
+      - copyrightfooter-5186
+  /cookies/: {  }
+  /inject/: {  }
+  offcanvas:
+    -
+      - mobile-menu-8665
+structure:
+  header:
+    attributes:
+      boxed: '3'
+      class: ''
+      variations: ''
+      background: ''
+  navigation:
+    type: section
+    attributes:
+      boxed: '3'
+      class: navigation-override
+      variations: ''
+      background: ''
+  hero:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: 'section-padding-top section-padding-bottom'
+      background: ''
+  heading:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-1:
+    type: section
+    attributes:
+      boxed: '3'
+      class: ''
+      variations: ''
+      background: ''
+  row-2:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-3:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-4:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-5:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-6:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-7:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-8:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-9:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  row-10:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  footer:
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  cookies:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      extra:
+        -
+          style: 'display: none;'
+      background: ''
+  inject:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
+  offcanvas:
+    attributes:
+      position: g-offcanvas-right
+      class: ''
+      extra: {  }
+      swipe: '0'
+      css3animation: '1'
+content:
+  image-1264:
+    attributes:
+      url: /
+      image: 'gantry-media://nass_logo.png'
+      height: ''
+      link: '1'
+    block:
+      class: header-logo-block
+  menu-9093:
+    block:
+      class: header-menu-block
+  custom-1927:
+    title: 'Footer social media icons'
+    attributes:
+      html: "<div class=\"footer-social-media-icons\">\n<a href=\"https://www.facebook.com/profile.php?id=61569763876291\" target=\"_blank\"><i class=\"fa-brands fa-square-facebook\"></i></a> \n<a href=\"https://x.com/NASmallSchs/\" target=\"_blank\"><i class=\"fa-brands fa-square-x-twitter\"></i></a>\n<a href=\"https://smallschools.substack.com/\" target=\"_blank\"><img src=\"/images/logos/substack-logo.png\" target=\"Subscribe to NASS on Substack\"></a>\n</div>"
+  custom-9329:
+    title: 'Charity number and GDPR'
+    attributes:
+      html: '<a href="https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/5081078" target="_blank">NASS Charity number: 1169002</a> | <a href="/nass-gdpr-policy">NASS GDPR policy</a>'
+  copyrightfooter-5186:
+    title: 'Copyright Footer'
+    attributes:
+      text: 'N.A.S.S. - all rights reserved'
+  mobile-menu-8665:
+    title: 'Mobile Menu'

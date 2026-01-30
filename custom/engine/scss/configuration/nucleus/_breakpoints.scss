@@ -1,0 +1,53 @@
+// Media Device Breakpoints
+$breakpoints-large-desktop-container:   75.000rem !default;
+$breakpoints-desktop-container:         60.000rem !default;
+$breakpoints-tablet-container:          48.000rem !default;
+$breakpoints-large-mobile-container:    30.000rem !default;
+$breakpoints-medium-mobile-container:   22.500rem !default;
+$breakpoints-small-mobile-container:    20.000rem !default;
+$breakpoints-mobile-container:          100% !default;
+$breakpoints-mobile-menu-breakpoint:    48.000rem !default;
+
+$breakpoints_map:                       (large-desktop: $breakpoints-large-desktop-container,
+                                         desktop: $breakpoints-desktop-container,
+                                         tablet: $breakpoints-tablet-container,
+                                         large-mobile: $breakpoints-large-mobile-container,
+                                         medium-mobile: $breakpoints-medium-mobile-container,
+                                         small-mobile: $breakpoints-small-mobile-container) !default;
+
+$breakpoints_md_map:                    (large-desktop: $breakpoints-large-desktop-container,
+                                         desktop: $breakpoints-desktop-container,
+                                         tablet: $breakpoints-tablet-container,
+                                         large-mobile: $breakpoints-large-mobile-container,
+                                         md-mobile: $breakpoints-medium-mobile-container,
+                                         sm-mobile: $breakpoints-small-mobile-container) !default;
+
+// XL non standard breakpoints
+$breakpoints_xl_desktop_container:      90rem !default;
+
+$breakpoints_xl_map:                    (xl-desktop: $breakpoints-xl-desktop-container,
+                                         lg-desktop: $breakpoints-large-desktop-container,
+                                         st-desktop: $breakpoints-desktop-container,
+                                         tablet: $breakpoints-tablet-container,
+                                         large-mobile: $breakpoints-large-mobile-container,
+                                         md-mobile: $breakpoints-medium-mobile-container,
+                                         sm-mobile: $breakpoints-small-mobile-container) !default;
+
+// Breakpoint Variables For Particles
+$media:                                 "all" !default;
+$mobile-only:                           "#{$media} and (max-width:#{$breakpoints-tablet-container - 0.062})" !default;
+$no-mobile:                             "#{$media} and (min-width:#{$breakpoints-tablet-container})" !default;
+$small-mobile-range:                    "#{$media} and (max-width:#{$breakpoints-large-mobile-container})" !default;
+$sm-mobile-range:                       "#{$media} and (max-width: $breakpoints-medium-mobile-container - 0.0625)" !default;
+$md-mobile-range:                       "#{$media} and (min-width: $breakpoints-medium-mobile-container) and (max-width: $breakpoints-large-mobile-container - 0.0625)" !default;
+$large-mobile-range:                    "#{$media} and (min-width:#{$breakpoints-large-mobile-container + 0.063}) and (max-width:#{$breakpoints-tablet-container - 0.062})" !default;
+$tablet-range:                          "#{$media} and (min-width:#{$breakpoints-tablet-container}) and (max-width:#{$breakpoints-desktop-container - 0.062})" !default;
+$no-desktop:                            "#{$media} and (max-width: $breakpoints-desktop-container - 0.0625)" !default;
+$desktop-only:                          "#{$media} and (min-width: $breakpoints-desktop-container)" !default;
+$desktop-range:                         "#{$media} and (min-width:#{$breakpoints-desktop-container}) and (max-width:#{$breakpoints-large-desktop-container - 0.062})" !default;
+$st-desktop-range:                      "#{$media} and (min-width: $breakpoints-desktop-container) and (max-width: $breakpoints-large-desktop-container - 0.0625)" !default;
+$large-desktop-range:                   "#{$media} and (min-width:#{$breakpoints-large-desktop-container})" !default;
+$lg-desktop-range:                      "#{$media} and (min-width: $breakpoints-large-desktop-container) and (max-width: $breakpoints-xl-desktop-container - 0.0625)" !default;
+$xl-desktop-range:                      "#{$media} and (min-width:#{$breakpoints-xl-desktop-container})" !default;
+$mobile-to-st-desktop-range:            "#{$media} and (max-width: $breakpoints-large-desktop-container - 0.0625)" !default;
+$tablet-to-st-desktop-range:            "#{$media} and (min-width: $breakpoints-tablet-container) and (max-width: $breakpoints-large-desktop-container - 0.0625)" !default;

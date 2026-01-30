@@ -1,0 +1,13 @@
+#g-accessibility {
+  background: $accessibility-background;
+  color: $accessibility-text-color;
+}
+
+@media print {
+  #g-accessibility {
+    background: $print-background !important;
+    color: $print-color !important;
+
+    display: none;
+  }
+}

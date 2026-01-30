@@ -1,0 +1,29 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+
+{% set top_spacing_class = particle.removeTopSpacing|default(true) ? 'remove-top-spacing' : '' %}
+{% set bottom_spacing_class = particle.removeBottomSpacing|default(true) ? 'remove-bottom-spacing' : '' %}
+
+<div id="{{ id }}" class="section-heading-container {{ particle.class|e }}">
+  <div class="section-heading {{ top_spacing_class }} {{ bottom_spacing_class }}">
+    {% if particle.heading %}
+      <div class="heading-container">
+        <{{ particle.headingTag|e }} class="main-heading">
+          {% if particle.headingIconClasses %}<i class="{{ particle.headingIconClasses }}"></i>{% endif %}
+          {{ particle.heading|e }}
+        </{{ particle.headingTag|e }}>
+      </div>
+    {% endif %}
+    {% if particle.subheading %}
+      <div class="subheading-container">
+        <{{ particle.subheadingTag|e }} class="subheading">
+          {% if particle.subheadingIconClasses %}<i class="{{ particle.subheadingIconClasses }}"></i>{% endif %}
+          {{ particle.subheading|e }}
+        </{{ particle.subheadingTag|e }}>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

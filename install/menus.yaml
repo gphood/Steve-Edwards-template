@@ -1,0 +1,9 @@
+lma-theme:
+  title: 'East Riding Culture Theme'
+  description: 'Sample menu for East Riding Culture theme.'
+
+  items:
+    lma:
+      title: 'Home'
+      outline: home
+      home: 1

@@ -1,0 +1,179 @@
+name: Youtube
+description: Display youtube video.
+type: particle
+icon: fa-youtube
+
+configuration:
+  caching:
+    type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable particle.
+      default: true
+
+    _tabs:
+      type: container.tabs
+      fields:
+
+        _tab_content:
+          label: Content
+          overridable: false
+          fields:
+
+            videos:
+              type: collection.list
+              array: true
+              label: Videos
+              description: Create each neumorph to display.
+              value: name
+              ajax: true
+
+              fields:
+                .name:
+                  type: input.text
+                .youtubeid:
+                  type: input.text
+                  label: YouTube Video ID
+                  description: Enter the video ID
+                .title:
+                  type: input.text
+                  label: Title
+                  description: Enter the title
+                .description:
+                  type: textarea.textarea
+                  label: Description
+                  description: Customize the video description.
+                .transcript:
+                  type: textarea.textarea
+                  label: Transcript
+                  description: Customize the video transcript.
+
+        _tab_display:
+          label: Display
+          overridable: false
+          fields:
+
+            class:
+              type: input.selectize
+              label: CSS Classes
+              description: CSS class name for the particle.
+
+            inject:
+              type: input.text
+              label: Inject ID
+
+            linktext:
+              type: input.text
+              label: Link Text
+              description: Set the button text
+
+            link:
+              type: input.text
+              label: Link
+              description: Set the button link
+
+            linktype:
+              type: input.radios
+              label: Link Type
+              description: Is the link to an external website or internal
+              default: internal
+              options:
+                internal: Internal
+                external: External
+
+            linkclass:
+              type: input.selectize
+              label: Link CSS Classes
+              description: CSS class name for the button.
+
+            linkicon:
+              type: input.selectize
+              label: Link Icon CSS Classes
+              description: CSS class name for the button icon.
+
+            showTranscript:
+              type: input.checkbox
+              label: Show Transcript
+              description: Enable to transcript button.
+              default: true
+
+            transcriptclass:
+              type: input.selectize
+              label: Transcript Button CSS Classes
+              description: CSS class name for the transcript button.
+
+            thumbsClass:
+              type: input.selectize
+              label: Thumbs CSS Classes
+              description: CSS class name for the thumbs wrapper.
+
+        _tab_video:
+          label: Video
+          overridable: false
+          fields:
+
+            responsive:
+              type: input.checkbox
+              label: Responsive
+              description: Enable to make the video responsive.
+              default: true
+
+            controls:
+              type: input.checkbox
+              label: Player controls
+              description: Show player controls
+              default: true
+
+            privacy:
+              type: input.checkbox
+              label: Privacy-enhanced
+              description: Enable privacy-enhanced mode
+              default: false
+
+            loop:
+              type: input.checkbox
+              label: Loop
+              description: Loop the video playback
+              default: false
+
+            rel:
+              type: input.radios
+              label: Related videos
+              description: Choose whether related videos are from the same channel or not
+              default: 0
+              options:
+                0: Same channel
+                1: YouTube chosen
+
+            start:
+              type: input.number
+              label: Start
+              description: Set the start time in seconds
+
+            end:
+              type: input.number
+              label: End
+              description: Set the end time in seconds
+
+        _tab_slideshow:
+          label: Slideshow
+          overridable: false
+          fields:
+
+            slidesToShow:
+              type: input.number
+              label: Slides to Show
+              description: Number of slides to show per scroll
+              default: 6
+              placeholder: 6
+
+            slidesToScroll:
+              type: input.number
+              label: Slides to Scroll
+              description: Number of slides to scroll
+              default: 1
+              placeholder: 1

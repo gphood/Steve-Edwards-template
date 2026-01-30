@@ -1,0 +1,8 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+  <div class="{{ particle.class|e }} {{ particle.variations|e }}" {% if particle.background %}style="background-image: url('{{ url(particle.background) }}')"{% endif %}>
+    {% set html = particle.twig ? gantry.theme.compile(particle.html) : particle.html %}
+    {{ (particle.filter ? gantry.platform.filter(html) : html)|markdown|raw }}
+  </div>
+{% endblock %}

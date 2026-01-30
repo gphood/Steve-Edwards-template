@@ -1,0 +1,144 @@
+name: Hero Static Content
+description: Display Hero Static Content.
+type: particle
+icon: fa-sliders
+
+configuration:
+  caching:
+    type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable particle.
+      default: true
+    class:
+      type: input.selectize
+      label: CSS Classes
+      description: CSS class name for the item.
+
+    variations:
+      type: input.block-variations
+      label: Variations
+      description: Enter Theme Variations.
+      default:
+
+    backgroundImage:
+      type: input.imagepicker
+      label: Background image
+
+    backgroundSize:
+      type: select.select
+      label: Background Size
+      description: Set the background image size
+      placeholder: 'Select...'
+      default: bg-cover
+      options:
+        bg-cover: Cover
+        bg-contain: Contain
+
+    backgroundPosition:
+      type: select.select
+      label: Background Position
+      description: Set the background image position
+      placeholder: 'Select...'
+      default: bg-center
+      options:
+        bg-center: Center
+        bg-bottom-right: Bottom Right
+        bg-bottom-left: Bottom Left
+        bg-top-right: Top Right
+        bg-top-left: Top Left
+        bg-bottom-center: Bottom Center
+        bg-top-center: Top Center
+        bg-center-bottom: Center Bottom
+        bg-center-top: Center Top
+
+    contentStyleClass:
+      type: select.select
+      label: Style Mode
+      placeholder: 'Select...'
+      default: content-spacing
+      options:
+        content-spacing: Vertical content spacing (80px)
+        content-spacing-large: Larger vertical content spacing (120px)
+        content-flush: Content flush to sides
+
+    titlePrefix:
+      type: input.text
+      label: Title prefix
+      description: Enter prefix text, to be displayed immediately to the left of the title text.
+
+    title:
+      type: input.text
+      label: Title
+      description: Enter the title
+
+    titleTag:
+      type: select.select
+      label: Title Tag
+      description: Set the heading tag for the title
+      placeholder: 'Select...'
+      default: div
+      options:
+        div: DIV
+        h1: H1
+        h2: H2
+        h3: H3
+        h4: H4
+        h5: H5
+        h6: H6
+
+    titleLarge:
+      type: input.checkbox
+      label: Large title
+      description: Set the title font size to large (64px)
+      default: false
+
+    subtitle:
+      type: input.text
+      label: Subtitle
+      description: Enter the subtitle
+
+    content:
+      type: textarea.textarea
+      label: Content
+      description: Enter the text content (can include HTML or markdown)
+      placeholder: Enter text content
+
+    contentSize:
+      type: select.select
+      label: Content size
+      description: limits the horizontal width of the hero text content (excluding the title)
+      default: medium
+      options:
+        small: Small (474px)
+        medium: Medium (680px)
+        full: Full width
+
+    url:
+      type: input.text
+      label: Link URL
+      description: Enter the card link
+    urlText:
+      type: input.text
+      label: Link Text
+      description: Enter the link text
+    urlClass:
+      type: input.selectize
+      label: Link CSS Classes
+      description: CSS class name for the link.
+
+    searchInput:
+      type: input.checkbox
+      label: Add search input
+      description: Adds a search input to the content box
+      default: false
+
+    disable:
+      type: input.checkbox
+      label: Disable
+      description: Disables the item on the front end.
+      default: false

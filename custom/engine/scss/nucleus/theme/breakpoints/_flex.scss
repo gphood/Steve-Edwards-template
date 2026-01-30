@@ -1,0 +1,61 @@
+// Page Container
+%page_container {
+  margin: 0 auto;
+  @each $breakpoint, $breakpoint_width in $breakpoints_xl_map {
+    @include breakpoint("#{$breakpoint}#{-range}") {
+      @if $breakpoint == "sm-mobile" or $breakpoint == "md-mobile" or $breakpoint == "large-mobile" {}
+      @else {
+        width: $breakpoint_width - 1.25rem;
+      }
+    }
+  }
+}
+%page_container_compact {
+  margin: 0 auto;
+  @each $breakpoint, $breakpoint_width in $breakpoints_xl_map {
+    @include breakpoint("#{$breakpoint}#{-range}") {
+      @if $breakpoint == "sm-mobile" or $breakpoint == "md-mobile" or $breakpoint == "large-mobile" {
+        width: $breakpoint_width - 1.25rem - 1.25rem;
+      }
+      @else {
+        width: $breakpoint_width - 1.25rem - 3rem;
+      }
+    }
+  }
+}
+.g-container {
+  @extend %page_container;
+  &.g-flushed, .g-container {
+    width: 100%;
+  }
+}
+
+// Grid Row and Column Setup
+.g-block {
+  @include breakpoint(mobile-only) {
+    flex-grow: 0;
+    flex-basis: 100%;
+  }
+}
+
+body [class*="size-"] {
+  @include breakpoint(mobile-only) {
+        flex-grow: 0;
+        flex-basis: 100%;
+        max-width: 100%;
+  }
+}
+
+// Fix for Firefox versions 27 and below
+@include breakpoint(mobile-only) {
+  @supports not (flex-wrap: wrap) {
+    .g-grid {
+      display: block;
+      flex-wrap: inherit;
+    }
+    .g-block {
+      display: block;
+      flex: inherit;
+    }
+  }
+}

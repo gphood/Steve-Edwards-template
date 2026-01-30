@@ -1,0 +1,191 @@
+name: Content Blocks
+description: Constructs various types of content in a single container.
+type: particle
+icon: fa-th-list
+
+configuration:
+caching:
+type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable particle.
+      default: true
+    class:
+      type: input.selectize
+      label: CSS Classes
+      description: CSS class name for the item.
+    inject:
+      type: input.text
+      label: Inject ID
+      description: Enter the ID of the target element this Content Block particle is to be injected into if required.
+    items:
+      type: collection.list
+      array: true
+      label: Content block
+      description: Add a new Content block
+      value: name
+      ajax: true
+
+      fields:
+
+        _tabs:
+          type: container.tabs
+          fields:
+
+            _tab_general:
+              label: General
+              overrideable: false
+              fields:
+                .enabled:
+                  type: input.checkbox
+                  label: Enabled
+                  description: Enable this content block
+                  default: true
+
+                .titlePrefix:
+                  type: input.text
+                  label: Title prefix
+                  description: Enter a title prefix to go before the title (e.g. numbers for step-by-step content)
+
+                .title:
+                  type: input.text
+                  label: Title
+                  description: Enter the title for this content block
+
+                .titleTag:
+                  type: select.select
+                  label: Title Tag
+                  description: Set the heading tag for the title
+                  placeholder: 'Select...'
+                  default: div
+                  options:
+                    div: DIV
+                    h1: H1
+                    h2: H2
+                    h3: H3
+                    h4: H4
+                    h5: H5
+                    h6: H6
+
+                .content:
+                  type: textarea.textarea
+                  label: Content
+                  description: Add the content for this Content Block (HTML or Markdown accepted)
+
+                .bottomBorder:
+                  type: input.checkbox
+                  label: Bottom border
+                  description: Display a bottom border for this content block
+                  default: false
+
+                .iconListItems:
+                  type: collection.list
+                  array: true
+                  label: Icon list items
+                  description: Add a new list item with a custom icon bullet
+                  value: name
+                  ajax: true
+
+                  fields:
+                    .name:
+                      type: input.text
+                    .iconClass:
+                      type: input.selectize
+                      label: Icon class
+                      description: Enter the required icon class - e.g. fa-check-circle (prefix class not required)
+                    .iconColour:
+                      type: select.select
+                      label: icon colour
+                      description: Select the required colour for the icon
+                      default: dark-grey
+                      options:
+                        dark-grey: Dark grey
+                        green: Green
+                        blue: Blue
+                        red: Red
+                        yellow: Yellow
+                        white: white
+                    .content:
+                      type: input.text
+                      label: Content
+                      description: Enter the content for the list item (HTML accepted)
+
+                .buttonItems:
+                  type: collection.list
+                  array: true
+                  label: Buttons
+                  description: Add one or more buttons
+                  value: name
+                  ajax: true
+
+                  fields:
+                    .name:
+                      type: input.text
+                    .buttonClass:
+                      type: select.select
+                      label: Button type
+                      description: Select the required type for the button
+                      default: er-btn-primary
+                      options:
+                        btn-primary: Primary (green)
+                        btn-cta: Call to Action (blue)
+                        btn-secondary: Secondary (grey)
+                        btn-warning: Warning (red)
+                        btn-link: Link (transparent)
+                    .buttonArrow:
+                      type: input.checkbox
+                      label: Show arrow
+                      description: Show a right-arrow to the right of the button text
+                      default: true
+                    .iconClass:
+                      type: input.selectize
+                      label: Icon class
+                      description: Enter the required icon class - e.g. fa-check-circle (prefix class not required)
+                    .url:
+                      type: input.text
+                      label: Enter the URL
+                      description: Enter the URL this button will be pointing to (including https://)
+                    .displayText:
+                      type: input.text
+                      label: Display text
+                      description: Enter the display text for the button
+
+                .inject:
+                  type: input.text
+                  label: Inject ID
+                  description: Enter the Inject ID of particle content to be injected into this Content Block item
+
+                .cssid:
+                  type: input.text
+                  label: CSS ID
+                  description: Enter the unique ID you want to use for jump link
+
+            _tab_styles:
+              label: Custom styles
+              overrideable: false
+              fields:
+
+                .class:
+                  type: input.selectize
+                  label: CSS Classes
+                  description: CSS classes to assign to this content block
+                .lightBorder:
+                  type: input.checkbox
+                  label: Light border
+                  description: Add a light grey border and additional padding
+                  default: false
+                .notice:
+                  type: select.select
+                  label: Notice
+                  description: Contain all content inside the selected notice type.
+                  default: ''
+                  options:
+                    '': ''
+                    info: Info (blue)
+                    warning: Warning (orange)
+                    danger: Danger (red)
+                    success: Success (green)

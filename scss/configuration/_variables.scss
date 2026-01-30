@@ -1,0 +1,42 @@
+// Paths
+$tmpl-version:                    "1.0.0";
+$tmpl-name:                       "smallschools";
+$e6-current-tmpl:                 "smallschools";
+$e6-tmpl-path:                    "";
+
+// Defaults
+$grid-spacing:                    1.5rem;
+$default-transition-time:         0.3s;
+$border-radius:                   0.5rem;
+$border-radius-alt:               0.25rem;
+
+// Accessibility
+$accessibility-height:            4.75rem;
+
+// Header
+$header-height:                   7.7375rem !default;
+$header-height-desktop:           11.75rem;
+
+// Sidebar
+$dir-venues-sidebar-width:        24.5rem;
+
+// Links
+$link-classes:                    "#g-page-surround > :not(#g-header):not([id^='g-footer']):not(.bg-overlay):not(#g-navigation)" +
+                                  ":not(#g-banner):not(#g-bottom):not(#g-hero):not(.section-no-link-styling)";
+$link-classes-a:                  ":not(.accordion-header):not(.accordion-tag):not(.btn):not([class*='btn']):not(.card):not(.cookie-trigger)" +
+                                  ":not(.dir-back-btn):not([title$='Button']):not(.filter-advanced-btn):not(.footer-link):not(.icon):not([class*='link'])" +
+                                  ":not(.link-card):not(.logo):not(.pathway):not(.page-link):not(.stacked-links):not(.styled):not(.tab)";
+// Sections
+$section-variants:                ":not([class^='section-padding']):not([class*=' section-padding'])" +
+                                  ":not(#g-top-menu):not(#g-category-cards):not(#g-page-heading):not(#g-heading)";
+
+// Content
+$standard-content-width:        980px;
+
+// Cards
+$cards-spacing:                 12px;
+$card-border-radius:            0;
+$selector-cards:                '.cards';
+
+// Content Filter
+$cfilter-border-radius:         4px;

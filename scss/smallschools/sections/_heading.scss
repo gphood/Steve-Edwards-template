@@ -1,0 +1,10 @@
+#g-heading {
+  background-color: map-get($colors_map, slate-200);
+  color: map-get($colors_map, slate-400);
+  text-align: center;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0 !important;
+    color: map-get($colors_map, slate-400);
+  }
+}

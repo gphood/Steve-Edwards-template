@@ -1,0 +1,21 @@
+name: Font Families
+description: Font families for the East Riding Corpotranet theme
+type: core
+
+form:
+  fields:
+
+    family-default:
+      type: input.fonts
+      label: Body Font
+      default: 'HKGrotesk, Helvetica, Arial, sans-serif'
+
+    family-title:
+      type: input.fonts
+      label: Title Font
+      default: 'Alegraya, Helvetica, Arial, sans-serif'
+
+    family-code:
+      type: input.fonts
+      label: Code Font
+      default: 'Source Code Pro, courier, courier new, serif'

@@ -1,0 +1,27 @@
+// Grid Spacing (extra to eryc-gantry-base version)
+@each $label in $grid_spacing_label {
+  @each $dir in $grid_spacing_map {
+    @if not ($dir == 'auto') {
+      @each $size in $grid_spacing_size {
+        .#{$label}#{$dir}-#{$size} {
+          @if ($dir == "all") {
+            #{$label}: $grid_spacing * ($size / 10);
+          }
+          @else {
+            #{$label}-#{$dir}: $grid_spacing * ($size / 10);
+          }
+        }
+      }
+
+      @if ($dir == "all") {
+        .#{$label} {
+          #{$label}: 1.5rem;
+        }
+      } @else {
+        .#{$label}#{$dir} {
+          #{$label}-#{$dir}: 1.5rem;
+        }
+      }
+    }
+  }
+}

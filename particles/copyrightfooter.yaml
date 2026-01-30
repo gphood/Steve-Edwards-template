@@ -1,0 +1,24 @@
+name: Copyright Footer
+description: Adds a copyright message at the foot of the page.
+type: particle
+icon: fa-copyright
+
+configuration:
+caching:
+type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable particle
+      default: true
+    class:
+      type: input.selectize
+      label: CSS Classes
+      description: CSS classes to be assigned to this particle
+    text:
+      type: input.text
+      label: Copyright text
+      description: Enter the copyright text

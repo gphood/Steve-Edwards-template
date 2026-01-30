@@ -1,0 +1,190 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+
+<div id="{{ id }}" class="cards slick {{ particle.class|e }} {{ particle.dotStyle }} {{ particle.dotPositioning }}" {% if particle.inject %}data-particle-inject-from="{{ particle.inject|e }}"{% endif %}>
+
+  {% for item in particle.items %}
+    {% if not item.disable %}
+
+      {% set card_tag = 'div' %}
+      {% set card_href = '' %}
+      {% set card_link_type = 'text' %}
+      {% set card_border = '' %}
+      {% set content_border = '' %}
+
+      {% if item.icon and item.border %}
+        {% set card_border = 'card-border ' ~ item.border %}
+      {% endif %}
+
+      {% if item.icon is empty and item.border %}
+        {% set content_border = 'card-border ' ~ item.border %}
+      {%  endif %}
+
+      {% if item.cardLink %}
+        {% set card_link_type = 'card' %}
+        {% set card_tag = 'a' %}
+        {% set card_href = 'href="' ~ item.cardLink|raw ~ '"' %}
+      {% endif %}
+
+      {% set image_style = [] %}
+      {% if item.image %}
+        {% set image_style = image_style|merge(['background-image: url(' ~ url(item.image) ~ ')']) %}
+      {% endif %}
+      {% if item.imageHeight %}
+        {% set image_style = image_style|merge(['min-height: ' ~ item.imageHeight ]) %}
+      {% endif %}
+      {% if item.imageHeightMax %}
+        {% set image_style = image_style|merge(['max-height: ' ~ item.imageHeightMax ]) %}
+      {% endif %}
+
+
+    <div class="card-block {{ item.size ? 'size-' ~ item.size|replace({'.': '-'}) : '' }}">
+
+      <{{ card_tag }} class="card tag-{{ card_tag}} {{ card_border }} layout-{{ item.layout|e }} link-{{ card_link_type|e }} {{ item.class|e }} {{ item.variations|e }} nobgoutline-{{ item.nobgoutline|default(false) }}" {{ card_href|raw }} {% if item.title and card_tag == 'a' %}title="{{ item.cardLinkTitle|e }}"{% endif %}>
+
+      {% if item.icon or item.image or item.tag %}
+        <div class="image-icon-tag {% if item.image %}image-active{% else %}card-icon-active{% endif %}">
+          <div class="image-icon-wrapper">
+            <div class="image-icon image-spacing-{{ item.imageSpacing|default('none') }} {{ item.imageBackgroundOptions|join(' ') }} slidestoshow-{{ particle.slidesToShow|default('3') }}" style="{{ image_style|join(';') }}">
+              {% if item.icon %}
+                <div class="icon"><i class="{{ item.icon|e }}" aria-hidden="true"></i></div>
+              {% endif %}
+            </div>
+          </div>
+          {% if item.tag %}
+            <div class="tag {{ item.tagClass|e }}" data-id="{{ item.tag_id|e }}">{{ item.tag|e }}</div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if item.title or item.subTitle or item.desc or item.lists or item.links %}
+      <div class="content {{ content_border }} {{ item.descAlignment|raw }}">
+
+        <div class="content-top">
+
+          {% if item.title %}
+          <{{ item.titleTag|e }} class="card-title {{ item.titleClass|e }}">{{ item.title|e }}</{{ item.titleTag|e }}>
+      {% endif %}
+
+        {% if item.subTitle %}
+          <{{ item.subTitleTag|e }} class="card-subtitle {{ item.subTitleClass|e }}">{{ item.subTitle|e }}</{{ item.subTitleTag|e }}>
+        {% endif %}
+
+        {% if item.desc %}
+          <div class="desc {{ item.descClass|e }} {{ item.descVariations|e }}">{{ item.desc|markdown }}</div>
+        {% endif %}
+
+        {% if item.lists %}
+          <ul class="lists">
+            {% for list in item.lists %}
+              <li>
+                <i class="{{ list.icon|e }}" aria-hidden="true"></i>
+                <span>{{ list.text|e }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        </div>
+
+        {% if item.links or item.date or item.location %}
+          <div class="content-bottom">
+            {% if item.date or item.location %}
+              <div class="date-location-container">
+                {% if item.date %}
+                  <div class="date"><i class="far fa-calendar" aria-hidden="true"></i><span class="date-string">{{ item.date|date('d M') }}</span></div>
+                {% endif %}
+
+                {% if item.location %}
+                  <div class="location"><i class="far fa-map-marker-alt"></i>{{ item.location }}</div>
+                {% endif %}
+              </div>
+            {% endif %}
+
+            {% if item.links%}
+              <div class="link">
+                {% for link in item.links %}
+                  <a href="{{ link.url|raw }}" class="{{ link.urlClass|e }} {% if link.typeformid %}typeform-share{% endif %}" {% if link.typeformid %}data-typeform-id="{{ link.typeformid|e }}"{% endif %} {% if link.urle %}title="{{ link.urlTitle|e }}"{% endif %}><span>{{ link.urlText|e }}</span></a>
+                {% endfor %}
+              </div>
+            {% endif %}
+
+          </div>
+        {% endif %}
+
+        </div>
+      {% endif %}
+
+      </{{ card_tag }}>
+
+      </div>
+
+    {% endif %}
+  {% endfor %}
+
+  </div>
+
+{% endblock %}
+
+{% spaceless %}
+  {% do gantry.load('jquery') %}
+  {% do gantry.document.addScript(url('gantry-theme://js/er-slick-functions.js'), 0, 'footer') %}
+  {% do gantry.document.addStyle(url('//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css')) %}
+  {% do gantry.document.addScript(url('//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js'), 2, 'footer') %}
+{% endspaceless %}
+
+{% block javascript_footer %}
+  {% if particle.enableSlideshow %}
+    <script>
+      (function ($) {
+        $(document).ready(function() {
+          er_slick_add_arrows_class($('#{{ id }}'));
+
+          $('#{{ id }}').slick({
+            {% if particle.rows > 1 or particle.slidesPerRow > 1 %}
+            rows: {{ particle.rows|default('1') }},
+            slidesPerRow: {{ particle.slidesPerRow|default('1') }},
+            {% else %}
+            slidesToShow: {{ particle.slidesToShow|default('3') }},
+            slidesToScroll: {{ particle.slidesToScroll|default('1') }},
+            {% endif %}
+            arrows: {{ particle.arrows|default('true') }},
+            dots: {{ particle.dots|default('true') }},
+            autoplay: {{ particle.autoplay|default('false') }},
+            autoplaySpeed: {{ particle.autoplaySpeed|default('5000') }},
+            infinite: {{ particle.infinite|default('false') }},
+            fade: {{ particle.fade|default('false') }},
+            speed: {{ particle.speed|default('500') }},
+            accessibility: false,
+            pauseOnHover: {{ particle.pauseOnHover|default('false') }}{% if particle.sliderBreakpoints %},
+            responsive: [
+
+              {% for item in particle.sliderBreakpoints|sort|reverse %}
+              {% set dots = item.dots|default('false') %}
+              {% if particle.items|length < 2 %}
+              {% set dots = 'false' %}
+              {% endif %}
+              {
+                breakpoint: {{ item.breakpoint }},
+                settings: {
+                  {% if item.rows > 1 or item.slidesPerRow > 1 %}
+                  rows: {{ item.rows|default('1') }},
+                  slidesPerRow: {{ item.slidesPerRow|default('1') }},
+                  {% else %}
+                  slidesToShow: {{ item.slidesToShow|default('1') }},
+                  slidesToScroll: {{ item.slidesToScroll|default('1') }},
+                  {% endif %}
+                  arrows: {{ item.arrows|default('true') }},
+                  dots: {{ dots }},
+                }
+              }{% if loop.last == false %},{% endif %}
+              {% endfor %}
+
+            ]{% endif %}
+          });
+        });
+      })(jQuery)
+    </script>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,40 @@
+section {
+  &#g-neals-yard {
+    .neals-yard {
+      display: flex;
+      gap: 32px;
+      padding: 24px;
+      box-shadow: 0 3px 5px rgba(9, 30, 66, 0.2), 0 0 1px rgba(9, 30, 66, 0.31);
+
+      @include breakpoint(mobile-only) {
+        flex-direction: column;
+
+        .neals-yard-logo {
+          display: flex;
+          justify-content: center;
+          img {
+            max-height: 175px;
+          }
+        }
+      }
+
+      .neals-yard-logo {
+        a {
+          &:hover {
+
+            img {
+              opacity: .8;
+            }
+          }
+        }
+      }
+      .neals-yard-content {
+        .desc {
+          p:last-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,154 @@
+#g-breadcrumbs {
+  &:not([class*="er-bg"]):not([data-layout-tmpl="landing"]):not([data-layout-section="i-breadcrumb"]) {
+    background: $standard-grey-bg;
+  }
+
+  &[data-layout-section="i-breadcrumb"] {
+    background: map-get($colors_map, slate-800);
+
+    .g-container {
+      .g-grid {
+        .g-block {
+          .g-content {
+            padding: 24px;
+
+            @include breakpoint(mobile-only) {
+              padding: 16px;
+            }
+
+            .breadcrumbs {
+              .breadcrumb {
+                &.px-3 {
+                  padding-left: 0 !important;
+                  padding-right: 0 !important;
+                }
+                &.py-2 {
+                  padding-top: 0 !important;
+                  padding-bottom: 0 !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .breadcrumbs {
+      color: map-get($colors_map, slate-500);
+
+      a.pathway {
+        color: $text-white !important;
+
+        &:hover {
+          color: $pure-white !important;
+          border-bottom-color: $pure-white !important;
+        }
+
+        &:active, &:focus {
+          outline: none;
+          color: $link-active !important;
+          border-bottom: 2px solid $link-active !important;
+          background: $link-active-background;
+        }
+      }
+    }
+  }
+
+  .g-container {
+    padding: 0 !important;
+  }
+
+  &.dark-bg-text {
+    .breadcrumbs, .breadcrumb-item.active, .breadcrumb-item + .breadcrumb-item::before {
+      color: $text-white;
+    }
+  }
+
+  &:not(.dark-bg-text) {
+    .breadcrumbs {
+      color: map-get($colors_map, base-secondary);
+
+      &.moduletable {
+        .mod-breadcrumbs__wrapper {
+          ol {
+            &.mod-breadcrumbs {
+              &.breadcrumb {
+                li, li:not(:last-child) {
+                  margin-bottom: 0;
+
+                  &.mod-breadcrumbs__item {
+                    &.breadcrumb-item {
+                      a, a:visited, a:active {
+                        &.pathway {
+                          color: $link-regular;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.breadcrumbs {
+  &.moduletable {
+    .mod-breadcrumbs__wrapper {
+      ol {
+        &.mod-breadcrumbs {
+          &.breadcrumb {
+            background-color: transparent;
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            .mod-breadcrumbs__divider {
+              display: none;
+            }
+
+            .mod-breadcrumbs__item {
+              padding-right: 8px;
+              font-weight: 500;
+
+              &.breadcrumb-item {
+                & + .breadcrumb-item {
+                  padding-left: 8px;
+                }
+                a.pathway {
+                  line-height: 24px;
+
+                  &:hover {
+                    color: $link-hover !important;
+                    border-bottom: 2px solid $link-hover !important;
+                  }
+
+                  &:active, &:focus {
+                    outline: none;
+                    color: $link-active !important;
+                    border-bottom: 2px solid $link-active !important;
+                    background: $link-active-background;
+                  }
+                }
+              }
+
+              &.breadcrumb-item::before {
+                font-weight: 900;
+                font-family: "Font Awesome 6 Pro";
+                content: '\f015';
+                padding-right: 16px;
+              }
+              &.breadcrumb-item + .breadcrumb-item::before {
+                font-weight: 300;
+                padding-right: 16px;
+                content: '\f054';
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

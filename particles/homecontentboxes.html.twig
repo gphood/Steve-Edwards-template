@@ -1,0 +1,42 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+    {% if particle.enabled %}
+        <div id="{{ id }}" class="home-content-boxes-container {{ particle.class|e }}">
+            <div class="home-content-box home-content-box-left">
+                <div class="home-content-box-content">
+                    <div class="text-box-title">
+                        <{{ particle.leftTextBoxTitleTag }}>{{  particle.leftTextBoxTitle }}</{{ particle.leftTextBoxTitleTag }}>
+                    </div>
+                    <div class="text-box-content">
+                        {{ particle.leftTextBoxContent|markdown }}
+                    </div>
+                    <div class="text-box-link">
+                        {% if particle.leftTextBoxReadMoreUrl %}
+                            <a href="{{ particle.leftTextBoxReadMoreUrl }}">Read more</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="home-content-box home-content-box-right">
+                <div class="home-content-box-content">
+                    <div class="text-box-title">
+                        <{{ particle.rightTextBoxTitleTag }}>{{  particle.rightTextBoxTitle }}</{{ particle.rightTextBoxTitleTag }}>
+                    </div>
+                    <div class="text-box-content">
+                        {{ particle.rightTextBoxContent|markdown }}
+                    </div>
+                    <div class="text-box-link">
+                        {% if particle.rightTextBoxReadMoreUrl %}
+                            <a href="{{ particle.rightTextBoxReadMoreUrl }}">Read more</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascript_footer %}
+    {% do gantry.load('jquery') %}
+{% endblock %}

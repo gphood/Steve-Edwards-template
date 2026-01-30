@@ -1,0 +1,203 @@
+#g-offcanvas {
+  background: $offcanvas-background;
+  width: $offcanvas-width;
+  color: $offcanvas-text-color;
+
+  a {
+    color: $offcanvas-text-color;
+
+    &:hover {
+      color: $offcanvas-text-color-hover;
+    }
+  }
+
+  .g-offcanvas-toggle {
+    color: $offcanvas-text-color;
+    left: $offcanvas-width - 3rem;
+    top: 1rem;
+  }
+}
+
+.g-offcanvas-toggle {
+  align-items: center;
+  font-size: 40px;
+  justify-content: center;
+  left: 0;
+  letter-spacing: 0;
+  padding: 0;
+  position: relative;
+  right: 0 !important;
+  top: 0;
+  width: 100%;
+  z-index: 100001;
+
+  i  {
+    font-weight: bold;
+    width: auto;
+    padding: 8px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: $pure-white;
+    box-shadow: $e200;
+  }
+
+  @if $offcanvas-toggle-visibility == 1 {
+    display: none;
+
+    @media screen and (max-width: $breakpoints-mobile-menu-breakpoint) {
+      display: flex;
+      position: sticky;
+    }
+  }
+  @else {
+    display: block !important;
+  }
+
+}
+
+.g-offcanvas-open {
+  .g-nav-overlay {
+    background: $offcanvas-background-overlay;
+    z-index: 100000;
+  }
+
+  .g-offcanvas-left {
+    #g-page-surround {
+      left: $offcanvas-width;
+    }
+  }
+
+  .g-offcanvas-right {
+    #g-page-surround {
+      right: $offcanvas-width;
+    }
+  }
+}
+
+// Mobile Menu
+#g-offcanvas {
+  #g-mobilemenu-container {
+    font-weight: bold;
+    letter-spacing: 0.04em;
+
+    .g-menu-parent-indicator {
+      align-items: center;
+      display: flex;
+      padding: 0.5rem;
+      position: relative;
+      right: 0;
+
+      &:after {
+        font-family: "Font Awesome 6 Pro" !important;
+        opacity: 1;
+      }
+    }
+
+    .g-go-back {
+      
+      a {
+        background: rgba(0, 144, 126, 0.05);
+        cursor: pointer;
+        display: flex;
+        justify-content: flex-start !important;
+        position: relative;
+        
+        &:before {
+          align-items: center;
+          display: flex;
+          font-family: "Font Awesome 6 Pro" !important;
+          justify-content: center;
+          opacity: 1;
+          padding: 0.5rem;
+          width: 2.5rem;
+          z-index: 3;
+        }
+
+        &:after {
+          bottom: 0;
+          content: "";
+          cursor: pointer;
+          left: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          z-index: 2;
+        }
+        
+        span {
+          display: inherit;
+          line-height: 1;
+          padding: $content-padding $content-padding $content-padding 0;
+          z-index: 1;
+        }
+
+      }
+    }
+
+    ul {
+      background: $offcanvas-background;
+
+      > li {
+        transition: 0.3s;
+        margin-bottom: 0;
+
+        > .g-menu-item-container {
+            border-bottom: 1px solid $base-border-color;
+            color: $offcanvas-text-color;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            padding: 0 0 0 12px;
+            width: 100%;
+            text-decoration: none;
+
+          > .g-menu-item-content {
+            line-height: 24px;
+            padding: 20px;
+          }
+        }
+
+        &:not(.g-menu-item-type-particle):not(.g-menu-item-type-module) {
+          &.active, &:hover {
+            > .g-menu-item-container {
+              color: $offcanvas-text-color-hover;
+            }
+          }
+
+          &.active {
+            background: $offcanvas-background-active;
+          }
+
+          &:hover, &:focus {
+            background: $offcanvas-background-hover;
+          }
+        }
+
+      }
+
+      .g-dropdown-column {
+        width: $offcanvas-width;
+      }
+
+      i.fa {
+        width: 1.5rem;
+      }
+    }
+  }
+}
+
+#g-mobilemenu-container {
+  margin: -($content-margin);
+}
+
+@media print {
+  #g-offcanvas {
+    display: none !important;
+
+    background: $print-background !important;
+    color: $print-color !important;
+  }
+}
+

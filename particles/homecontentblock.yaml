@@ -1,0 +1,61 @@
+name: Home Content Block
+description: Constructs a split display for the home page
+type: particle
+icon: fa-th-list
+
+configuration:
+caching:
+type: static
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable particle
+      default: true
+    class:
+      type: input.selectize
+      label: CSS Classes
+      description: CSS class name for the item
+    textBoxTitle:
+      type: input.text
+      label: Text box title
+      description: Enter a title for the left hand text box content
+    textBoxTitleTag:
+      type: select.select
+      label: Set the heading tag for the text box title
+      placeholder: 'Select...'
+      default: h2
+      options:
+        div: DIV
+        h1: H1
+        h2: H2
+        h3: H3
+        h4: H4
+        h5: H5
+        h6: H6
+    textBoxContent:
+      type: textarea.textarea
+      label: Text box content
+      description: Add the content for the left hand text box (HTML or Markdown accepted)
+    facebookUrl:
+      type: input.text
+      label: Facebook URL
+    xUrl:
+      type: input.text
+      label: X URL
+    bulletPointItems:
+      type: collection.list
+      array: true
+      label: Bullet point items
+      value: bulletPoint
+      ajax: true
+
+      fields:
+        .name:
+          label: bulletPoint
+          type: input.text
+        .description:
+          label: detail
+          type: textarea.textarea

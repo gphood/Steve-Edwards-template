@@ -1,0 +1,361 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% set data = gantry.json_download.download_gallery(particle.server, particle.directory, particle.dateformat) %}
+{% set data_raw = gantry.json_download.download_gallery_raw(particle.server, particle.directory, particle.dateformat) %}
+{% set pages = (data|length / particle.rows)|round(0, 'ceil') %}
+
+{% block particle %}
+
+  <div id="{{ id }}" class="gallery-container {{ particle.class|e }}">
+
+    {% if particle.search %}
+    <div class="search">
+      <input type="text" placeholder="Search for an image" />
+    </div>
+    {% endif %}
+
+    <div class="rows" data-len="{{ particle.rows }}">
+    </div>
+
+    {% if particle.rowsselect %}<div class="rowselect"><select></select></div>{% endif %}
+
+    {% if particle.pagination and data|length > particle.rows %}
+    <div class="pagination">
+      <div class="left">
+        <a class="styled first disabled" href="#">First</a>
+        <a class="styled prev disabled" href="#">Prev</a>
+      </div>
+
+      <ul></ul>
+
+      <div class="right">
+        <a class="styled next" href="#">Next</a>
+        <a class="styled last" href="#">Last</a>
+      </div>
+
+    </div>
+    {% endif %}
+
+  </div>
+
+{% endblock %}
+
+{% spaceless %}
+{% do gantry.document.addStyle(url('//cdnjs.cloudflare.com/ajax/libs/slick-lightbox/0.2.12/slick-lightbox.css')) %}
+{% do gantry.load('jquery') %}
+{% do gantry.document.addScript(url('//cdnjs.cloudflare.com/ajax/libs/slick-lightbox/0.2.12/slick-lightbox.js'), 0, 'footer') %}
+{% endspaceless %}
+
+{% block javascript_footer %}
+<script type="text/javascript">
+  (function ($) {
+
+    var gl_array      = {{ data_raw|raw }};
+    var gl_rows       = parseInt({{ particle.rows }});
+    var gl_paging     = parseInt({{ particle.pagination }});
+    var gl_search_min = parseInt({{ particle.searchmin }});
+    var gl_desc       = parseInt({{ particle.description }});
+    var gl_element    = $('#{{ id }}');
+
+    $(document).ready(function(){
+
+      gl_create_rows();
+
+      gl_rows   = parseInt(gl_element.find('.rows').attr('data-len'));
+
+      // Search
+      gl_element.find('.search input').keyup(function(e){
+
+        var to_search = $(this).val().toLowerCase();
+
+        if (to_search.length >= gl_search_min) {
+          gl_create_rows(rows = gl_rows, search = to_search);
+        }
+        else {
+          gl_create_rows(rows = gl_rows, search = '');
+        }
+
+      })
+
+      // Number of rows
+      gl_element.find('.rowselect select').change(function(e){
+        var users_rows  = $(this).val();
+        var to_search   = gl_element.find('.search input').val();
+
+        gl_create_rows(rows = users_rows, search = to_search);
+
+      })
+
+      $(window).resize(function(){
+        gl_hide();
+      })
+
+      // Lightbox
+      $('#{{ id }} .rows').slickLightbox({
+        itemSelector: '.row .link',
+        caption: false
+      })
+
+      // Pagination click
+      $(document).on('click', '#{{ id }} .pagination a:not(.disabled)', function(event){
+        event.preventDefault();
+        var data_page    = "";
+        var data_pages   = gl_element.find('.pagination ul').attr('data-pages');
+
+        if ($(this).parent().is('li') == true) {
+          data_page = $(this).text();
+          $(this).addClass('selected');
+          $(this).parent().siblings().find('.selected').removeClass('selected');
+          gl_click($(this).parent().index());
+        }
+
+        var selected = gl_element.find('.pagination .selected').text();
+
+        if ($(this).hasClass('prev') == true) {
+          if (selected != "1") {
+            data_page = parseInt(selected) - 1;
+            gl_element.find('.pagination .selected').removeClass('selected').parent().prev().find('a').addClass('selected');
+            gl_click(data_page);
+          }
+          else if (selected == "1") {
+            data_page = selected;
+          }
+        }
+
+        if ($(this).hasClass('first') == true) {
+          if (selected != "1") {
+            data_page = 1;
+            gl_element.find('.pagination .selected').removeClass('selected').parent().siblings().first().find('a').addClass('selected');
+            gl_click(gl_element.find('.pagination .selected').parent().siblings().first().index());
+          }
+          else if (selected == "1") {
+            data_page = selected;
+          }
+        }
+
+
+        if ($(this).hasClass('next') == true) {
+          if (selected != data_pages) {
+            data_page = parseInt(selected) + 1;
+            gl_element.find('.pagination .selected').removeClass('selected').parent().next().find('a').addClass('selected');
+            gl_click(gl_element.find('.pagination .selected').parent().index() + 1);
+          }
+          else if (selected == data_pages) {
+            data_page = selected;
+          }
+        }
+
+        if ($(this).hasClass('last') == true) {
+          if (selected != data_pages) {
+            data_page = parseInt(gl_element.find('.pagination li').eq(-2).text());
+            gl_element.find('.pagination .selected').removeClass('selected').parent().siblings().eq(-2).find('a').addClass('selected');
+            gl_click(gl_element.find('.pagination .selected').parent().siblings().eq(-2).index() + 2);
+          }
+          else if (selected == data_pages) {
+            data_page = selected;
+          }
+        }
+
+        if (data_page == "1") {
+          gl_element.find('.pagination').find('.prev, .first').addClass('disabled');
+        }
+        else {
+          gl_element.find('.pagination').find('.prev, .first').removeClass('disabled');
+        }
+
+        if (data_page == data_pages) {
+          gl_element.find('.pagination').find('.next, .last').addClass('disabled');
+        }
+        else {
+          gl_element.find('.pagination').find('.next, .last').removeClass('disabled');
+        }
+
+      });
+
+      function gl_click(position) {
+
+        var gl_li_max = Math.floor(gl_element.find('.pagination ul').width() / gl_element.find('.pagination li:last').width());
+
+        var minimum   = position - gl_li_max;
+        minimum       = minimum < 0 ? 0 : minimum;
+        var maximum   = minimum + gl_li_max;
+
+        gl_element.find('.pagination li').addClass('hidden');
+
+        gl_element.find('.pagination li:not(.inactive)').each(function(idx, obj){
+          if (idx >= minimum && idx < maximum) {
+            $(this).removeClass('hidden');
+          }
+        })
+
+        var selected = gl_element.find('.pagination').length == 0 ? '1' : gl_element.find('.pagination .selected').text();
+
+        gl_element.find('.row').addClass('hidden');
+
+        gl_element.find('.row[data-page="' + selected + '"]').removeClass('hidden');
+
+        gl_element.find('.row[data-page="' + selected + '"] img[data-src]').each(function(){
+          $(this).attr('src', $(this).attr('data-src'));
+        });
+      }
+
+      function gl_hide() {
+        var interval = setInterval(function(){
+          if (gl_element.find('.pagination ul').width() > 0) {
+            gl_click(0);
+
+            clearInterval(interval);
+          }
+        }, 500);
+      }
+
+      function gl_create_rows(rows = gl_rows, search = '') {
+
+        var rows_html = [];
+        var rows_idx  = 0;
+
+        $.each(gl_array, function(i, o){
+
+          var add_row   = false;
+
+          if (search.length == 0) {
+            add_row = true;
+          }
+          else {
+            for (var i = 0; i < o.keywords.length; i++) {
+              if (o.keywords[i].indexOf(search) > -1) {
+                add_row = true;
+              }
+            }
+          }
+
+          if (add_row == true) {
+
+            obj_name        = o.name;
+            obj_link        = o.link;
+
+            var img_link  = '//downloads.eastriding.gov.uk' + obj_link;
+
+            var img_html  = '<a class=\"link\" href=\"' + img_link  + '\"><img data-src="' + img_link + '" alt="' + obj_name + '"\/><span class=\"name\">' + obj_name + '</span><\/a>';
+
+            var row_class   = rows_idx % 2 ? 'even' : 'odd';
+            if ((rows_idx + 1) > rows && gl_paging > 0) {
+              row_class = row_class + ' hidden';
+            }
+
+            var page        = Math.floor(rows_idx / rows) + 1;
+
+            var row_html    = '<div class=\"row ' + row_class + '\" data-page=\"' + page + '\">' + img_html + '<\/div>';
+
+            rows_html.push(row_html);
+
+            rows_idx++;
+
+          }
+
+        })
+
+        if (rows_html.length == 0) {
+          rows_html = gl_element.find('.rows').html('<div class="row" data-page="0"><div class="alert-danger alert-icon error">Ooops, no images can be found, please try searching for something else<\/div><\/div>');
+        }
+
+        else {
+          gl_element.find('.rows').html(rows_html.join(''));
+        }
+
+
+        gl_create_pagination(max_rows = rows, results = rows_idx);
+
+        gl_create_row_selector(rows_idx, rows);
+      }
+
+      function gl_create_pagination(max_rows = gl_rows, results = gl_array.length) {
+
+        if (gl_paging > 0) { 
+
+          if (results == 0) {
+            gl_element.find('.pagination, .rowselect').addClass('hidden');
+          }
+
+          else {
+
+            gl_element.find('.pagination, .rowselect').removeClass('hidden');
+
+            if (max_rows == results) {
+              gl_element.find('.pagination').addClass('hidden');
+            }
+            else {
+              gl_element.find('.pagination').removeClass('hidden');
+            }
+
+
+            var pages = Math.ceil(results / max_rows);
+
+            var li_html = [];
+
+            for (var i = 1; i <= pages; i++) {
+              var selected = i == 1 ? 'selected' : '';
+              var html = '<li><a href=\"#\" class=\"styled ' + selected + '\">' + i + '<\/a><\/li>';
+              li_html.push(html);
+            }
+
+            li_html.push('<li class=\"inactive\" style=\"position: absolute; left: -9999px; display: inherit !important\"><a href=\"#\" class=\"styled\">{{ data|length }}<\/a><\/li>');
+
+            gl_element.find('.first, .prev').addClass('disabled');
+            gl_element.find('.next, .last').removeClass('disabled');
+
+           
+           gl_element.find('.pagination ul').attr('data-pages', pages).html(li_html.join(''));
+
+           gl_hide();
+
+           gl_click(0);
+
+         }
+
+        }
+
+      }
+
+      function gl_create_row_selector(max, rows) {
+
+        // List of row numbers
+        var row_options = [5, 10, 25, 50, 100, rows, max];
+
+        // Sort
+        row_options.sort(function(a, b){
+          return a - b;
+        })
+
+        // Remove duplicates
+        var no_duplicates = [];
+        $.each(row_options, function(i, o){
+          if (no_duplicates.indexOf(o) == -1 && o <= max) {
+            no_duplicates.push(o);
+          }
+        });
+
+        var select_html = [];
+
+        $.each(no_duplicates, function(i, o){
+          var selected  = o == rows ? 'selected' : '';
+          var option    = '<option value=\"' + o + '\" ' + selected + '>' + o + '<\/option>';
+          select_html.push(option);
+        });
+
+        gl_element.find('.rowselect select').html(select_html.join(''));
+
+        if (rows > max) {
+          gl_element.find('.rowselect').addClass('hidden');
+        }
+        else {
+          gl_element.find('.rowselect').removeClass('hidden');
+        }
+
+      }
+
+
+    })
+  })(jQuery)
+</script>
+{% endblock %}

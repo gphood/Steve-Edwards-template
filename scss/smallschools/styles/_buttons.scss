@@ -1,0 +1,572 @@
+// Buttons
+$button_fa_spacing: 16px;
+
+%button_fa {
+  display: inline;
+  font-family: "Font Awesome 6 Pro";
+  font-size: 20px;
+  font-weight: bold;
+}
+
+%button_fal {
+  display: inline;
+  font-family: "Font Awesome 6 Pro";
+  font-size: 20px;
+  font-weight: 400;
+}
+
+%button-class {
+  //border-bottom-width: 2px;
+  //border-bottom-style: solid;
+  //border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  margin-left: 0;
+  margin-right: 16px;
+  padding: 12px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.2s;
+
+  &:active {
+    outline: none;
+    background: $focus-yellow;
+    color: $base-text-color;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px $focus-yellow;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @include breakpoint(mobile-only) {
+    font-size: 16px;
+  }
+
+  #{$font_awesome_classes} {
+    font-size: 20px;
+
+    &:first-child {
+      margin-left: 0;
+      margin-right: 12px;
+    }
+  }
+}
+
+a[title$="Button"],
+[class*="btn-"],
+.btn {
+
+  &, &.arrow, &.outline, &.search {
+    @extend %button-class !optional;
+  }
+
+  &.arrow {
+    @extend .btn-arrow !optional;
+  }
+
+  &.search {
+    @extend .btn-search !optional;
+  }
+
+  &.outline {
+    box-shadow: none !important;
+
+    &:not(:focus):not(:hover) {
+      background: transparent;
+    }
+  }
+
+  #{$font_awesome_classes} {
+    margin-right: 0.75rem;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+}
+
+.accordion-content {
+  a[title$="Button"] {
+    @extend .btn-cta !optional;
+  }
+}
+
+p {
+  > {
+    [class*="btn"],
+    a[title$="Button"] {
+      &:first-child:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  + {
+    [class*="btn"],
+    a[title$="Button"] {
+      &, &.arrow, &.outline, &.large {
+        margin-top: 0 !important;
+      }
+    }
+  }
+}
+
+.btn-arrow {
+  &:after {
+    @extend %button_fa;
+    content: "\f105";
+    margin-left: $button_fa_spacing;
+    font-weight: 300;
+    position: relative;
+    top: 2px;
+  }
+}
+
+.btn-download {
+  &:after {
+    @extend %button_fa;
+    content: "\f33d";
+    margin-left: $button_fa_spacing;
+    font-weight: 300;
+    position: relative;
+    top: 2px;
+  }
+}
+
+.btn-arrow-back {
+  &:before {
+    @extend %button_fa;
+    content: "\f104";
+    margin-right: $button_fa_spacing;
+    font-weight: 300;
+    position: relative;
+    top: 2px;
+  }
+}
+
+a[href^="mailto"][title$="Button"],
+.btn-email {
+
+  &:before {
+    @extend %button_fa;
+    content: "\f0e0";
+    margin-right: $button_fa_spacing;
+  }
+
+}
+
+a[href^="tel"][title$="Button"],
+.btn-call {
+
+  &:before {
+    @extend %button_fa;
+    content: "\f879";
+    margin-right: $button_fa_spacing;
+  }
+
+}
+
+.btn-search {
+  border: solid 2px $button-search-border-color !important;
+  padding: 16px 16px 16px 24px;
+  color: $button-search-text-color;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  min-height: 80px;
+
+  @media screen and (max-width: $breakpoints_desktop_container) {
+    min-height: 72px;
+    border-radius: 6px;
+    padding: 16px;
+  }
+
+  @media screen and (max-width: $breakpoints-large-mobile-container) {
+    min-height: 56px;
+  }
+
+  &:before {
+    content: "Search";
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: .1px;
+    font-weight: 500;
+    color: $button-search-text-color;
+
+    &.search-header {
+      content: "Start searching...";
+    }
+
+    @media screen and (max-width: $breakpoints_desktop_container) {
+      font-size: 17px;
+      line-height: 24px;
+    }
+  }
+
+  &:hover {
+    &:after {
+      @media screen and (min-width: $breakpoints-large-mobile-container) {
+        background: $button-search-inner-button-bg-hover;
+      }
+    }
+  }
+
+  &:after {
+    font-family: "Font Awesome 6 Pro";
+    content: "\f002";
+    background: $button-search-inner-button-background;
+    padding: 12px 20px;
+    border-bottom: solid 2px $button-search-inner-button-bottom-border;
+    border-radius: 4px;
+    color: $text-white;
+    position: absolute;
+    right: 12px;
+
+    @media screen and (max-width: $breakpoints-large-mobile-container) {
+      display: flex;
+      align-items: center;
+      font-size: 20px;
+      margin: 0;
+      height: 100%;
+      padding: 0 16px;
+      border-radius: 0;
+      border-bottom: none;
+      right: 0;
+    }
+  }
+
+}
+
+.link-arrow {
+  @extend .btn;
+  @extend .btn-arrow;
+  
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.btn-email,
+a[href^="mailto"][title$="Button"],
+.btn-main,
+
+.btn-email,
+a[href^="mailto"][title$="Button"],
+.btn-call,
+a[href^="tel"][title$="Button"],
+.btn-main,
+a[title$="Button"] {
+  @extend %button-class !optional;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  [class*="bg"] &,
+  #g-hero .g-particle:not([id^="heroslider"]) &,
+  #g-bottom &,
+  #g-footer & {
+    @extend .btn-white !optional;
+  }
+
+  [class*="bg"] [class*="-bg"] & {
+    @extend .btn-dark !optional;
+  }
+
+}
+
+.btn-main, a[title$="Button"] {
+  &:not([href^="mailto"]):not([href^="tel"]) {
+    @extend .btn-arrow !optional;
+  }
+}
+
+.btn-corporate-link {
+  background: map-get($colors_map, slate-100);
+  color: $link-regular;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  border-bottom-style: none;
+  border-radius: 0;
+  text-align: left;
+  padding-right: 40px;
+  margin-top: 0;
+  margin-bottom: 16px !important;
+  font-size: 20px;
+  line-height: 24px;
+
+  &.light {
+    background: $pure-white;
+  }
+
+  #g-links-section &, #g-links-also & {
+    &, &.light {
+      background: map-get($colors_map, slate-100);
+
+      &:hover {
+        background: map-get($colors_map, info-900);
+      }
+    }
+  }
+
+  &:hover, &.light:hover {
+    background: map-get($colors_map, info-900);
+    color: $text-white;
+  }
+
+  @include breakpoint(mobile-only) {
+    font-size: 17px;
+    line-height: 20px;
+
+    &:last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  &:after {
+    font-family: "Font Awesome 6 Pro";
+    font-size: 20px;
+    content: "\f054";
+    margin: 0;
+    border-radius: 0;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.btn-menu-top-level {
+  background: $pure-white;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  border-bottom-style: none;
+  border-radius: 0;
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 24px !important;
+  box-shadow: 0 3px 5px rgba(9,30,66,.2), 0 0 1px rgba(9,30,66,.1);
+  width: 100%;
+
+  .item-content {
+    line-height: 24px;
+
+    .item-title {
+      color: $base-text-color;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .item-description {
+      margin-top: 8px;
+      font-size: 17px;
+      font-weight: 500;
+    }
+  }
+
+  i {
+    color: map-get($colors_map, primary-700);
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+}
+
+div.btn-menu-top-level {
+  &:hover {
+    cursor: default !important;
+  }
+
+  a {
+    @include link-style($link-regular, $link-hover, null);
+  }
+}
+a.btn-menu-top-level {
+  &:hover {
+    background: map-get($colors_map, primary-700);
+
+    .item-content {
+      .item-title {
+        color: $text-white;
+      }
+
+      .item-description {
+        color: $text-white;
+      }
+    }
+
+    i {
+      color: $text-white;
+    }
+  }
+}
+
+$button_styles: (
+  "primary",
+  "cta",
+  "secondary",
+  "warning",
+  "link"
+);
+
+@each $style in $button_styles {
+  .btn-#{$style} {
+    color: map-get($button_text_colors, #{$style});
+    background-color: map_get($button_bg_colors, #{$style});
+    border-bottom-color: map_get($button_border_colors, #{$style});
+
+    &:hover {
+      color: map-get($button_text_hover_colors, #{$style});
+      background-color: map_get($button_bg_hover_colors, #{$style});
+      border-bottom-color: map_get($button_border_hover_colors, #{$style});
+    }
+
+    &:active {
+      background-color: map_get($button_bg_active_colors, #{$style});
+      border-bottom-color: map_get($button_border_active_colors, #{$style});
+    }
+
+    &.disabled, &:disabled {
+      pointer-events: none;
+      color: $button_text_disabled_color;
+      background-color: map_get($button_bg_disabled_colors, #{$style});
+      border-bottom-color: map_get($button_bg_disabled_colors, #{$style});
+
+      &:hover {
+        color: $button_text_disabled_color;
+      }
+    }
+  }
+}
+
+.btn-link {
+  text-decoration: underline;
+
+  &:hover, &:active {
+    color: map-get($colors_map, link-hover);
+  }
+
+  &:before, &:after {
+    display: inline-block;
+  }
+}
+
+.btn-appstore, .btn-googleplay, a[title="Download on the App Store"], a[title="Get it on Google Play"] {
+  width: 250px;
+  height: 74px;
+  border-radius: 6px;
+  background-color: #000;
+  background-size: contain;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  border-bottom-width: 0 !important;
+  display: inline-block;
+  color: transparent !important;
+
+  &:not(:last-child) {
+    margin-right: 16px;
+  }
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+button {
+  background: none;
+
+  &.search-home, &.ss360-btn {
+    padding: 12px 20px;
+    background: map-get($colors_map, primary-700);
+    border-bottom: solid 3px map-get($colors_map, primary-900);
+    border-radius: 4px;
+    color: $text-white;
+    line-height: 24px;
+    font-size: 17px;
+
+    &:hover {
+      background: map-get($colors_map, primary-500);
+    }
+
+    i {
+      font-weight: 400;
+      padding: 0 4px;
+    }
+  }
+}
+
+.btn-mega-menu-top-level {
+  border-bottom: none !important;
+  border-radius: 0 !important;
+  padding: 12px !important;
+  width: 100%;
+  color: $base-text-color !important;
+  font-size: 16px;
+
+  .item-content {
+    display: flex;
+
+    .item-title {
+      display: flex;
+      flex: 1;
+    }
+  }
+
+  &.active {
+    .item-title {
+      //align-items: start;
+    }
+  }
+
+  @media screen and (max-width: 1440px) {
+    font-size: 15px;
+  }
+
+  i.fas.fa-caret-down {
+    margin: 0;
+    color: map-get($colors_map, slate-400);
+    align-self: center;
+    flex: 1;
+  }
+
+  &.active {
+    background: $pure-white !important;
+    color: $link-regular !important;
+
+    i.fa-caret-down {
+      color: $link-regular;
+      transform: rotate(180deg);
+    }
+  }
+
+  &:hover {
+    background: $text-white;
+    color: $link-hover !important;
+  }
+}
