@@ -9,7 +9,7 @@ layout:
   hero: {  }
   /row-1/:
     -
-      - contentarray-8318
+      - system-content-4004
   row-2: {  }
   row-3: {  }
   row-4: {  }
@@ -142,37 +142,3 @@ structure:
       include:
         - attributes
         - children
-content:
-  contentarray-8318:
-    title: 'Home page article'
-    attributes:
-      article:
-        filter:
-          categories: ''
-          tags: ''
-          articles: '1'
-          featured: include
-        limit:
-          total: '1'
-          columns: '1'
-          start: '0'
-        display:
-          pagination_buttons: ''
-          image:
-            enabled: ''
-          text:
-            type: full
-            formatting: html
-          title:
-            enabled: ''
-          date:
-            enabled: ''
-          author:
-            enabled: ''
-          category:
-            enabled: ''
-          hits:
-            enabled: ''
-        sort:
-          orderby: publish_up
-          ordering: ASC
