@@ -10,7 +10,9 @@ layout:
   /row-1/:
     -
       - system-content-4004
-  row-2: {  }
+  /row-2/:
+    -
+      - contentblocks-6367
   row-3: {  }
   row-4: {  }
   row-5: {  }
@@ -53,12 +55,11 @@ structure:
       background: ''
   row-2:
     type: section
-    inherit:
-      outline: '14'
-      include:
-        - attributes
-        - block
-        - children
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
   row-3:
     type: section
     inherit:
@@ -142,3 +143,24 @@ structure:
       include:
         - attributes
         - children
+content:
+  contentblocks-6367:
+    title: 'Content Blocks'
+    attributes:
+      items:
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: 'A few photos of previous work'
+          titleTag: h2
+          content: ''
+          bottomBorder: '0'
+          galleryId: '11'
+          iconListItems: {  }
+          buttonItems: {  }
+          inject: ''
+          cssid: ''
+          class: ''
+          lightBorder: '0'
+          notice: ''
+          name: 'Previous work'
