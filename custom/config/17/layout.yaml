@@ -11,11 +11,20 @@ layout:
     -
       - markdown-9556
     -
-      - 'contentblocks-9407 50'
-      - 'image-2660 50'
+      - 'contentblocks-9407 55'
+      - 'image-2660 45'
     -
       - contentblocks-4106
-  row-2: {  }
+    -
+      - 'image-7037 50'
+      - 'image-9437 50'
+    -
+      - contentblocks-3632
+  /row-2/:
+    -
+      - markdown-2883
+    -
+      - contentblocks-9298
   row-3: {  }
   row-4: {  }
   row-5: {  }
@@ -25,7 +34,11 @@ layout:
   row-9: {  }
   row-10: {  }
   footer: {  }
-  inject: {  }
+  /inject/:
+    -
+      - youtube-5719
+    -
+      - youtube-2586
   offcanvas: {  }
 structure:
   header:
@@ -58,12 +71,11 @@ structure:
       background: ''
   row-2:
     type: section
-    inherit:
-      outline: '14'
-      include:
-        - attributes
-        - block
-        - children
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
   row-3:
     type: section
     inherit:
@@ -136,11 +148,11 @@ structure:
         - children
   inject:
     type: section
-    inherit:
-      outline: default
-      include:
-        - attributes
-        - children
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
   offcanvas:
     inherit:
       outline: default
@@ -177,7 +189,7 @@ content:
       image: 'gantry-media://pages/chimaera-replica/sophie-with-cimaera-replica.jpg'
       text: 'Sophie with the TVR Chimaera replica'
   contentblocks-4106:
-    title: 'Content Blocks'
+    title: 'Chassis 001 content'
     attributes:
       items:
         -
@@ -201,9 +213,7 @@ content:
           titleTag: div
           content: 'Moulds were then taken and the bodyshell recreated in fibreglass.'
           bottomBorder: '0'
-          galleryId: ''
-          iconListItems: {  }
-          buttonItems: {  }
+          galleryId: '12'
           inject: ''
           cssid: ''
           class: ''
@@ -217,7 +227,7 @@ content:
           titleTag: div
           content: 'The chassis is partly based on a donor mobility scooter with additional fabrication added.'
           bottomBorder: '0'
-          galleryId: ''
+          galleryId: '13'
           inject: ''
           cssid: ''
           class: ''
@@ -231,7 +241,7 @@ content:
           titleTag: div
           content: "Plymouth/Chrysler Prowler Purple was chosen for the exterior paintwork colour, and the interior is Portland Grey vinyl and black acoustic carpet.\n\nPower comes from a 24v 3000rpm motor with forward and reverse, automatic motor braking on throttle release, and the model also features working headlights, horn, indicators, hazards, battery level indicator, door speakers with bluetooth connection and FM radio. Depending on the exact spec of the batteries, the range can be up to 35 miles!"
           bottomBorder: '0'
-          galleryId: ''
+          galleryId: '14'
           inject: ''
           cssid: ''
           class: ''
@@ -246,9 +256,116 @@ content:
           content: "Other details include:\n\n- Opening bonnet and boot lid.\n- 3D printed door mirrors and wipers.\n- Thermoformed windscreen, rear light covers and headlight bowls - exactly shaped to replicate the real thing.\n\nThe following YouTube video features many of the build photos and video clips showing the initial foam model being carved, through to the mould manufacture, chassis fabrication, body preparation and painting, and the final assembly, as well as it's first proper outing at the TVR Car Clubs 'Peaks to the Beach' event on the seafront at Rhyl back in July 2021."
           bottomBorder: '0'
           galleryId: ''
-          inject: ''
+          iconListItems: {  }
+          buttonItems: {  }
+          inject: chimaera-scale-model-build
           cssid: ''
           class: ''
           lightBorder: '0'
           notice: ''
           name: 'Other details and YouTube'
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: 'Overall dimensions'
+          titleTag: h3
+          content: "Length - 5ft 4ins / 1630mm\n\nWidth (inc mirrors) - 2ft 6ins / 760mm\n\nThis scale replica TVR Chimaera was featured in the November 2021 issue of 'Sprint' - the monthly magazine of the TVR Car Club, where it had a 10 page article describing how it was created along with many build pictures. At the same time it enjoyed a place on the TVR Car Club stand at the 2021 Classic Car Show at the Birmingham NEC where it attracted a lot of attention among the other fine examples of the legendary sports car brand.\n\nThese fibreglass body shells can be supplied in various stages of completion depending on budget, from bare gel coat for DIY preparation and paintwork, to a painted and lacquered bodyshell ready for the mechanical items to be added by the customer, or a fully completed and working/finished replica in an almost limitless choice of colours.\n\nRegardless of the stage of build, each bodyshell is individually numbered with a discrete VIN Number visible through a small window in the black windscreen border, and each fully built car also has a custom made chassis plate showing the consecutive build number, paint code, donor details, and build date."
+          bottomBorder: '0'
+          galleryId: ''
+          inject: ''
+          cssid: ''
+          class: ''
+          lightBorder: '0'
+          notice: ''
+          name: Dimensions
+  image-7037:
+    attributes:
+      image: 'gantry-media://Photos/chimaera_registration.jpg'
+  image-9437:
+    attributes:
+      image: 'gantry-media://Photos/chimaera_plate.jpg'
+  contentblocks-3632:
+    title: 'Chassis 001 continued'
+    attributes:
+      class: ''
+      items:
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: ''
+          titleTag: div
+          content: "Hand built to order, in extremely limited numbers, these model cars are very exclusive. There are no plans for mass production - each one is guaranteed to be rare and unique, and undoubtedly passed down for future generations to enjoy.\n\nAs these replica cars aren't officially endorsed or licenced by TVR there are no badges, emblems, or other trademarks - the bodyshells are completely unbranded.\n\nFull build instructions to follow soon for those wishing to fabricate their own chassis, along with details of all parts suppliers and part numbers so customers can source everything directly and save costs.\n\nMore details, along with pictures and progress videos of the build can also be found on the dedicated Facebook group - \n\n[TVR Chimaera & Cerbera scale model build blog | Facebook](https://www.facebook.com/groups/413499333047066)\n\n[Steve Edwards YouTube Channel](https://www.youtube.com/channel/UCCZ_IWCcsvaNBEdMuk8hm1A)\n\n[Steve on Instagram (@steve_edwards_tvr)](https://www.instagram.com/steve_edwards_tvr/)"
+          bottomBorder: '0'
+          galleryId: ''
+          inject: ''
+          cssid: ''
+          class: ''
+          lightBorder: '0'
+          notice: ''
+          name: 'General information'
+  markdown-2883:
+    title: 'Heading - Chassis 002'
+    attributes:
+      html: '## Chassis 002 - Chimaera - Completed August 2022'
+  contentblocks-9298:
+    title: 'Chassis 002 content'
+    attributes:
+      items:
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: ''
+          titleTag: div
+          content: 'Features independent front and rear suspension with adjustable springs, wider tyres, alloy wheels, working headlights, brake lights, indicators, hazards, and horn. Opening bonnet and boot with gas struts. Finished in Imperial Blue with blue and cream vinyl interior and black acoustic carpet. Formula 1 style steering wheel. Built-in door speakers and charging socket.'
+          bottomBorder: '0'
+          galleryId: '15'
+          iconListItems: {  }
+          buttonItems: {  }
+          inject: ''
+          cssid: ''
+          class: ''
+          lightBorder: '0'
+          notice: ''
+          name: Intro
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: ''
+          titleTag: div
+          content: ''
+          bottomBorder: '0'
+          galleryId: ''
+          iconListItems: {  }
+          buttonItems: {  }
+          inject: chimaera-driveable-scale-model
+          cssid: ''
+          class: ''
+          lightBorder: '0'
+          notice: ''
+          name: 'YouTube inject'
+  youtube-5719:
+    title: 'TVR Chimaera scale model build'
+    attributes:
+      videos:
+        -
+          youtubeid: 0oMLPqioRGA
+          title: ''
+          description: ''
+          transcript: ''
+          name: 'TVR Chimaera scale model build'
+      inject: chimaera-scale-model-build
+      showTranscript: '0'
+    block:
+      class: marginbottom
+  youtube-2586:
+    attributes:
+      videos:
+        -
+          youtubeid: _Z8dHSW_UeQ
+          title: ''
+          description: ''
+          transcript: ''
+          name: 'TVR Chimaera driveable scale model'
+      class: ''
+      inject: chimaera-driveable-scale-model
+      link: ''
