@@ -7,7 +7,14 @@ layout:
   header: {  }
   navigation: {  }
   hero: {  }
-  row-1: {  }
+  /row-1/:
+    -
+      - markdown-5772
+    -
+      - 'contentblocks-5504 50'
+      - 'image-7551 50'
+    -
+      - contentblocks-4652
   row-2: {  }
   row-3: {  }
   row-4: {  }
@@ -44,12 +51,11 @@ structure:
         - children
   row-1:
     type: section
-    inherit:
-      outline: '14'
-      include:
-        - attributes
-        - block
-        - children
+    attributes:
+      boxed: ''
+      class: ''
+      variations: ''
+      background: ''
   row-2:
     type: section
     inherit:
@@ -141,3 +147,67 @@ structure:
       include:
         - attributes
         - children
+content:
+  markdown-5772:
+    title: Heading
+    attributes:
+      html: '## Chassis 003 - Cerbera - Completed June 2023'
+  contentblocks-5504:
+    title: Text
+    attributes:
+      items:
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: ''
+          titleTag: div
+          content: "This TVR Cerbera replica is based on the same chassis and running gear as the previous Chimaera replicas but with the wheelbase lengthened by an extra 112mm to crete an accurate Cerbera replica. In addition to the extra length, the other visual alterations necessary to create the Cerbera replica include a lengthened/reshaped front chin, horizontal grille bar, altered headlight cowls, different scuttle, convex bonnet and boot lid, rear bumper blade, Corrado door mirrors, and the obvious addition of the coupe roof line with rear and side windows.\n\nThe roof panel and rear window are removable as one complete lift-out section.\n\nMechanical differences include relocation of the batteries to a central position under the steering column and cable operated drum brakes within the front hubs. \n\nPrior to being fully completed, the painted bodyshell - finished in Halcyon Atlantis Pearl, was included on the TVR Car Club stand at the 2022 Classic Car Show at the Birmingham NEC.\n\nThe chassis is mostly box section steel with tubular bracing, and makes use of the original scooter steering column and suspension.\n\nFull spec also includes opening bonnet and boot lid with gas struts, thermoformed lightly smoked Perspex windows, 3D printed door mirrors, wipers, side repeaters, and imitation Spider alloys, working lights, indicators/hazards, horn, and battery level indicator. \n\nFacebook build blog - TVR Chimaera & Cerbera scale model build blog | Facebook\n\n[TVR Chimaera & Cerbera scale model build blog | Facebook](https://www.facebook.com/groups/413499333047066)\n\n[Steve Edwards YouTube Channel](https://www.youtube.com/channel/UCCZ_IWCcsvaNBEdMuk8hm1A)\n\n[Steve on Instagram (@steve_edwards_tvr)](https://www.instagram.com/steve_edwards_tvr/)"
+          bottomBorder: '0'
+          galleryId: ''
+          iconListItems: {  }
+          buttonItems: {  }
+          inject: ''
+          cssid: ''
+          class: ''
+          lightBorder: '0'
+          notice: ''
+          name: Text
+  image-7551:
+    attributes:
+      image: 'gantry-media://Photos/cerbera-replica.jpg'
+  contentblocks-4652:
+    title: Galleries
+    attributes:
+      items:
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: ''
+          titleTag: div
+          content: ''
+          bottomBorder: '0'
+          galleryId: '16'
+          iconListItems: {  }
+          buttonItems: {  }
+          inject: ''
+          cssid: ''
+          class: ''
+          lightBorder: '0'
+          notice: ''
+          name: 'Gallery 1'
+        -
+          enabled: '1'
+          titlePrefix: ''
+          title: ''
+          titleTag: div
+          content: ''
+          bottomBorder: '0'
+          galleryId: '17'
+          iconListItems: {  }
+          buttonItems: {  }
+          inject: ''
+          cssid: ''
+          class: ''
+          lightBorder: '0'
+          notice: ''
+          name: 'Gallery 2'
